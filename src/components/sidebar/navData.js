@@ -26,18 +26,18 @@ const items = [
     linkTo: '/'
   },
   {
-    color: 'purple lighten-2',
-    action: 'ondemand_video',
+    color: 'blue lighten-1',
+    action: 'rss_feed',
     title: 'Channels',
     linkTo: '/subscribed-channels'
   },
   {
     color: 'teal lighten-1',
-    action: 'video_library',
+    action: 'playlist_play',
     title: 'My Library',
     items: [
       { title: 'My Uploads', linkTo: '/images/owned' },
-      { title: 'My Playlists', linkTo: '/images/favorites' }
+      { title: 'My Likes', linkTo: '/images/favorites' }
     ]
   },
   {
