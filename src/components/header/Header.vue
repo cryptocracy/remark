@@ -59,7 +59,7 @@ import Notifications from '../notifications/Notifications'
 import AvatarMenu from './Avatarmenu'
 // import logo from '../../assets/img/logo.svg'
 import { tourMixin } from '@/helpers/tourHelper'
-import logo from '../../assets/img/replay.png'
+import logo from '../../assets/img/mic.png'
 
 export default {
   components: {
