@@ -1,0 +1,34 @@
+.list__tile {
+  height: 46px;
+}
+.primary--text {
+  color: inherit !important;
+}
+
+.list--group .list__tile {
+  height: 35px;
+  padding-left: 20px;
+}
+.list--group .list__tile:hover {
+
+  background: #f3f3f3;
+}
+.list--group .list__tile .list__tile__title:hover,
+.list--group .router-link-exact-active .list__tile__title {
+}
+
+.application .theme--light.list--group .list__tile--active .list__tile__title, .theme--light .list--group .list__tile--active .list__tile__title {
+  color: inherit;
+}
+
+.list__tile--highlighted, .list__tile--link:hover {
+  background: linear-gradient(to right, rgba(30,190,165, .3) , rgba(30,190,165, .2), rgba(30,190,165, 0));
+}
+.list--group__header--active {
+
+  background: linear-gradient(to right, rgba(30,190,165, .3) , rgba(30,190,165, .2), rgba(30,190,165, 0));
+}
+.list--group__header--active .list__tile,
+.list--group__header>li:first-child:hover {
+  background: transparent;
+}

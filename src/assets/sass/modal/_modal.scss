@@ -1,0 +1,21 @@
+.mat-dialog-container {
+  padding: 0 !important;
+  .readmin-panel {
+    margin: 0;
+    width: 300px;
+
+    @media (min-width: 767px) {
+      width: 600px;
+    }
+  }
+}
+
+.dialog-footer {
+  padding: $padding-base;
+  border-top: 1px solid darken($color-body-bg, 5%);
+  text-align: right;
+
+  button {
+    margin-left: $margin-small;
+  }
+}

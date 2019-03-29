@@ -1,0 +1,17 @@
+.brand {
+  position: relative;
+  color: $font-color-white;
+  font-size: $font-size-h4;
+  margin-right: $margin-large;
+
+  img {
+    max-width: 85px;
+    max-height: 60px;
+  }
+  @media (max-width: 520px) {
+    margin-right: $margin-large + 10;
+    img {
+      width: 60px;
+    }
+  }
+}

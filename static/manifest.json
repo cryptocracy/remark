@@ -1,0 +1,21 @@
+{
+  "name": "Remark",
+  "short_name": "Remark",
+  "start_url": "/index.html",
+  "description": "Resonate Your Audio",
+  "icons": [
+    {
+      "src": "https://raw.githubusercontent.com/cryptocracy/images/master/band.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+    "src": "./icons/android-chrome-512x512.png",
+    "sizes": "512x512",
+    "type": "image/png"
+    }
+  ],
+  "display": "standalone",
+  "background_color": "#90c4f8",
+  "theme_color": "#409bf7"
+}

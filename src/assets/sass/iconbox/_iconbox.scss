@@ -1,0 +1,102 @@
+.iconbox-wrapper {
+  position: relative;
+  width: 100%;
+  height: 165px;
+  padding-top: 11px;
+
+
+  &.alter {
+    background: $color-bg-white;
+    padding: $padding-large;
+    @include an-box-shadow-small();
+    @include border-radius($border-radius);
+    margin-bottom: $margin-large;
+    @media (ma-width: 520px) {
+      padding: $padding-base;
+    }
+
+    .col-md-3:last-child .iconbox-single {
+      border-right: 0;
+    }
+
+    .iconbox-single {
+      box-shadow: none;
+      border-right: 1px solid darken($color-body-bg, 5%);
+      margin: 0;
+      padding-left: $padding-base;
+
+      @media (max-width: 768px) {
+        border-right: 0;
+      }
+
+      .circle-icon-alter {
+        border: 1px solid darken($color-body-bg, 5%);
+        position: relative;
+        width: $circle-icon-width + 10;
+        height: $circle-icon-width + 10;
+        margin-right: $margin-medium;
+        @include border-radius(50%);
+        @include flex-center;
+      }
+
+      h3 {
+        margin: 0;
+        color: inherit;
+        font-weight: bold;
+        font-weight: 500;
+      }
+      p {
+        margin: 0;
+        color: inherit;
+        opacity: .8;
+        font-size: 17px;
+      }
+    }
+  }
+}
+
+.iconbox-single {
+  position: relative;
+  background: $color-bg-white;
+  padding: $padding-large;
+  padding-right: $padding-base;
+  margin-bottom: $margin-large;
+  @include border-radius($border-radius);
+  @include an-box-shadow-small;
+  @include flex-space-between();
+
+  @media (ma-width: 520px) {
+    padding: $padding-small;
+  }
+
+  .circle-icon {
+    position: relative;
+    width: $circle-icon-width;
+    height: $circle-icon-width;
+    margin-right: $margin-medium;
+    @include border-radius(50%);
+    @include flex-center;
+    .material-icons {
+      color: $font-color-white;
+      font-size: 54px;
+      opacity: .7;
+    }
+  }
+
+  .box-title {
+    position: relative;
+    @include flex-center();
+  }
+
+  h3 {
+    margin: 0;
+    color: $white;
+    font-weight: bold;
+  }
+  p {
+    margin: 0;
+    color: $white;
+    opacity: .8;
+    font-size: 17px;
+  }
+}

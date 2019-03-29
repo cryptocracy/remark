@@ -1,0 +1,117 @@
+@import 'variables';
+
+@import './vendor-styles';
+
+@import './vendors/bootstrap/variables';
+@import './vendors/bootstrap/mixins';
+
+@import './mixins/mixins';
+
+
+// Base
+@import './base/scaffolding';
+@import './base/typography';
+@import './base/buttons';
+@import './base/page-content';
+@import './base/forms';
+
+// Header
+@import './header/header';
+@import './header/notification';
+
+@import './sidebar/sidebar';
+@import './sidebar/navbar';
+
+// Icon box
+@import './iconbox/iconbox';
+
+
+// Components
+@import './components/circleicon';
+@import './components/panel';
+@import './components/appbar';
+@import './components/table';
+@import './components/v-chip';
+
+// Charts
+@import './charts/charts';
+
+// Grid example
+@import './grid/_grid-example.scss';
+
+// Utilities
+@import './utilities/utilities';
+
+// Product
+@import './product/product';
+@import './product/order-review';
+
+// Banner
+@import './banner/banner';
+
+// Pages
+@import './pages/about-us';
+@import './pages/services';
+@import './pages/channel';
+@import './pages/blog';
+@import './pages/price';
+
+// Other pages
+@import "./other-pages/login";
+
+// Footer
+@import './footer/footer';
+
+// style switcher
+@import './style-switcher/style-switcher';
+
+// Material spacing fixing and other small fixing or material component
+@import './material-spacing/material-spacing';
+
+// Material modal dialog style
+@import './modal/modal';
+
+// total downloas chart and content
+@import './total-downloads/total-downloads';
+
+/// List style
+
+//@import './list/list';
+.br20 {
+  border-radius: 20px;
+}
+.iconbox-single--equal {
+  height: calc(100% - 30px);
+}
+.moreTransparent {
+  // position: absolute !important;
+  background-color: rgba(255,255,255,0.5) !important;
+}
+ //shepherd tour button class
+.tourButton {
+  background-color: #b34be2 !important;
+  color: #fff;
+  border-radius: 8%;
+  font-size: 10px;
+  color: white;
+  font-weight: 800;
+  font-family: auto;
+}
+.stepFont {
+  box-shadow: 3px 3px 4px -2px #ccc;
+  font-size: 14px;
+  border: 2px solid red;
+  border-color: lightgray;
+  border-radius: 7px
+}
+
+.disabledNext {
+  pointer-events: none !important;
+  background-color: #ccc !important;
+}
+
+// Entities/Objects style
+@import "./entity/entity";
+
+// DateTime Picker style
+@import "./date-time/date-time";

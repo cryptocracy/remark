@@ -1,0 +1,19 @@
+.mat-tab-body-content {
+  padding: 20px 0;
+}
+.tab-with-border {
+  .mat-tab-body-content {
+    padding: 20px;
+    border: 1px solid #eaeff5;
+    border-top: 0;
+  }
+}
+.tab-header-bg {
+  .mat-tab-labels {
+    background: #1a9c85;
+  }
+  .mat-tab-label {
+    color: #fff;
+  }
+
+}

@@ -1,0 +1,25 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100%;
+  background: $white;
+  z-index: 2;
+  padding-top: 60px;
+  transform: translateX(-100%);
+  transition: all .3s ease;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+
+  box-shadow: 6px 0px 25px 0 rgba(38, 50, 56, 0.2);
+
+  &.open {
+    transform: translateX(0%);
+  }
+}
+
+.sidebar-nav {
+  padding-top: 40px;
+}

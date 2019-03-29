@@ -1,0 +1,16 @@
+.table thead th {
+  border-top: 0;
+}
+.product-table, .table {
+  thead th, th {
+    vertical-align: middle;
+  }
+  tbody {
+    tr td {
+      vertical-align: middle;
+    }
+  }
+}
+
+
+

@@ -1,0 +1,50 @@
+.an-chart-content {
+  position: relative;
+  width: 100%;
+  padding: $padding-small;
+
+  #bar-chart {
+    //height: 130px !important;
+  }
+  .an-chart-details  {
+    position: relative;
+    widht: 100%;
+    padding-left: $padding-base;
+    padding-right: $padding-base;
+    margin-bottom: $margin-base;
+    border-bottom: 1px solid #ededed;
+    @include display(flex);
+    div {
+      height: 100px;
+      width: 50%;
+      display: flex;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      &.right {
+        border-left: 1px solid #ededed;
+      }
+
+      h3 {
+        font-weight: $font-weight-bold;
+        margin: 0;
+        span {
+          display: block;
+          font-size: $font-size-base;
+          font-weight: normal;
+          opacity: .7;
+          padding-top: 10px;
+          @extend .text-uppercase;
+        }
+      }
+
+      p {
+        background: $color-primary;
+        padding: 2px 20px;
+        color: $font-color-white;
+        font-size: $font-size-h4;
+        border-radius: 3px;
+      }
+    }
+  }
+}
