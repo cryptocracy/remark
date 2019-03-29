@@ -8,16 +8,35 @@
     :left="left"
     :direction="direction"
     :open-on-hover="hover"
+    :transition="transition"
   >
     <v-btn
       slot="activator"
       v-model="fab"
       color="red accent-4"
-      :to="{ name: 'AddImage', params: { imageProp: null } }"
       dark
       fab
     >
+      <v-icon>add</v-icon>
+      <v-icon>close</v-icon>
+    </v-btn>
+    <v-btn
+      fab
+      dark
+      small
+      color="red lighten-1"
+      to="/"
+    >
       <v-icon>mic</v-icon>
+    </v-btn>
+    <v-btn
+      fab
+      dark
+      small
+      color="red lighten-1"
+      :to="{ name: 'AddImage', params: { imageProp: null } }"
+    >
+      <v-icon>cloud_upload</v-icon>
     </v-btn>
   </v-speed-dial>
 </template>
@@ -25,7 +44,6 @@
 <script>
 export default {
   name: 'FloatingButton',
-
   data: () => ({
     direction: 'left',
     fab: false,
@@ -35,7 +53,8 @@ export default {
     top: false,
     right: true,
     bottom: true,
-    left: false
+    left: false,
+    transition: 'slide-x-reverse-transition'
   })
 }
 </script>

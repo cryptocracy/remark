@@ -2,12 +2,12 @@
   <div class="ab">
     <div class="login">
       <div class="text-center">
-				<img class="img-icon" src="https://raw.githubusercontent.com/cryptocracy/images/master/podcast.png" alt="Remark" height="296" width="350">
+			<img class="img-icon" src="https://raw.githubusercontent.com/cryptocracy/images/master/podcast.png" alt="Remark" height="296" width="350">
         <h1>Remark</h1>
         <h4>Resonate Your Audio</h4>
         <v-btn class="btn-login pl-4 pr-4" style="color : #409bf7;" @click="signIn">Sign In With Blockstack</v-btn>
         <p></p>
-        <img class="img-icon" src="https://raw.githubusercontent.com/cryptocracy/images/master/mic.png" alt="Remark" height="128" width="128">
+		 	<img class="img-icon" src="https://raw.githubusercontent.com/cryptocracy/images/master/mic.png" alt="Remark" height="128" width="128">
       </div>
     </div>
     <v-footer class="pa-3" >
