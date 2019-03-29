@@ -1,6 +1,6 @@
 # Remark
 
-> Simple Podcast App
+> Resonate Your Audio
 
 ## Build Setup
 
