@@ -4,7 +4,26 @@
       <v-container fluid="true" grid-list-md text-xs-center>
         <v-layout class="br20" row wrap align-center>
           <v-flex xs12>
-            <v-card dark color="blue" class="" width="100%">
+            <v-card dark color="blue" class="" width="100%" height="288px">
+              <v-img class="white--text" height="200px" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg">
+                <v-container fill-height fluid>
+                  <v-layout fill-height>
+                    <v-flex xs12 align-end flexbox>
+                      <v-list-tile-action>
+                        <v-tooltip bottom>
+                          <span v-if="$route.params.id !== 'my-profile'"> {{ userData.fullyQualifiedName }} </span>
+                          <span v-else> {{ userData.username }} </span>
+                        </v-tooltip>
+                      </v-list-tile-action>
+                      <v-list-tile-content>
+                        <v-list-tile-title v-if="$route.params.id !== 'my-profile'">{{userData.fullyQualifiedName || 'None'}}</v-list-tile-title>
+                        <v-list-tile-title v-else>{{userData.username || 'None'}}</v-list-tile-title>
+                        <v-list-tile-sub-title>Channel Name</v-list-tile-sub-title>
+                      </v-list-tile-content>
+                    </v-flex>
+                  </v-layout>
+                </v-container>
+              </v-img>
               <v-avatar class="text-xs-center">
                 <v-img
                   v-if="userData.profile.hasOwnProperty('image')"
@@ -23,21 +42,10 @@
               </v-avatar>
             </v-card>
           </v-flex>
-          <v-flex xs12 sm6 offset-sm3>
+          <v-flex xs12>
             <v-list dense="true">
               <v-card class="br20">
                 <v-list-tile>
-                  <!--                  <v-list-tile-action>
-                    <v-tooltip bottom>
-                      <span v-if="$route.params.id !== 'my-profile'"> {{ userData.fullyQualifiedName }} </span>
-                      <span v-else> {{ userData.username }} </span>
-                    </v-tooltip>
-                  </v-list-tile-action>
-                  <v-list-tile-content>
-                    <v-list-tile-title v-if="$route.params.id !== 'my-profile'">{{userData.fullyQualifiedName || 'None'}}</v-list-tile-title>
-                    <v-list-tile-title v-else>{{userData.username || 'None'}}</v-list-tile-title>
-                    <v-list-tile-sub-title>Channel Name</v-list-tile-sub-title>
-                  </v-list-tile-content>-->
                   <v-list-tile-action v-if="$route.params.id !== 'my-profile'" class="ml-auto">
                     <v-tooltip bottom v-if="!isAdded">
                       <v-btn slot="activator" @click.stop="updateChannels(userData, 'addition')" outline fab small color="blue accent-4"><v-icon color="blue accent-4">add_to_queue</v-icon></v-btn>
@@ -58,8 +66,8 @@
                   </v-list-tile>
                 </v-list-tile>
               </v-card>
-              <v-card width="flex x2">
-                <audio src="http://www.hochmuth.com/mp3/Beethoven_12_Variation.mp3" controls width="flex"></audio>
+              <v-card width="100%">
+                <audio src="http://www.hochmuth.com/mp3/Beethoven_12_Variation.mp3" controls width="100%"></audio>
                 <v-card-title>
                   <div>
                     <span class="grey--text">Created Date</span><br>
