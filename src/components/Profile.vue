@@ -27,7 +27,7 @@
           </v-flex>
           <v-flex xs12>
             <v-list dense="true">
-              <v-card class="br20">
+              <v-card>
                 <v-list-tile>
                   <v-list-tile-action v-if="$route.params.id !== 'my-profile'" class="ml-auto">
                     <v-tooltip bottom v-if="!isAdded">
@@ -38,8 +38,6 @@
                       <v-btn slot="activator" @click.stop="updateChannels(userData, 'deletion')" outline fab small color="blue accent-4"><v-icon color="blue accent-4">delete</v-icon></v-btn>
                       <span>Unsubscribe from this Channel</span>
                     </v-tooltip>
-                  </v-list-tile-action>
-                  <v-list-tile-action>
                     <v-tooltip bottom>
                       <span v-if="$route.params.id !== 'my-profile'"> {{ userData.fullyQualifiedName }} </span>
                       <span v-else> {{ userData.username }} </span>
@@ -70,8 +68,9 @@
                   </div>
                 </v-card-title>
                 <v-card-actions>
-                  <v-btn flat color="blue">Share</v-btn>
-                  <v-btn flat color="blue">Comment</v-btn>
+                  <v-icon color="red">fa-heart-o</v-icon>
+                  <v-icon color="green">fa-share-alt</v-icon>
+                  <v-icon color="blue">fa-comment</v-icon>
                 </v-card-actions>
               </v-card>
             </v-list>
