@@ -1,11 +1,10 @@
 <template>
   <div>
     <div v-if="userData.hasOwnProperty('profile')" class="container profile-info">
-      <v-container fluid="true">
+      <v-container fluid="true" grid-list-md text-xs-center>
         <v-layout class="br20" row wrap align-center>
-          <v-flex xs12 sm6 offset-sm3>
-            <v-card class="" width="100%">
-              <v-card-title></v-card-title>
+          <v-flex xs12>
+            <v-card dark color="blue" class="" width="100%">
               <v-avatar class="text-xs-center">
                 <v-img
                   v-if="userData.profile.hasOwnProperty('image')"
@@ -28,7 +27,7 @@
             <v-list dense="true">
               <v-card class="br20">
                 <v-list-tile>
-                  <v-list-tile-action>
+                  <!--                  <v-list-tile-action>
                     <v-tooltip bottom>
                       <span v-if="$route.params.id !== 'my-profile'"> {{ userData.fullyQualifiedName }} </span>
                       <span v-else> {{ userData.username }} </span>
@@ -38,7 +37,7 @@
                     <v-list-tile-title v-if="$route.params.id !== 'my-profile'">{{userData.fullyQualifiedName || 'None'}}</v-list-tile-title>
                     <v-list-tile-title v-else>{{userData.username || 'None'}}</v-list-tile-title>
                     <v-list-tile-sub-title>Channel Name</v-list-tile-sub-title>
-                  </v-list-tile-content>
+                  </v-list-tile-content>-->
                   <v-list-tile-action v-if="$route.params.id !== 'my-profile'" class="ml-auto">
                     <v-tooltip bottom v-if="!isAdded">
                       <v-btn slot="activator" @click.stop="updateChannels(userData, 'addition')" outline fab small color="blue accent-4"><v-icon color="blue accent-4">add_to_queue</v-icon></v-btn>
