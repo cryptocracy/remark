@@ -2,11 +2,11 @@
   <div>
     <div v-if="userData.hasOwnProperty('profile')" class="container profile-info">
       <v-container fluid="true">
-        <v-layout class="br20" row wrap>
+        <v-layout class="br20" row wrap align-center>
           <v-flex xs12 sm6 offset-sm3>
-            <v-card class="">
+            <v-card class="" width="100%">
               <v-card-title></v-card-title>
-              <v-avatar>
+              <v-avatar class="text-xs-center">
                 <v-img
                   v-if="userData.profile.hasOwnProperty('image')"
                   :src="userData.profile.image[0].contentUrl"
@@ -25,7 +25,7 @@
             </v-card>
           </v-flex>
           <v-flex xs12 sm6 offset-sm3>
-            <v-list>
+            <v-list dense="true">
               <v-card class="br20">
                 <v-list-tile>
                   <v-list-tile-action>
@@ -49,7 +49,6 @@
                       <span>Unsubscribe from this Channel</span>
                     </v-tooltip>
                   </v-list-tile-action>
-                  <v-list-tile-action></v-list-tile-action>
                   <v-list-tile-action><v-icon dark block color="purple accent-4" @click="eventBus.$emit('showBTCAddress', {qrSrc, address})" class="br20">fa-qrcode</v-icon></v-list-tile-action>
                   <v-list-tile-action><v-icon color="orange accent-4" :disabled="$route.params.id === 'my-profile' || !hasBTCProof" block :dark="hasBTCProof && $route.params.id !== 'my-profile'" class="br20" @click="redirectUser">fa-bitcoin</v-icon></v-list-tile-action>
                   <v-list-tile-action><v-icon color="blue accent-4" dark block class="br20" @click="eventBus.$emit('payWithAltcoins')">fa-rocket</v-icon></v-list-tile-action>
@@ -65,7 +64,7 @@
                 <v-card-title>
                   <div>
                     <span class="grey--text">Created Date</span><br>
-                    <span color="blue accent-4">Audio Title</span><br>
+                    <span>Audio Title</span><br>
                     <span>Audio Description</span>
                   </div>
                 </v-card-title>
