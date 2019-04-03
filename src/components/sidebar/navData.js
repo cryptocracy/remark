@@ -27,7 +27,7 @@ const items = [
   },
   {
     color: 'blue lighten-1',
-    action: 'rss_feed',
+    action: 'fa-podcast',
     title: 'Channels',
     linkTo: '/subscribed-channels'
   },

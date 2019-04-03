@@ -101,11 +101,11 @@
                 <v-card-title>
                   <v-list-tile @click="redirectToResources('OwnedImages')">
                     <v-list-tile-action>
-                      <v-icon color="teal accent-4">video_library</v-icon>
+                      <v-icon color="teal accent-4">fa-rss</v-icon>
                     </v-list-tile-action>
                     <v-list-tile-content>
                       <v-list-tile-title>{{resources.images}}</v-list-tile-title>
-                      <v-list-tile-sub-title>Video Library</v-list-tile-sub-title>
+                      <v-list-tile-sub-title>Audio Library</v-list-tile-sub-title>
                     </v-list-tile-content>
                   </v-list-tile>
               </v-card>
@@ -118,7 +118,7 @@
       <v-progress-circular
         :size="70"
         :width="5"
-        color="purple accent-4"
+        color="blue accent-4"
         indeterminate
       ></v-progress-circular>
     </div>
