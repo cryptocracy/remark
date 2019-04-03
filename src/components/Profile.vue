@@ -22,78 +22,51 @@
                   gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)">
                 </v-img>
               </v-avatar>
-              <v-list-tile>
-                <v-list-tile-action v-if="$route.params.id !== 'my-profile'" class="ml-auto">
-                  <v-tooltip bottom v-if="!isAdded">
-                    <v-btn slot="activator" @click.stop="updateChannels(userData, 'addition')" outline fab small color="purple accent-4">
-                      <v-icon  color="purple accent-4">add_to_queue</v-icon>
-                    </v-btn>
-                    <span>Subscribe to this Channel</span>
-                  </v-tooltip>
-
-                  <v-tooltip bottom v-else>
-                    <v-btn slot="activator" @click.stop="updateChannels(userData, 'deletion')" outline fab small color="purple accent-4">
-                      <v-icon  color="purple accent-4">delete</v-icon>
-                    </v-btn>
-                    <span>Unsubscribe from this Channel</span>
-                  </v-tooltip>
-                </v-list-tile-action>
-                <v-list-tile-action>
-                  <v-tooltip bottom>
-                    <span v-if="$route.params.id !== 'my-profile'"> {{ userData.fullyQualifiedName }} </span>
-                    <span v-else> {{ userData.username }} </span>
-                  </v-tooltip>
-                </v-list-tile-action>
-                <v-list-tile-content>
-                  <v-list-tile-title v-if="$route.params.id !== 'my-profile'">{{userData.fullyQualifiedName || 'None'}}</v-list-tile-title>
-                  <v-list-tile-title v-else>{{userData.username || 'None'}}</v-list-tile-title>
-                  <v-list-tile-sub-title>Channel Name</v-list-tile-sub-title>
-                </v-list-tile-content>
-              </v-list-tile>
             </v-card>
           </v-flex>
           <v-flex xs12 sm6 offset-sm3>
             <v-list>
               <v-card class="br20">
+                <v-list-tile>
+                  <v-list-tile-action v-if="$route.params.id !== 'my-profile'" class="ml-auto">
+                    <v-tooltip bottom v-if="!isAdded">
+                      <v-btn slot="activator" @click.stop="updateChannels(userData, 'addition')" outline fab small color="blue accent-4">
+                        <v-icon color="blue accent-4">add_to_queue</v-icon>
+                      </v-btn>
+                      <span>Subscribe to this Channel</span>
+                    </v-tooltip>
+
+                    <v-tooltip bottom v-else>
+                      <v-btn slot="activator" @click.stop="updateChannels(userData, 'deletion')" outline fab small color="blue accent-4">
+                        <v-icon color="blue accent-4">delete</v-icon>
+                      </v-btn>
+                      <span>Unsubscribe from this Channel</span>
+                    </v-tooltip>
+                  </v-list-tile-action>
+                  <v-list-tile-action>
+                    <v-tooltip bottom>
+                      <span v-if="$route.params.id !== 'my-profile'"> {{ userData.fullyQualifiedName }} </span>
+                      <span v-else> {{ userData.username }} </span>
+                    </v-tooltip>
+                  </v-list-tile-action>
+                  <v-list-tile-content>
+                    <v-list-tile-title v-if="$route.params.id !== 'my-profile'">{{userData.fullyQualifiedName || 'None'}}</v-list-tile-title>
+                    <v-list-tile-title v-else>{{userData.username || 'None'}}</v-list-tile-title>
+                    <v-list-tile-sub-title>Channel Name</v-list-tile-sub-title>
+                  </v-list-tile-content>
+                </v-list-tile>
                 <v-card-title>
-                  <v-list-tile>
-                    <v-list-tile-action>
-                      <v-icon color="purple accent-4">fa-qrcode</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content >
-                      <v-btn dark block color="purple accent-4" @click="eventBus.$emit('showBTCAddress', {qrSrc, address})" class="br20">Show Bitcoin Address</v-btn>
-                    </v-list-tile-content>
-                  </v-list-tile>
-                  <v-list-tile>
-                    <v-list-tile-action>
-                      <v-icon color="orange accent-4">fa-bitcoin</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content >
-                      <v-btn
-                        :disabled="$route.params.id === 'my-profile' || !hasBTCProof"
-                        block color="orange accent-4"
-                        :dark="hasBTCProof && $route.params.id !== 'my-profile'"
-                        class="br20"
-                        @click="redirectUser"
-                      >
-                        Donate with Bitcoin
-                      </v-btn>
-                    </v-list-tile-content>
-                  </v-list-tile>
-                  <v-list-tile>
-                    <v-list-tile-action>
-                      <v-icon color="blue accent-4">fa-rocket</v-icon>
-                    </v-list-tile-action>
-                    <v-list-tile-content >
-                      <v-btn
-                        dark block color="blue accent-4"
-                        class="br20"
-                        @click="eventBus.$emit('payWithAltcoins')"
-                      >
-                        Donate with Altcoin
-                      </v-btn>
-                    </v-list-tile-content>
-                  </v-list-tile>
+                  <v-list-tile-action></v-list-tile-action>
+                  <v-list-tile-action>
+                    <v-icon dark block color="purple accent-4" @click="eventBus.$emit('showBTCAddress', {qrSrc, address})" class="br20">fa-qrcode</v-icon>
+                  </v-list-tile-action>
+                  <v-list-tile-action>
+                    <v-icon color="orange accent-4" :disabled="$route.params.id === 'my-profile' || !hasBTCProof" block :dark="hasBTCProof && $route.params.id !== 'my-profile'" class="br20" @click="redirectUser"
+                    >fa-bitcoin</v-icon>
+                  </v-list-tile-action>
+                  <v-list-tile-action>
+                    <v-icon color="blue accent-4" dark block class="br20" @click="eventBus.$emit('payWithAltcoins')">fa-rocket</v-icon>
+                  </v-list-tile-action>
                 </v-card-title>
               </v-card>
 
@@ -108,6 +81,19 @@
                       <v-list-tile-sub-title>Audio Library</v-list-tile-sub-title>
                     </v-list-tile-content>
                   </v-list-tile>
+              </v-card>
+              <v-card width="flex x2">
+                <audio src="http://www.hochmuth.com/mp3/Beethoven_12_Variation.mp3" controls width="100%"></audio>                <v-card-title>
+                  <div>
+                    <span class="grey--text">Created Date</span><br>
+                    <span flat color="blue">Audio Title</span><br>
+                    <span>Audio Description</span>
+                  </div>
+                </v-card-title>
+                <v-card-actions>
+                  <v-btn flat color="blue">Share</v-btn>
+                  <v-btn flat color="blue">Comment</v-btn>
+                </v-card-actions>
               </v-card>
             </v-list>
           </v-flex>
