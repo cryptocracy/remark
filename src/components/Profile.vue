@@ -108,7 +108,6 @@
                       <v-list-tile-sub-title>Video Library</v-list-tile-sub-title>
                     </v-list-tile-content>
                   </v-list-tile>
-
               </v-card>
             </v-list>
           </v-flex>
@@ -187,14 +186,14 @@ export default {
     },
     hubUrl () {
       if (this.searchedUserProfileData && this.searchedUserProfileData.hasOwnProperty('profile') && typeof this.searchedUserProfileData.profile.apps === 'object') {
-        let url = this.searchedUserProfileData.profile.apps[window.location.origin] || this.searchedUserProfileData.profile.apps['https://dapp_cryptocracy_io']
+        let url = this.searchedUserProfileData.profile.apps[window.location.origin] || this.searchedUserProfileData.profile.apps['https://remark_cryptocracy_io']
         this.getResourceCount(url)
         return url
       } else if (this.$route.params.id !== 'my-profile') {
         this.getResourceCount(null)
         return null
       } else if (this.profileData && this.profileData.profile) {
-        let url = this.profileData.profile.apps[window.location.origin] || this.profileData.profile.apps['https://dapp_cryptocracy_io']
+        let url = this.profileData.profile.apps[window.location.origin] || this.profileData.profile.apps['https://remark_cryptocracy_io']
         this.getResourceCount(url)
         return url
       }
