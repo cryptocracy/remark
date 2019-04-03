@@ -47,7 +47,7 @@ import Quorum from '@/components/quorum/Quorum'
 
 const routes = [
   { path: '/', name: 'Home', component: Home },
-  { path: '/profile/:id', name: 'Profile', component: Profile },
+  { path: '/channel/:id', name: 'Profile', component: Profile },
   { path: '/subscribed-channels', name: 'subscribed-channels', component: favChannels },
   { path: '/settings', name: 'Settings', component: Settings },
 
