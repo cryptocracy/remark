@@ -67,7 +67,7 @@
                 <v-card-title>
                   <div>
                     <span class="grey--text">Created Date</span><br>
-                    <span flat color="blue">Audio Title</span><br>
+                    <span color="blue accent-4">Audio Title</span><br>
                     <span>Audio Description</span>
                   </div>
                 </v-card-title>
