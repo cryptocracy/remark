@@ -57,7 +57,7 @@ export default {
     border-radius: 20px;
     color : #409bf7;
   }
-  .theme--light.application {
+  .theme--grey.application {
     background: linear-gradient(to right, #409bf7, #91c3f7);
   }
 </style>
