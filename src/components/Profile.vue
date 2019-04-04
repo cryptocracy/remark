@@ -120,8 +120,12 @@
       <h1>No Channels found</h1>
     </div>
     <modals></modals>
+    <v-footer >
+      <v-card width="100%">
+        <audio class="soundplayer" src="http://www.hochmuth.com/mp3/Beethoven_12_Variation.mp3" controls></audio>
+      </v-card>
+    </v-footer>
   </div>
-
 </template>
 
 <script>
