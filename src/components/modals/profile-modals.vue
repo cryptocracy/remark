@@ -13,7 +13,7 @@
           <v-tooltip top v-if="address">
             <v-btn
               slot="activator"
-              color="purple accent-4"
+              color="blue accent-4"
               flat
               dark
               round
@@ -26,7 +26,7 @@
             <span v-if="showTooltip">Copied!</span>
             <span v-else>Copy BTC Address</span>
           </v-tooltip>
-          <v-btn color="purple accent-4" @click="showBTCAddress=!showBTCAddress" flat round dark><v-icon class="mr-2" small>clear</v-icon>Close</v-btn>
+          <v-btn color="blue accent-4" @click="showBTCAddress=!showBTCAddress" flat round dark><v-icon class="mr-2" small>clear</v-icon>Close</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -44,7 +44,7 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn round flat color="purple accent-4" @click="payWithAltcoins=!payWithAltcoins"> <v-icon class="mr-3">clear</v-icon> close</v-btn>
+          <v-btn round flat color="blue accent-4" @click="payWithAltcoins=!payWithAltcoins"> <v-icon class="mr-3">clear</v-icon> close</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
