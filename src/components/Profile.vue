@@ -2,7 +2,7 @@
   <div>
     <div v-if="userData.hasOwnProperty('profile')" class="container profile-info">
       <v-container fluid="true" grid-list-md text-xs-center>
-        <v-layout class="br20" row wrap align-center justify-start column fill-height>
+        <v-layout class="br20" row wrap align-center>
           <v-flex xs12>
             <v-card dark color="blue" class="" width="100%" height="288px">
               <v-img class="white--text" height="288px" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg">
