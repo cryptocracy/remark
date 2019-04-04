@@ -61,20 +61,20 @@
                 </v-list-tile>
               </v-card>
               <v-card width="100%">
-                <v-img class="white--text" height="288px" src="https://cdn.vuetifyjs.com/images/cards/desert.jpg">
-                  <audio class="soundplayer" src="http://www.hochmuth.com/mp3/Beethoven_12_Variation.mp3" controls></audio>
-                  <v-card-title class="text-xs-left">
-                    <div>
-                      <span class="grey--text">Created Date</span><br>
-                      <span>Audio Title</span><br>
-                      <span>Audio Description</span>
-                    </div>
-                  </v-card-title>
-                  <v-card-actions>
-                    <v-list-tile-action><v-icon color="red">fa-heart-o</v-icon></v-list-tile-action>
-                    <v-list-tile-action><v-icon color="green">fa-share-alt</v-icon></v-list-tile-action>
-                    <v-list-tile-action><v-icon color="blue">fa-comment</v-icon></v-list-tile-action>
-                  </v-card-actions>
+                <v-img class="white--text" height="288px" src="https://cdn.vuetifyjs.com/images/cards/desert.jpg"></v-img>
+                <audio class="soundplayer" src="http://www.hochmuth.com/mp3/Beethoven_12_Variation.mp3" controls></audio>
+                <v-card-title class="text-xs-left">
+                  <div>
+                    <span class="grey--text">Created Date</span><br>
+                    <span>Audio Title</span><br>
+                    <span>Audio Description</span>
+                  </div>
+                </v-card-title>
+                <v-card-actions>
+                  <v-list-tile-action><v-icon color="red">fa-heart-o</v-icon></v-list-tile-action>
+                  <v-list-tile-action><v-icon color="green">fa-share-alt</v-icon></v-list-tile-action>
+                  <v-list-tile-action><v-icon color="blue">fa-comment</v-icon></v-list-tile-action>
+                </v-card-actions>
               </v-card>
             </v-list>
           </v-flex>
@@ -270,7 +270,7 @@ export default {
   margin-left: 1em
 }
 #myavatar {
-  margin-top: 138px
+  margin-top: -140px
 }
 .soundplayer {
   width: 100%
