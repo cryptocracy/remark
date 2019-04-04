@@ -9,6 +9,7 @@
               </v-img>
               <v-avatar class="justify-center">
                 <v-img
+                  position="center center"
                   v-if="userData.profile.hasOwnProperty('image')"
                   :src="userData.profile.image[0].contentUrl"
                   height="150px"
@@ -16,6 +17,7 @@
                 >
                 </v-img>
                 <v-img
+                  position="center center"
                   v-else
                   height="150px"
                   width="150px"
@@ -68,9 +70,9 @@
                   </div>
                 </v-card-title>
                 <v-card-actions>
-                  <v-icon color="red">fa-heart-o</v-icon>
-                  <v-icon color="green">fa-share-alt</v-icon>
-                  <v-icon color="blue">fa-comment</v-icon>
+                  <v-list-tile-action><v-icon color="red">fa-heart-o</v-icon></v-list-tile-action>
+                  <v-list-tile-action><v-icon color="green">fa-share-alt</v-icon></v-list-tile-action>
+                  <v-list-tile-action><v-icon color="blue">fa-comment</v-icon></v-list-tile-action>
                 </v-card-actions>
               </v-card>
             </v-list>
