@@ -7,7 +7,7 @@
             <v-card dark color="blue" class="" width="100%" height="288px">
               <v-img class="white--text" height="288px" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg">
               </v-img>
-              <v-avatar class="justify-center">
+              <v-avatar id="myavatar" class="justify-center">
                 <v-img
                   position="center center"
                   v-if="userData.profile.hasOwnProperty('image')"
@@ -61,19 +61,20 @@
                 </v-list-tile>
               </v-card>
               <v-card width="100%">
-                <audio src="http://www.hochmuth.com/mp3/Beethoven_12_Variation.mp3" controls width="100%"></audio>
-                <v-card-title class="text-xs-left">
-                  <div>
-                    <span class="grey--text">Created Date</span><br>
-                    <span>Audio Title</span><br>
-                    <span>Audio Description</span>
-                  </div>
-                </v-card-title>
-                <v-card-actions>
-                  <v-list-tile-action><v-icon color="red">fa-heart-o</v-icon></v-list-tile-action>
-                  <v-list-tile-action><v-icon color="green">fa-share-alt</v-icon></v-list-tile-action>
-                  <v-list-tile-action><v-icon color="blue">fa-comment</v-icon></v-list-tile-action>
-                </v-card-actions>
+                <v-img class="white--text" height="288px" src="https://cdn.vuetifyjs.com/images/cards/desert.jpg">
+                  <audio class="soundplayer" src="http://www.hochmuth.com/mp3/Beethoven_12_Variation.mp3" controls></audio>
+                  <v-card-title class="text-xs-left">
+                    <div>
+                      <span class="grey--text">Created Date</span><br>
+                      <span>Audio Title</span><br>
+                      <span>Audio Description</span>
+                    </div>
+                  </v-card-title>
+                  <v-card-actions>
+                    <v-list-tile-action><v-icon color="red">fa-heart-o</v-icon></v-list-tile-action>
+                    <v-list-tile-action><v-icon color="green">fa-share-alt</v-icon></v-list-tile-action>
+                    <v-list-tile-action><v-icon color="blue">fa-comment</v-icon></v-list-tile-action>
+                  </v-card-actions>
               </v-card>
             </v-list>
           </v-flex>
@@ -267,6 +268,12 @@ export default {
 }
 .ml25 {
   margin-left: 1em
+}
+#myavatar {
+  margin-top: 138px
+}
+.soundplayer {
+  width: 100%
 }
 .si {
   .v-icon {
