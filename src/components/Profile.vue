@@ -105,6 +105,44 @@
               </v-card>
             </v-list>
           </v-flex>
+          <v-flex xs6 class="br20">
+            <v-list>
+              <v-card width="100%">
+                <audio class="soundplayer" src="http://www.hochmuth.com/mp3/Bloch_Prayer.mp3" controls></audio>
+                <v-card-title class="text-xs-left">
+                  <div>
+                    <span class="grey--text">Created Date</span><br>
+                    <span>Audio Title</span><br>
+                    <span>Audio Description</span>
+                  </div>
+                </v-card-title>
+                <v-card-actions>
+                  <v-list-tile-action><v-icon color="red">fa-heart-o</v-icon></v-list-tile-action>
+                  <v-list-tile-action><v-icon color="green">fa-share-alt</v-icon></v-list-tile-action>
+                  <v-list-tile-action><v-icon color="blue">fa-comment</v-icon></v-list-tile-action>
+                </v-card-actions>
+              </v-card>
+            </v-list>
+          </v-flex>
+          <v-flex xs6 class="br20">
+            <v-list>
+              <v-card width="100%">
+                <audio class="soundplayer" src="http://www.hochmuth.com/mp3/Boccherini_Concerto_478-1.mp3" controls></audio>
+                <v-card-title class="text-xs-left">
+                  <div>
+                    <span class="grey--text">Created Date</span><br>
+                    <span>Audio Title</span><br>
+                    <span>Audio Description</span>
+                  </div>
+                </v-card-title>
+                <v-card-actions>
+                  <v-list-tile-action><v-icon color="red">fa-heart-o</v-icon></v-list-tile-action>
+                  <v-list-tile-action><v-icon color="green">fa-share-alt</v-icon></v-list-tile-action>
+                  <v-list-tile-action><v-icon color="blue">fa-comment</v-icon></v-list-tile-action>
+                </v-card-actions>
+              </v-card>
+            </v-list>
+          </v-flex>
         </v-layout>
       </v-container>
     </div>
@@ -120,11 +158,6 @@
       <h1>No Channels found</h1>
     </div>
     <modals></modals>
-    <v-footer >
-      <v-card width="100%">
-        <audio class="soundplayer" src="http://www.hochmuth.com/mp3/Beethoven_12_Variation.mp3" controls></audio>
-      </v-card>
-    </v-footer>
   </div>
 </template>
 
