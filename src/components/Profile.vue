@@ -27,6 +27,7 @@
               </v-avatar>
             </v-card>
           </v-flex>
+          <!-- row of channel buttons starts here -->
           <v-flex xs2 class="br20">
             <v-list>
               <v-card class="br20" >
@@ -56,7 +57,7 @@
           <v-flex xs1></v-flex>
           <v-flex xs2 class="br20">
             <v-list>
-              <v-list-tile>
+              <v-list-tile id="subscribebtn">
                 <v-list-tile-action v-if="$route.params.id !== 'my-profile'" class="ml-auto">
                   <v-tooltip bottom v-if="!isAdded">
                     <v-btn slot="activator" @click.stop="updateChannels(userData, 'addition')" outline fab small color="blue accent-4"><v-icon color="blue accent-4">add_to_queue</v-icon></v-btn>
@@ -87,6 +88,7 @@
             </v-list>
           </v-flex>
           <v-flex xs12></v-flex>
+          <!-- grid of channel players starts here -->
           <v-flex xs12 class="br20">
             <v-list>
               <v-card width="100%">
@@ -336,6 +338,9 @@ export default {
 }
 #myavatar {
   margin-top: -140px
+}
+#subscribebtn {
+  text-align: center;
 }
 .soundplayer {
   width: 100%
