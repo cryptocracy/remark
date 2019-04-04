@@ -27,7 +27,7 @@
               </v-avatar>
             </v-card>
           </v-flex>
-          <v-flex xs1>
+          <v-flex xs1 class="br20">
             <v-list>
 							<v-list-tile>
 								<v-list-tile-action v-if="$route.params.id !== 'my-profile'" class="ml-auto">
@@ -43,7 +43,7 @@
 							</v-list-tile>
             </v-list>
           </v-flex>
-          <v-flex xs2>
+          <v-flex xs2 class="br20">
             <v-list>
               <v-card class="br20" >								
 								<v-list-tile @click="redirectToResources('OwnedImages')"><v-list-tile-action><v-icon color="teal accent-4">fa-rss</v-icon></v-list-tile-action>
@@ -54,7 +54,7 @@
               </v-card>
             </v-list>
           </v-flex>					
-          <v-flex xs2>
+          <v-flex xs2 class="br20">
             <v-list>
 							<v-list-tile>	
 								<v-tooltip bottom>
@@ -70,23 +70,23 @@
             </v-list>
           </v-flex>								
 					<v-flex xs4></v-flex>
-          <v-flex xs1>
+          <v-flex xs1 class="br20">
             <v-list>
               <v-list-tile-action><v-icon dark block color="purple accent-4" @click="eventBus.$emit('showBTCAddress', {qrSrc, address})" class="br20">fa-qrcode</v-icon></v-list-tile-action>
             </v-list>
           </v-flex>
-          <v-flex xs1>
+          <v-flex xs1 class="br20">
             <v-list>
               <v-list-tile-action><v-icon color="orange accent-4" :disabled="$route.params.id === 'my-profile' || !hasBTCProof" block :dark="hasBTCProof && $route.params.id !== 'my-profile'" class="br20" @click="redirectUser">fa-bitcoin</v-icon></v-list-tile-action>
             </v-list>
           </v-flex>
-          <v-flex xs1>
+          <v-flex xs1 class="br20">
             <v-list>
               <v-list-tile-action><v-icon color="blue accent-4" dark block class="br20" @click="eventBus.$emit('payWithAltcoins')">fa-rocket</v-icon></v-list-tile-action>
             </v-list>
           </v-flex>
 					<v-flex xs12></v-flex>
-          <v-flex xs12>
+          <v-flex xs12 class="br20">
             <v-list>
 							<v-card width="100%">
                 <audio class="soundplayer" src="http://www.hochmuth.com/mp3/Beethoven_12_Variation.mp3" controls></audio>
@@ -289,6 +289,7 @@ export default {
 }
 .br20 {
   border-radius: 20px
+	background-color: #f5f5f5
 }
 .qr-code {
   margin: 1% 0% 3% 0%
