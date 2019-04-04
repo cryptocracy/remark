@@ -29,47 +29,47 @@
           </v-flex>
           <v-flex xs1 class="br20">
             <v-list>
-							<v-list-tile>
-								<v-list-tile-action v-if="$route.params.id !== 'my-profile'" class="ml-auto">
-									<v-tooltip bottom v-if="!isAdded">
-										<v-btn slot="activator" @click.stop="updateChannels(userData, 'addition')" outline fab small color="blue accent-4"><v-icon color="blue accent-4">add_to_queue</v-icon></v-btn>
-										<span>Subscribe to {{ userData.username }}'s Channel</span>
-									</v-tooltip>
-									<v-tooltip bottom v-else>
-										<v-btn slot="activator" @click.stop="updateChannels(userData, 'deletion')" outline fab small color="blue accent-4"><v-icon color="blue accent-4">delete</v-icon></v-btn>
-										<span>Unsubscribe from {{ userData.username }}'s Channel</span>
-									</v-tooltip>
-								</v-list-tile-action>						
-							</v-list-tile>
+              <v-list-tile>
+                <v-list-tile-action v-if="$route.params.id !== 'my-profile'" class="ml-auto">
+                  <v-tooltip bottom v-if="!isAdded">
+                    <v-btn slot="activator" @click.stop="updateChannels(userData, 'addition')" outline fab small color="blue accent-4"><v-icon color="blue accent-4">add_to_queue</v-icon></v-btn>
+                    <span>Subscribe to {{ userData.username }}'s Channel</span>
+                  </v-tooltip>
+                  <v-tooltip bottom v-else>
+                    <v-btn slot="activator" @click.stop="updateChannels(userData, 'deletion')" outline fab small color="blue accent-4"><v-icon color="blue accent-4">delete</v-icon></v-btn>
+                    <span>Unsubscribe from {{ userData.username }}'s Channel</span>
+                  </v-tooltip>
+                </v-list-tile-action>
+              </v-list-tile>
             </v-list>
           </v-flex>
           <v-flex xs2 class="br20">
             <v-list>
-              <v-card class="br20" >								
-								<v-list-tile @click="redirectToResources('OwnedImages')"><v-list-tile-action><v-icon color="teal accent-4">fa-rss</v-icon></v-list-tile-action>
-									<v-list-tile-content><v-list-tile-title>{{resources.images}}</v-list-tile-title>
-										<v-list-tile-sub-title>Audio Library</v-list-tile-sub-title>
-									</v-list-tile-content>
-								</v-list-tile>
+              <v-card class="br20" >
+                <v-list-tile @click="redirectToResources('OwnedImages')"><v-list-tile-action><v-icon color="teal accent-4">fa-rss</v-icon></v-list-tile-action>
+                  <v-list-tile-content><v-list-tile-title>{{resources.images}}</v-list-tile-title>
+                    <v-list-tile-sub-title>Audio Library</v-list-tile-sub-title>
+                  </v-list-tile-content>
+                </v-list-tile>
               </v-card>
             </v-list>
-          </v-flex>					
+          </v-flex>
           <v-flex xs2 class="br20">
             <v-list>
-							<v-list-tile>	
-								<v-tooltip bottom>
-									<span v-if="$route.params.id !== 'my-profile'"> {{ userData.fullyQualifiedName }} </span>
-									<span v-else> {{ userData.username }} </span>
-								</v-tooltip>
-								<v-list-tile-content>
-									<v-list-tile-title v-if="$route.params.id !== 'my-profile'">{{userData.fullyQualifiedName || 'None'}}</v-list-tile-title>
-									<v-list-tile-title v-else>{{userData.username || 'None'}}</v-list-tile-title>
-									<v-list-tile-sub-title>Channel Name</v-list-tile-sub-title>
-								</v-list-tile-content>
-							</v-list-tile>
+              <v-list-tile>
+                <v-tooltip bottom>
+                  <span v-if="$route.params.id !== 'my-profile'"> {{ userData.fullyQualifiedName }} </span>
+                  <span v-else> {{ userData.username }} </span>
+                </v-tooltip>
+                <v-list-tile-content>
+                  <v-list-tile-title v-if="$route.params.id !== 'my-profile'">{{userData.fullyQualifiedName || 'None'}}</v-list-tile-title>
+                  <v-list-tile-title v-else>{{userData.username || 'None'}}</v-list-tile-title>
+                  <v-list-tile-sub-title>Channel Name</v-list-tile-sub-title>
+                </v-list-tile-content>
+              </v-list-tile>
             </v-list>
-          </v-flex>								
-					<v-flex xs4></v-flex>
+          </v-flex>
+          <v-flex xs4></v-flex>
           <v-flex xs1 class="br20">
             <v-list>
               <v-list-tile-action><v-icon dark block color="purple accent-4" @click="eventBus.$emit('showBTCAddress', {qrSrc, address})" class="br20">fa-qrcode</v-icon></v-list-tile-action>
@@ -85,10 +85,10 @@
               <v-list-tile-action><v-icon color="blue accent-4" dark block class="br20" @click="eventBus.$emit('payWithAltcoins')">fa-rocket</v-icon></v-list-tile-action>
             </v-list>
           </v-flex>
-					<v-flex xs12></v-flex>
+          <v-flex xs12></v-flex>
           <v-flex xs12 class="br20">
             <v-list>
-							<v-card width="100%">
+              <v-card width="100%">
                 <audio class="soundplayer" src="http://www.hochmuth.com/mp3/Beethoven_12_Variation.mp3" controls></audio>
                 <v-card-title class="text-xs-left">
                   <div>
@@ -289,7 +289,7 @@ export default {
 }
 .br20 {
   border-radius: 20px
-	background-color: #f5f5f5
+  background-color: #f5f5f5
 }
 .qr-code {
   margin: 1% 0% 3% 0%
