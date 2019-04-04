@@ -28,7 +28,7 @@
             </v-card>
           </v-flex>
           <v-flex xs12>
-            <v-list dense="true">
+            <v-list>
               <v-card>
                 <v-list-tile>
                   <v-list-tile-action v-if="$route.params.id !== 'my-profile'" class="ml-auto">
@@ -50,14 +50,14 @@
                     <v-list-tile-title v-else>{{userData.username || 'None'}}</v-list-tile-title>
                     <v-list-tile-sub-title>Channel Name</v-list-tile-sub-title>
                   </v-list-tile-content>
-                  <v-list-tile-action><v-icon dark block color="purple accent-4" @click="eventBus.$emit('showBTCAddress', {qrSrc, address})" class="br20">fa-qrcode</v-icon></v-list-tile-action>
-                  <v-list-tile-action><v-icon color="orange accent-4" :disabled="$route.params.id === 'my-profile' || !hasBTCProof" block :dark="hasBTCProof && $route.params.id !== 'my-profile'" class="br20" @click="redirectUser">fa-bitcoin</v-icon></v-list-tile-action>
-                  <v-list-tile-action><v-icon color="blue accent-4" dark block class="br20" @click="eventBus.$emit('payWithAltcoins')">fa-rocket</v-icon></v-list-tile-action>
                   <v-list-tile @click="redirectToResources('OwnedImages')"><v-list-tile-action><v-icon color="teal accent-4">fa-rss</v-icon></v-list-tile-action>
                     <v-list-tile-content><v-list-tile-title>{{resources.images}}</v-list-tile-title>
                       <v-list-tile-sub-title>Audio Library</v-list-tile-sub-title>
                     </v-list-tile-content>
                   </v-list-tile>
+                  <v-list-tile-action><v-icon dark block color="purple accent-4" @click="eventBus.$emit('showBTCAddress', {qrSrc, address})" class="br20">fa-qrcode</v-icon></v-list-tile-action>
+                  <v-list-tile-action><v-icon color="orange accent-4" :disabled="$route.params.id === 'my-profile' || !hasBTCProof" block :dark="hasBTCProof && $route.params.id !== 'my-profile'" class="br20" @click="redirectUser">fa-bitcoin</v-icon></v-list-tile-action>
+                  <v-list-tile-action><v-icon color="blue accent-4" dark block class="br20" @click="eventBus.$emit('payWithAltcoins')">fa-rocket</v-icon></v-list-tile-action>
                 </v-list-tile>
               </v-card>
               <v-card width="100%">
