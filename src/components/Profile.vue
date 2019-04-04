@@ -289,7 +289,6 @@ export default {
 }
 .br20 {
   border-radius: 20px
-  background-color: #f5f5f5
 }
 .qr-code {
   margin: 1% 0% 3% 0%
