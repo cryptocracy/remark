@@ -55,9 +55,9 @@
             </v-list>
           </v-flex>
           <v-flex xs1></v-flex>
-          <v-flex xs2 class="br20">
+          <v-flex xs2 class="br20" align-center>
             <v-list>
-              <v-list-tile id="subscribebtn">
+              <v-list-tile>
                 <v-list-tile-action v-if="$route.params.id !== 'my-profile'" class="ml-auto">
                   <v-tooltip bottom v-if="!isAdded">
                     <v-btn slot="activator" @click.stop="updateChannels(userData, 'addition')" outline fab small color="blue accent-4"><v-icon color="blue accent-4">add_to_queue</v-icon></v-btn>
