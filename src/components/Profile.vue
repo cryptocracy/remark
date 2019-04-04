@@ -57,7 +57,7 @@
           <v-flex xs1></v-flex>
           <v-flex xs2 class="br20">
             <v-list>
-              <v-list-tile>
+              <v-card id="subbtn">
                 <v-list-tile-action v-if="$route.params.id !== 'my-profile'" class="ml-auto">
                   <v-tooltip  id="subbtn" bottom v-if="!isAdded">
                     <v-btn slot="activator" @click.stop="updateChannels(userData, 'addition')" outline fab small color="blue accent-4"><v-icon color="blue accent-4">add_to_queue</v-icon></v-btn>
@@ -68,7 +68,7 @@
                     <span>Unsubscribe from {{ userData.fullyQualifiedName }} 's Channel</span>
                   </v-tooltip>
                 </v-list-tile-action>
-              </v-list-tile>
+              </v-card>
             </v-list>
           </v-flex>
           <v-flex xs2></v-flex>
