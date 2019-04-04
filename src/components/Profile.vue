@@ -27,22 +27,6 @@
               </v-avatar>
             </v-card>
           </v-flex>
-          <v-flex xs1 class="br20">
-            <v-list>
-              <v-list-tile>
-                <v-list-tile-action v-if="$route.params.id !== 'my-profile'" class="ml-auto">
-                  <v-tooltip bottom v-if="!isAdded">
-                    <v-btn slot="activator" @click.stop="updateChannels(userData, 'addition')" outline fab small color="blue accent-4"><v-icon color="blue accent-4">add_to_queue</v-icon></v-btn>
-                    <span>Subscribe to {{ userData.fullyQualifiedName }} 's Channel</span>
-                  </v-tooltip>
-                  <v-tooltip bottom v-else>
-                    <v-btn slot="activator" @click.stop="updateChannels(userData, 'deletion')" outline fab small color="blue accent-4"><v-icon color="blue accent-4">delete</v-icon></v-btn>
-                    <span>Unsubscribe from {{ userData.fullyQualifiedName }} 's Channel</span>
-                  </v-tooltip>
-                </v-list-tile-action>
-              </v-list-tile>
-            </v-list>
-          </v-flex>
           <v-flex xs2 class="br20">
             <v-list>
               <v-card class="br20" >
@@ -69,7 +53,24 @@
               </v-list-tile>
             </v-list>
           </v-flex>
-          <v-flex xs4></v-flex>
+          <v-flex xs1></v-flex>
+          <v-flex xs2 class="br20">
+            <v-list>
+              <v-list-tile>
+                <v-list-tile-action v-if="$route.params.id !== 'my-profile'" class="ml-auto">
+                  <v-tooltip bottom v-if="!isAdded">
+                    <v-btn slot="activator" @click.stop="updateChannels(userData, 'addition')" outline fab small color="blue accent-4"><v-icon color="blue accent-4">add_to_queue</v-icon></v-btn>
+                    <span>Subscribe to {{ userData.fullyQualifiedName }} 's Channel</span>
+                  </v-tooltip>
+                  <v-tooltip bottom v-else>
+                    <v-btn slot="activator" @click.stop="updateChannels(userData, 'deletion')" outline fab small color="blue accent-4"><v-icon color="blue accent-4">delete</v-icon></v-btn>
+                    <span>Unsubscribe from {{ userData.fullyQualifiedName }} 's Channel</span>
+                  </v-tooltip>
+                </v-list-tile-action>
+              </v-list-tile>
+            </v-list>
+          </v-flex>
+          <v-flex xs2></v-flex>
           <v-flex xs1 class="br20">
             <v-list>
               <v-list-tile-action><v-icon dark block color="purple accent-4" @click="eventBus.$emit('showBTCAddress', {qrSrc, address})" class="br20">fa-qrcode</v-icon></v-list-tile-action>
@@ -127,7 +128,7 @@
           <v-flex xs6 class="br20">
             <v-list>
               <v-card width="100%">
-                <audio class="soundplayer" src="http://www.hochmuth.com/mp3/Boccherini_Concerto_478-1.mp3" controls></audio>
+                <audio class="soundplayer" src="http://www.hochmuth.com/mp3/Bloch_Prayer.mp3" controls></audio>
                 <v-card-title class="text-xs-left">
                   <div>
                     <span class="grey--text">Created Date</span><br>
