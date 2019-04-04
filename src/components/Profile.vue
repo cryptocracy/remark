@@ -55,28 +55,26 @@
             </v-list>
           </v-flex>
           <v-flex xs1></v-flex>
-          <!-- subscribe to channel button starts here -->          
+          <!-- subscribe to channel button starts here -->
           <v-flex xs2 class="br20">
-            <v-list>
-              <v-card>
-                <v-card-action v-if="$route.params.id !== 'my-profile'" class="justify-center">
-                  <v-tooltip bottom v-if="!isAdded">
-                    <v-btn slot="activator" @click.stop="updateChannels(userData, 'addition')" outline fab small color="blue accent-4"><v-icon color="blue accent-4">add_to_queue</v-icon></v-btn>
-                    <span>Subscribe to {{ userData.fullyQualifiedName }} 's Channel</span>
-                  </v-tooltip>
-                  <v-tooltip bottom v-else>
-                    <v-btn slot="activator" @click.stop="updateChannels(userData, 'deletion')" outline fab small color="blue accent-4"><v-icon color="blue accent-4">delete</v-icon></v-btn>
-                    <span>Unsubscribe from {{ userData.fullyQualifiedName }} 's Channel</span>
-                  </v-tooltip>
-                </v-card-action>
-              </v-card>
-            </v-list>
+            <v-card>
+              <v-card-action v-if="$route.params.id !== 'my-profile'" class="justify-center">
+                <v-tooltip bottom v-if="!isAdded">
+                  <v-btn slot="activator" @click.stop="updateChannels(userData, 'addition')" outline fab small color="blue accent-4"><v-icon color="blue accent-4">add_to_queue</v-icon></v-btn>
+                  <span>Subscribe to {{ userData.fullyQualifiedName }} 's Channel</span>
+                </v-tooltip>
+                <v-tooltip bottom v-else>
+                  <v-btn slot="activator" @click.stop="updateChannels(userData, 'deletion')" outline fab small color="blue accent-4"><v-icon color="blue accent-4">delete</v-icon></v-btn>
+                  <span>Unsubscribe from {{ userData.fullyQualifiedName }} 's Channel</span>
+                </v-tooltip>
+              </v-card-action>
+            </v-card>
           </v-flex>
           <v-flex xs2></v-flex>
           <v-flex xs1 class="br20">
-            <v-list>
-              <v-list-tile-action><v-icon dark block color="purple accent-4" @click="eventBus.$emit('showBTCAddress', {qrSrc, address})" class="br20">fa-qrcode</v-icon></v-list-tile-action>
-            </v-list>
+            <v-card>
+              <v-card-action><v-icon dark block color="purple accent-4" @click="eventBus.$emit('showBTCAddress', {qrSrc, address})" class="br20">fa-qrcode</v-icon></v-card-action>
+            </v-card>
           </v-flex>
           <v-flex xs1 class="br20">
             <v-list>
