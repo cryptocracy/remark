@@ -63,10 +63,10 @@
             <v-icon v-if="$route.params.id !== 'my-profile'" dark block color="purple accent-4" @click="eventBus.$emit('showBTCAddress', {qrSrc, address})" class="br20">fa-qrcode</v-icon>
           </v-flex>
           <v-flex xs1 class="br20">
-            <v-icon color="orange accent-4" :disabled="$route.params.id === 'my-profile' || !hasBTCProof" block :dark="hasBTCProof && $route.params.id !== 'my-profile'" class="br20" @click="redirectUser">fa-bitcoin</v-icon>
+            <v-icon v-if="$route.params.id !== 'my-profile'" color="orange accent-4" :disabled="$route.params.id === 'my-profile' || !hasBTCProof" block :dark="hasBTCProof && $route.params.id !== 'my-profile'" class="br20" @click="redirectUser">fa-bitcoin</v-icon>
           </v-flex>
           <v-flex xs1 class="br20">
-            <v-icon color="blue accent-4" dark block class="br20" @click="eventBus.$emit('payWithAltcoins')">fa-rocket</v-icon>
+            <v-icon v-if="$route.params.id !== 'my-profile'" color="blue accent-4" dark block class="br20" @click="eventBus.$emit('payWithAltcoins')">fa-rocket</v-icon>
           </v-flex>
           <v-flex xs12></v-flex>
           <!-- grid of channel players starts here -->
