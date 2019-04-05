@@ -16,7 +16,7 @@ export const tourMixin = {
       })
       if (this.$route.name === 'Home') {
         shepTour.addStep('crowdfunding', {
-          text: 'You use this button to create crowdfunding content, such as Markers, Images, Events, or Tasks. Note: Projects are coming soon.',
+          text: 'You use this button to upload or record your audio.',
           attachTo: '.floatShepherd bottom',
           classes: 'stepFont',
           tippyOptions: {
@@ -44,7 +44,7 @@ export const tourMixin = {
             }
           ]
         })
-        shepTour.addStep('summaryTitle', {
+        /*      shepTour.addStep('summaryTitle', {
           text: 'These are your summary tiles, showing you exactly how many owned content objects you have, simply click to view their lists.',
           attachTo: '.summaryTitle top',
           classes: 'stepFont',
@@ -73,7 +73,7 @@ export const tourMixin = {
               action: shepTour.next
             }
           ]
-        })
+        }) */
         shepTour.addStep('walletInput', {
           text: 'This is your Input Graph of your Bitcoin Wallet, showing you how and when you have received Bitcoin.',
           attachTo: '.walletInput bottom',
@@ -132,7 +132,7 @@ export const tourMixin = {
             }
           ]
         })
-        shepTour.addStep('DashboardMap', {
+        /*        shepTour.addStep('DashboardMap', {
           text: 'This is your Dashboard Map where you can click to search for content in that area clicked.',
           attachTo: '.dashboardMap bottom',
           classes: 'stepFont',
@@ -160,7 +160,7 @@ export const tourMixin = {
               action: shepTour.next
             }
           ]
-        })
+        }) */
         shepTour.addStep('mainMenu', {
           text: 'This is how you access Main Menu, where you can click to explorer the various components of Cryptocracy.',
           attachTo: '.mainMenu bottom',
@@ -191,7 +191,7 @@ export const tourMixin = {
           ]
         })
         shepTour.addStep('searchShepherd', {
-          text: 'You can use this searchbar to search for people on blockstack or to search for content by Tag',
+          text: 'You can use this searchbar to search for Channels or to search for Audio by Tag',
           attachTo: '.searchShepherd bottom',
           classes: 'stepFont',
           tippyOptions: {
@@ -220,7 +220,7 @@ export const tourMixin = {
           ]
         })
         shepTour.addStep('changeSearch', {
-          text: 'This is how you change the type of search you are performing, to search for Contacts by name, or to search for content by Tag',
+          text: 'This is how you change the type of search you are performing, to search for Channel by name, or to search for Audio by Tag',
           attachTo: '.changeSearch bottom',
           classes: 'stepFont',
           tippyOptions: {
@@ -251,7 +251,7 @@ export const tourMixin = {
         shepTour.start()
       } else if (this.$route.name === 'Quorum') {
         shepTour.addStep('quorumtour', {
-          text: 'The is a list of all the content that has received votes.',
+          text: 'The is a list of all the Audio that has received votes.',
           attachTo: '.quorumtour right',
           classes: 'stepFont',
           tippyOptions: {

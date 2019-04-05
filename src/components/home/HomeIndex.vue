@@ -1,11 +1,9 @@
 <template lang="html">
   <div class="container-fluid">
     <div>
-      <v-layout transition="slide-y-transition" row class="mt-0 mb-3" :class="proximitySearchResult.length > 0 ? 'map-wrapper' : 'map-wrapper-ini'" v-if="proximitySearchResult">
+      <!--      <v-layout transition="slide-y-transition" row class="mt-0 mb-3" :class="proximitySearchResult.length > 0 ? 'map-wrapper' : 'map-wrapper-ini'" v-if="proximitySearchResult">
         <v-flex col >
           <v-subheader class="pl-0 mt-0"></v-subheader>
-          <!-- <span v-if="proximitySearchResult.length > 0" color="grey"></span>
-          <span v-else color="grey"></span> -->
           <OpenMapWithMultipleMarkers
             v-if="proximitySearchResult"
             :markers="proximitySearchResult"
@@ -15,8 +13,8 @@
           >
           </OpenMapWithMultipleMarkers>
         </v-flex>
-      </v-layout>
-      <app-box></app-box>
+      </v-layout>-->
+      <!--      <app-box></app-box>-->
 
       <v-layout row flex-wrap>
         <v-flex md6>
