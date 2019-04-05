@@ -14,8 +14,8 @@
           </v-flex>
         </v-layout>-->
 
-      <v-flex xs4 class="quorumtour">
-        <v-card :hover="true" @click="redirectUser(item)" class="br20 mt-2" v-for="(item, index) in quorumData" :key="index">
+      <v-flex xs12 class="quorumtour">
+        <v-card :hover="true" @click="redirectUser(item)" class="br20" v-for="(item, index) in quorumData" :key="index">
           <v-card-text>
             <v-layout row>
               <v-flex v-if="lazyLoadedData[item.contentUrl]" class="space-between">
