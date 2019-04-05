@@ -16,7 +16,7 @@ const items = [
     color: 'red',
     action: 'whatshot',
     title: 'Popular',
-    linkTo: '/quorum',
+    linkTo: '/popular',
     class: 'step9'
   },
   {
