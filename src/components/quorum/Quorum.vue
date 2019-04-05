@@ -20,15 +20,16 @@
               <v-layout row>
                 <v-flex v-if="lazyLoadedData[item.contentUrl]" class="space-between">
                   <h4 class="inline-block">{{lazyLoadedData[item.contentUrl].title}}</h4>
-                  <v-btn dark color="teal accent-4" icon><v-icon dark>keyboard_arrow_right</v-icon></v-btn>
+                  <v-btn dark color="blue accent-4" icon><v-icon dark>play_circle_fill</v-icon></v-btn>
                 </v-flex>
               </v-layout>
               <div>{{type(item.contentUrl)}}</div>
               <div class="v-list__tile__sub-title" v-if="lazyLoadedData[item.contentUrl]" >{{lazyLoadedData[item.contentUrl].description}}</div>
-              <div class="v-list__tile__sub-title">Votes: {{item.votes}}</div>
-              <div class="v-list__tile__sub-title">Content URL: <span>{{item.contentUrl}}</span></div>
+              <div class="v-list__tile__sub-title">Vote Balance: {{item.votes}}</div>
+              <div class="v-list__tile__sub-title">Storage URL: <span>{{item.contentUrl}}</span></div>
               <div class="v-list__tile__sub-title">Created On: {{new Date(Number(item.createdOn)).toDateString()}}</div>
             </v-card-text>
+            <audio class="soundplayer" src="http://www.hochmuth.com/mp3/Beethoven_12_Variation.mp3" controls></audio>
             <!-- <v-list two-line>
               <v-list-tile-action></v-list-tile-action>
               <v-list-tile>
