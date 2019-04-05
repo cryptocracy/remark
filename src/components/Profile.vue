@@ -71,20 +71,19 @@
             </v-card>
           </v-flex>
           <v-flex xs2></v-flex>
+          <!-- reveal the qr code button starts here -->
           <v-flex xs1 class="br20">
             <v-card>
               <v-card-action><v-icon dark block color="purple accent-4" @click="eventBus.$emit('showBTCAddress', {qrSrc, address})" class="br20">fa-qrcode</v-icon></v-card-action>
             </v-card>
           </v-flex>
           <v-flex xs1 class="br20">
-            <v-list>
-              <v-list-tile-action><v-icon color="orange accent-4" :disabled="$route.params.id === 'my-profile' || !hasBTCProof" block :dark="hasBTCProof && $route.params.id !== 'my-profile'" class="br20" @click="redirectUser">fa-bitcoin</v-icon></v-list-tile-action>
-            </v-list>
+            <v-card>
+              <v-card-action><v-icon color="orange accent-4" :disabled="$route.params.id === 'my-profile' || !hasBTCProof" block :dark="hasBTCProof && $route.params.id !== 'my-profile'" class="br20" @click="redirectUser">fa-bitcoin</v-icon></v-card-action>
+            </v-card>
           </v-flex>
           <v-flex xs1 class="br20">
-            <v-list>
-              <v-list-tile-action><v-icon color="blue accent-4" dark block class="br20" @click="eventBus.$emit('payWithAltcoins')">fa-rocket</v-icon></v-list-tile-action>
-            </v-list>
+            <v-icon color="blue accent-4" dark block class="br20" @click="eventBus.$emit('payWithAltcoins')">fa-rocket</v-icon>
           </v-flex>
           <v-flex xs12></v-flex>
           <!-- grid of channel players starts here -->
