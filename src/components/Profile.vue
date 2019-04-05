@@ -29,15 +29,7 @@
           </v-flex>
           <!-- row of channel buttons starts here -->
           <v-flex xs2 class="br20">
-            <v-list>
-              <v-card class="br20" >
-                <v-list-tile @click="redirectToResources('OwnedImages')"><v-list-tile-action><v-icon color="teal accent-4">fa-rss</v-icon></v-list-tile-action>
-                  <v-list-tile-content><v-list-tile-title>{{resources.images}}</v-list-tile-title>
-                    <v-list-tile-sub-title>Audio Library</v-list-tile-sub-title>
-                  </v-list-tile-content>
-                </v-list-tile>
-              </v-card>
-            </v-list>
+            <v-icon color="teal accent-4" @click="redirectToResources('OwnedImages')">fa-rss</v-icon>{{resources.images}}
           </v-flex>
           <v-flex xs2 class="br20">
             <v-tooltip bottom>
