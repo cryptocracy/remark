@@ -279,7 +279,7 @@ export const tourMixin = {
             }
           ]
         })
-        shepTour.addStep('quorumList', {
+        /* shepTour.addStep('quorumList', {
           text: 'Here you can change the sort order of listed content by total number of votes received (Popularity), or by the output of the Votes (Vote Sum).',
           attachTo: '.quorumList bottom',
           classes: 'stepFont',
@@ -308,7 +308,7 @@ export const tourMixin = {
               action: shepTour.next
             }
           ]
-        })
+        }) */
         shepTour.start()
       }
     }

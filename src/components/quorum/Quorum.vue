@@ -3,7 +3,7 @@
     <v-layout row wrap justify-center>
       <v-flex xs10>
         <v-layout justify-end row wrap>
-          <v-flex xs3 class='quorumList'>
+          <!--          <v-flex xs3 class='quorumList'>
             <v-select
               label="Sort By"
               :items="list"
@@ -11,7 +11,7 @@
               @input="changeSortBy"
             >
             </v-select>
-          </v-flex>
+          </v-flex>-->
         </v-layout>
 
         <v-flex class="quorumtour">
@@ -54,7 +54,7 @@ export default {
       { text: 'Popularity', value: 'pop' },
       { text: 'Votes Sum', value: 'sum' }
     ],
-    sortBy: 'pop',
+    sortBy: 'sum',
     lazyLoadedData: {}
   }),
   computed: {
@@ -95,7 +95,7 @@ export default {
     }
   },
   created () {
-    this.$store.dispatch('ACTION_GET_QUORUM_DATA', { sort: 'pop' })
+    this.$store.dispatch('ACTION_GET_QUORUM_DATA', { sort: 'sum' })
   }
 }
 </script>

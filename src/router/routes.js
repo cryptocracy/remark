@@ -86,7 +86,7 @@ const routes = [
   { path: '/wallet/history', name: 'History', component: WalletHistory },
   { path: '/wallet/send', name: 'Send', component: WalletSend },
 
-  { path: '/quorum', name: 'Quorum', component: Quorum }
+  { path: '/popular', name: 'Quorum', component: Quorum }
 ]
 
 export default routes
