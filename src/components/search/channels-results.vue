@@ -31,15 +31,15 @@
 
                 <v-list-tile-action>
                   <v-tooltip bottom v-if="!addedChannels.hasOwnProperty(item.fullyQualifiedName)">
-                    <v-btn slot="activator" @click.stop="updateChannels(item, 'addition')" outline fab small color="purple accent-4">
-                      <v-icon  color="purple accent-4">add_to_queue</v-icon>
+                    <v-btn slot="activator" @click.stop="updateChannels(item, 'addition')" outline fab small color="blue accent-4">
+                      <v-icon  color="blue accent-4">add_alert</v-icon>
                     </v-btn>
                     <span>Subscribe to this Channel</span>
                   </v-tooltip>
 
                   <v-tooltip bottom v-else>
-                    <v-btn slot="activator" @click.stop="updateChannels(item, 'deletion')" outline fab small color="purple accent-4">
-                      <v-icon  color="purple accent-4">delete</v-icon>
+                    <v-btn slot="activator" @click.stop="updateChannels(item, 'deletion')" outline fab small color="red accent-4">
+                      <v-icon  color="red accent-4">close</v-icon>
                     </v-btn>
                     <span>Unsubscribe from this Channel</span>
                   </v-tooltip>
