@@ -28,8 +28,8 @@
             </v-card>
           </v-flex>
           <!-- row of channel buttons starts here -->
-          <v-flex xs2 class="br20">
-            <v-icon color="teal accent-4" @click="redirectToResources('OwnedImages')">fa-rss</v-icon>{{resources.images}}
+          <v-flex xs1 class="br20">
+            <v-icon color="teal accent-4" @click="redirectToResources('OwnedImages')">fa-rss</v-icon> {{resources.images}}
           </v-flex>
           <v-flex xs2 class="br20">
             <v-tooltip bottom>
@@ -42,6 +42,7 @@
               <v-list-tile-sub-title>Channel Name</v-list-tile-sub-title>
             </v-list-tile-content>
           </v-flex>
+          <v-flex xs1></v-flex>
           <v-flex xs1></v-flex>
           <!-- subscribe to channel button starts here -->
           <v-flex xs2 class="br20">
