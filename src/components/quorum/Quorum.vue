@@ -15,7 +15,8 @@
         </v-layout>-->
 
       <v-flex xs12 class="quorumtour">
-        <v-card :hover="true" @click="redirectUser(item)" class="br20" v-for="(item, index) in quorumData" :key="index">
+        <!-- <v-card :hover="true" @click="redirectUser(item)" class="br20" v-for="(item, index) in quorumData" :key="index"> DISABLED/Replaced by next line of code, SINCE WE DON'T WANT THE @click yet -->
+        <v-card :hover="true" class="br20" v-for="(item, index) in quorumData" :key="index">
           <v-card-text>
             <v-layout row>
               <v-flex v-if="lazyLoadedData[item.contentUrl]" class="space-between">
