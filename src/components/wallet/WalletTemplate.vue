@@ -1,6 +1,6 @@
 <template>
-  <v-layout row>
-    <v-flex xs12 sm8 offset-sm2>
+  <v-layout row wrap>
+    <v-flex xs12>
       <v-card class="br20">
         <v-layout class="wallet-card">
           <v-list-tile avatar>
