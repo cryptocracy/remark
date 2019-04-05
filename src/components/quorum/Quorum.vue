@@ -1,6 +1,6 @@
 <template>
   <v-container grid-list-md>
-    <v-layout row wrap justify-center>
+    <v-layout row wrap>
       <v-flex xs4>
         <v-layout justify-end row wrap>
           <!--          <v-flex xs3 class='quorumList'>
@@ -110,7 +110,7 @@ export default {
 }
 .soundplayer {
   width: 100%
-}  
+}
 .space-between {
   margin-left: 2%;
   display: flex;
