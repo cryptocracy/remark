@@ -13,7 +13,7 @@
     <v-btn
       slot="activator"
       v-model="fab"
-      color="red accent-4"
+      color="blue accent-4"
       dark
       fab
     >
@@ -33,7 +33,7 @@
       fab
       dark
       small
-      color="red lighten-1"
+      color="blue lighten-1"
       :to="{ name: 'AddImage', params: { imageProp: null } }"
     >
       <v-icon>cloud_upload</v-icon>
