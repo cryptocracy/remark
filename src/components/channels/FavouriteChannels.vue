@@ -28,7 +28,7 @@
                   <!-- <v-btn outline fab small color="teal accent-4"><v-icon  large @click="addToChannels(item)" color="teal accent-4">checked</v-icon></v-btn> -->
                   <v-list-tile-avatar class="ml-2">
                     <img v-if="item.profile.hasOwnProperty('image')" :src="item.profile.image[0].contentUrl">
-                    <v-icon v-else large color="blue accent-4">loupe</v-icon>
+                    <v-icon v-else large color="blue accent-4">add_alert</v-icon>
 
                   </v-list-tile-avatar>
 
@@ -41,7 +41,7 @@
 
                     <v-tooltip bottom>
                       <v-btn slot="activator" @click.stop="updateChannels(item, 'deletion')" outline fab small color="red accent-4">
-                        <v-icon  color="red accent-4">cancel</v-icon>
+                        <v-icon  color="red accent-4">close</v-icon>
                       </v-btn>
                       <span>Unsubscribe from this Channel</span>
                     </v-tooltip>
