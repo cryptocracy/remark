@@ -41,14 +41,6 @@
           >
           </app-layout>
         </v-flex>
-
-        <!-- <v-flex md12>
-          <app-layout
-            title="User Table"
-            :children="UserTable"
-          >
-          </app-layout>
-        </v-flex>-->
       </v-layout>
     </div>
 
