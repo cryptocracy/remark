@@ -25,11 +25,36 @@
         </v-layout>
       </v-card>
     </v-flex>
+    <v-flex md6>
+      <app-layout
+        height="300px"
+        title="Wallet Input (Received)"
+        :children="LineChart"
+        class='walletInput'
+        :showGraph="showDonationGraph"
+        error_message_title = "No Donations found."
+        error_message="Be patient, it may take time for other users to show interest in your content."
+      >
+      </app-layout>
+    </v-flex>
+    <v-flex md6>
+      <app-layout
+        height="300px"
+        title="Wallet Output (Payouts)"
+        :children="BarChart"
+        class='walletOutput'
+        :showGraph="showPayoutGraph"
+        error_message_title = "No Payouts found."
+        error_message="Looks like you have not initiated any payouts yet."
+      >
+      </app-layout>
+    </v-flex>
   </v-layout>
 </template>
 
 <script>
 import axios from 'axios'
+import LineChart from '@/components/charts/line-chart/LineChart'
 
 export default {
   name: 'Summary',
@@ -37,6 +62,7 @@ export default {
     title: '',
     address: '',
     amount: '',
+    LineChart,
     icon: ''
   }),
   methods: {
@@ -48,6 +74,10 @@ export default {
       document.execCommand('copy')
       document.body.removeChild(tempInput)
     }
+  },
+  computed: {
+    showDonationGraph: 'showDonationGraph',
+    showPayoutGraph: 'showPayoutGraph'
   },
   mounted () {
     this.$store.commit('toggleLoading')
