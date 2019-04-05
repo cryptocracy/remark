@@ -318,7 +318,7 @@ export default {
   margin-left: 1em
 }
 #myavatar {
-  margin-top: -140px
+  margin-top: -136px
 }
 .soundplayer {
   width: 100%
