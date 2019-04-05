@@ -25,6 +25,7 @@
         </v-layout>
       </v-card>
     </v-flex>
+    <v-flex xs12></v-flex>
     <v-flex md6>
       <app-layout
         height="300px"
