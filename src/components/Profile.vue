@@ -29,7 +29,7 @@
           </v-flex>
           <!-- row of channel buttons starts here -->
           <v-flex xs1 class="br20">
-            <v-icon color="teal accent-4" @click="redirectToResources('OwnedImages')">fa-rss</v-icon> {{resources.images}}
+            <v-icon color="teal accent-4" @click="redirectToResources('OwnedSounds')">fa-rss</v-icon> {{resources.sounds}}
           </v-flex>
           <v-flex xs2 class="br20">
             <v-tooltip bottom>
@@ -161,7 +161,7 @@ export default {
     // address: '',
     resources: {
       tags: 0,
-      markers: 0,
+      sounds: 0,
       images: 0
     },
     eventBus: eventBus
@@ -274,7 +274,7 @@ export default {
           .catch(e => {
             this.resources.tags = 0
           })
-        axios.get(url + 'my_markers.json').then(res => {
+        axios.get(url + 'my_sounds.json').then(res => {
           this.resources.markers = Object.keys(res.data).length
         })
           .catch(e => {
