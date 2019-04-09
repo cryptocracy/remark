@@ -113,9 +113,9 @@ export default {
       v => validationService.validateTags(v)
     ]
   }),
-  /*   components: {
+  components: {
     // Datetime
-  }, */
+  },
   props: {
     soundProp: {
       type: [Object, null],
