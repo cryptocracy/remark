@@ -3,7 +3,7 @@
     <v-form ref="form" v-model="valid">
       <sound-uploader
         accept="audio/mp3"
-        ref="imageInput"
+        ref="soundInput"
         :disabled="isLoading"
         limit=20000000
         :value="soundFile"
@@ -113,9 +113,9 @@ export default {
       v => validationService.validateTags(v)
     ]
   }),
-  components: {
+  /*   components: {
     // Datetime
-  },
+  }, */
   props: {
     soundProp: {
       type: [Object, null],
