@@ -38,8 +38,10 @@
       <v-list-tile v-if="soundObject.sound">
         <v-list-tile-content>
           <v-flex xs12>
-            <audio src="{ soundObject.sound }" controls></audio>
-            audio File Path: { soundObject.sound }
+            <audio controls>
+              <source src="{{soundObject.sound}}">
+            </audio>
+            audio File Path: {{soundObject.sound}}
           </v-flex>
         </v-list-tile-content>
       </v-list-tile>
