@@ -29,7 +29,7 @@
 </template>
 
 <script>
-// import imageCompressor from '../../services/image-compressor'
+import imageCompressor from '../../services/image-compressor'
 
 export default {
   props: {
@@ -97,11 +97,11 @@ export default {
             if (files[0].size < this.limit) {
               this.$emit('input', files[0])
             } else {
-              return alert('File size limit exceeded')
-              /*              imageCompressor.compress(files[0], this.$refs.imageUrl, 0.8, this.limit)
-                .then((newImage) => {
-                  this.$emit('input', newImage)
-                }) */
+              // return alert('File size limit exceeded')
+              imageCompressor.compress(files[0], this.$refs.soundUrl, 0.8, this.limit)
+                .then((newSound) => {
+                  this.$emit('input', newSound)
+                })
             }
           })
         })
