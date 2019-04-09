@@ -184,7 +184,7 @@ export default {
         for (let property in this.soundProp) {
           this.sound[property] = this.soundProp[property] instanceof Object ? {...this.soundProp[property]} : this.soundProp[property]
         }
-        this.sound.images = objectHelpers.toArray(this.sound.images)
+        this.sound.sounds = objectHelpers.toArray(this.sound.sounds)
         this.soundProp.tags.forEach(item => {
           this.tags.push(item.title)
         })
