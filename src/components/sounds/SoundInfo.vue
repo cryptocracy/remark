@@ -37,10 +37,12 @@
       </v-list-tile>
       <v-card width="100%">
         <v-flex xs12>
+          <audio controls ref="{{ soundObject.soun }}"></audio>
+          <a> Or perhaps </a>
           <audio controls>
-            <source src="{{ sound }}">
+            <source ref="{{ soundObject.sound }}">
           </audio>
-          Path for File: {{ sound }}
+          Path for the File: {{ soundObject.sound }}
         </v-flex>
       </v-card>
       <!--<v-list-tile v-if="soundObject.private">-->
