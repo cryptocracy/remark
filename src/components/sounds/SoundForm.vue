@@ -54,7 +54,7 @@
         </div>
       </div>
       <v-btn
-        :disabled="!valid || isLoading || !soundFile"
+        :disabled="!valid || isLoading"
         @click="submit"
       >
         submit
