@@ -42,7 +42,7 @@ export default {
     },
     selectLabel: {
       type: String,
-      default: 'Select a MP3'
+      default: 'Select Your MP3'
     },
     disabled: {
       type: Boolean,

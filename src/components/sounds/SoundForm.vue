@@ -55,7 +55,7 @@
         </div>
       </div>
       <v-btn
-        :disabled="!valid || isLoading"
+        :disabled="!valid || isLoading || !soundFile"
         @click="submit"
       >
         submit
@@ -96,6 +96,7 @@ export default {
       address: '',
       tags: [],
       symbol: null,
+      sound: null,
       limit: false,
       archived: false,
       v: '0.0.1',
