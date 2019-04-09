@@ -27,24 +27,6 @@
         label="Crypto Address"
         :disabled="isLoading"
       ></v-text-field>
-      <v-select
-        :items="markers"
-        label="Marker"
-        item-text="title"
-        v-model="sound.marker"
-        :disabled="isLoading"
-        return-object
-      ></v-select>
-      <v-select
-        :items="images"
-        label="Image(s)"
-        item-text="title"
-        v-model="sound.images"
-        :disabled="isLoading"
-        return-object
-        multiple
-        chips
-      ></v-select>
       <v-combobox
         v-model="tags"
         chips
@@ -97,13 +79,11 @@ export default {
     isLoading: false,
     valid: false,
     tags: [],
-    images: [],
     sound: {
       title: '',
       description: '',
       address: '',
       tags: [],
-      images: null,
       symbol: null,
       limit: false,
       archived: false,
@@ -179,8 +159,6 @@ export default {
     },
     clear () {
       this.$refs.form.reset()
-      this.sound.start = undefined
-      this.sound.end = undefined
     },
     updateFromSoundProp () {
       if (this.soundProp) {
