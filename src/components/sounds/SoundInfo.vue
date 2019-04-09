@@ -36,14 +36,12 @@
         </v-list-tile-content>
       </v-list-tile>
       <v-list-tile>
-        <v-list-tile-content>
-          <v-flex xs12>
-            <audio controls>
-              <source src="{{ soundObject.sound }}">
-            </audio>
-            File Path: {{ soundObject.sound }}
-          </v-flex>
-        </v-list-tile-content>
+        <v-flex xs12>
+          <audio controls>
+            <source src="{{ soundObject.sound }}">
+          </audio>
+          Path to File: {{ soundObject.sound }}
+        </v-flex>
       </v-list-tile>
       <!--<v-list-tile v-if="soundObject.private">-->
       <!--<v-list-tile-content>-->
