@@ -32,7 +32,7 @@
       <v-text-field
         v-model="sound.address"
         :rules="addressRules"
-        :counter="32"
+        :counter="34"
         label="Crypto Address"
         :disabled="isLoading"
       ></v-text-field>
@@ -55,7 +55,7 @@
         </div>
       </div>
       <v-btn
-        :disabled="!valid || isLoading || !soundFile"
+        :disabled="!valid || isLoading"
         @click="submit"
       >
         submit
@@ -110,7 +110,7 @@ export default {
     ],
     addressRules: [
       v => v ? /^((?!_)[A-z0-9])+$/.test(v) || 'Letters and numbers are only allowed' : true,
-      v => v ? v.length <= 42 || 'Please enter proper donation BTC or STX address' : true
+      v => v ? v.length <= 34 || 'Please enter proper donation BTC or STX address' : true
     ],
     tagsRules: [
       v => validationService.validateTags(v)

@@ -93,6 +93,7 @@ export default {
         const fileReader = new FileReader()
         fileReader.addEventListener('load', () => {
           this.soundUrl = fileReader.result
+          console.log('The soundUrl is ' + this.soundUrl)
           /*          this.$refs.soundUrl.addEventListener('load', () => {
             if (files[0].size < this.limit) {
               this.$emit('input', files[0])
