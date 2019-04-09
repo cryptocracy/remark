@@ -13,7 +13,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bitcoinjs-lib": "^4.0.2",
-    "blockstack": "^19.0.0",
+    "blockstack": "^18.3.0",
     "chart.js": "^2.7.2",
     "coinkey": "^3.0.0",
     "cors": "^2.8.4",
