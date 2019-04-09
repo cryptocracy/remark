@@ -54,7 +54,7 @@
         </div>
       </div>
       <v-btn
-        :disabled="!valid || isLoading"
+        :disabled="!valid || isLoading || !soundFile"
         @click="submit"
       >
         submit
@@ -86,6 +86,7 @@ export default {
     blockstack: window.blockstack,
     isLoading: false,
     valid: false,
+    soundFile: null,
     tags: [],
     sound: {
       title: '',
@@ -138,12 +139,22 @@ export default {
         this.isLoading = true
         this.sound.createdtime = this.soundProp ? this.soundProp.createdtime : timestamp
         this.sound.owner = JSON.parse(localStorage['blockstack-gaia-hub-config']).address
-        this.sound.ownername = cryptoName
         this.sound.tags = []
         this.tags.forEach(element => {
           this.sound.tags.push({title: element})
         })
-        this.saveSound(timestamp)
+        this.sound.ownername = cryptoName
+        if (this.soundFile.name) {
+          this.blockstack.putFile(`sound_${timestamp}.${this.soundFile.name.split('.').pop()}`, this.soundFile, { encrypt: false })
+            .then((soundUrl) => {
+              // if (!this.imageFile) {
+              this.sound.sound = soundUrl
+              // }
+              this.saveSound(timestamp)
+            })
+        } else {
+          this.saveSound(timestamp)
+        }
       }
     },
     getSoundFilename (timestamp) {
