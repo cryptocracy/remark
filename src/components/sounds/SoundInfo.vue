@@ -40,7 +40,7 @@
           <audio controls>
             <source src="{{ soundObject.sound.toLocaleString() }}">
           </audio>
-          Path to File: {{ soundObject.sound.toLocaleString() }}
+          Path of File: {{ soundObject.sound.toLocaleString() }}
         </v-flex>
       </v-card>
       <!--<v-list-tile v-if="soundObject.private">-->
