@@ -92,13 +92,13 @@ export default {
     },
     symbols: ['BTC', 'STX'],
     titleRules: [
-      v => !!v || 'Name is required',
-      v => (v && v.length <= 32) || 'Name must be less than 32 characters',
+      v => !!v || 'A Title is required',
+      v => (v && v.length <= 32) || 'The Title must be less than 32 characters',
       v => /^[\w ]+$/.test(v) || 'Letters, numbers, spaces and "_" are only allowed'
     ],
     addressRules: [
       v => v ? /^((?!_)[A-z0-9])+$/.test(v) || 'Letters and numbers are only allowed' : true,
-      v => v ? v.length <= 42 || 'Please enter proper address' : true
+      v => v ? v.length <= 42 || 'Please enter proper donation BTC or STX address' : true
     ],
     tagsRules: [
       v => validationService.validateTags(v)

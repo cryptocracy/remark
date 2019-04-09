@@ -25,7 +25,7 @@
       dark
       small
       color="red lighten-1"
-      :to="{ name: 'AddSound', params: { soundProp: null } }"
+      to="/"
     >
       <v-icon>mic</v-icon>
     </v-btn>
@@ -34,7 +34,7 @@
       dark
       small
       color="blue lighten-1"
-      :to="{ name: 'AddImage', params: { imageProp: null } }"
+      :to="{ name: 'AddSound', params: { soundProp: null } }"
     >
       <v-icon>cloud_upload</v-icon>
     </v-btn>
