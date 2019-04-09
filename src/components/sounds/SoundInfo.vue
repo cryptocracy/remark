@@ -38,9 +38,9 @@
       <v-card width="100%">
         <v-flex xs12>
           <audio controls>
-            <source src="{{ soundObject.sound.toLocaleString() }}">
+            <source src="{{ sound }}">
           </audio>
-          Path of File: {{ soundObject.sound.toLocaleString() }}
+          Path for File: {{ sound }}
         </v-flex>
       </v-card>
       <!--<v-list-tile v-if="soundObject.private">-->
