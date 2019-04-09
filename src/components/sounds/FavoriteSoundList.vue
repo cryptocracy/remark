@@ -19,7 +19,7 @@ export default {
     soundsArray: []
   }),
   methods: {
-    fetchEventFile () {
+    fetchSoundFile () {
       // fetching project list
       this.blockstack.getFile(this.storageFile, { decrypt: false })
         .then((soundsText) => {
