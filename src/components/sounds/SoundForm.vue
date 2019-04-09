@@ -1,14 +1,14 @@
 <template>
   <v-card class="container">
     <v-form ref="form" v-model="valid">
-      <sound-uploader
+      <!-- <sound-uploader
         accept="audio/mp3"
         ref="soundInput"
         :disabled="isLoading"
         limit=20000000
         :value="soundFile"
         @input="getUploadedSound"
-      />
+      /> -->
       <v-text-field
         v-model="sound.title"
         :rules="titleRules"
