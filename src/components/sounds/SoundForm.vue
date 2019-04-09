@@ -54,7 +54,7 @@
         </div>
       </div>
       <v-btn
-        :disabled="!valid || isLoading"
+        :disabled="!valid || isLoading || !soundFile"
         @click="submit"
       >
         submit
@@ -75,7 +75,7 @@ import { Settings } from 'luxon'
 import objectHelpers from '@/helpers/objectHelpers.js'
 import validationService from '@/helpers/validate'
 
-// const cryptoAddress = localStorage['blockstack-gaia-hub-config'] ? JSON.parse(localStorage['blockstack-gaia-hub-config']).address : ''
+/* const cryptoAddress = localStorage['blockstack-gaia-hub-config'] ? JSON.parse(localStorage['blockstack-gaia-hub-config']).address : '' */
 const cryptoName = localStorage['blockstack'] ? JSON.parse(localStorage['blockstack']).username : ''
 
 Settings.defaultLocale = 'en'
@@ -147,9 +147,7 @@ export default {
         if (this.soundFile.name) {
           this.blockstack.putFile(`sound_${timestamp}.${this.soundFile.name.split('.').pop()}`, this.soundFile, { encrypt: false })
             .then((soundUrl) => {
-              // if (!this.imageFile) {
               this.sound.sound = soundUrl
-              // }
               this.saveSound(timestamp)
             })
         } else {
@@ -192,70 +190,9 @@ export default {
         this.clear()
       }
     }
-    /*     fetchMarkers () {
-      // fetching markers list
-      this.blockstack.getFile('my_markers.json', { decrypt: false })
-        .then((markersJSON) => {
-          let markersObj = JSON.parse(markersJSON)
-          if (markersObj) {
-            this.markers = Object.keys(markersObj).map((key) => {
-              return {
-                address: 'https://gaia.blockstack.org/hub/' + cryptoAddress + '/' + key + '.json',
-                title: markersObj[key]
-              }
-            })
-          }
-          this.blockstack.getFile('my_fav_markers.json', { decrypt: false })
-            .then((favMarkersJSON) => {
-              let favMarkersObj = JSON.parse(favMarkersJSON)
-              if (favMarkersObj) {
-                Object.keys(favMarkersObj).forEach((key) => {
-                  if (key.split('_')[2] !== cryptoAddress) {
-                    this.markers.push({
-                      address: 'https://gaia.blockstack.org/hub/' + key.split('_')[2] + '/' + key.substr(0, key.lastIndexOf('_')) + '.json',
-                      title: favMarkersObj[key]
-                    })
-                  }
-                })
-              }
-            })
-        })
-    }, */
-    /*    fetchImages () {
-      // fetching images list
-      this.blockstack.getFile('my_images.json', { decrypt: false })
-        .then((imagesJSON) => {
-          let imagesObj = JSON.parse(imagesJSON)
-          if (imagesObj) {
-            this.images = Object.keys(imagesObj).map((key) => {
-              return {
-                address: 'https://gaia.blockstack.org/hub/' + cryptoAddress + '/' + key + '.json',
-                title: imagesObj[key]
-              }
-            })
-          }
-          // this.blockstack.getFile('my_fav_images.json', { decrypt: false })
-          //   .then((favTagsJSON) => {
-          //     let favTagsObj = JSON.parse(favTagsJSON)
-          //     if (favTagsJSON) {
-          //       Object.keys(favTagsObj).forEach((key) => {
-          //         if (key.split('_')[2] !== cryptoAddress) {
-          //           this.images.push({
-          //             address: 'https://gaia.blockstack.org/hub/' + key.split('_')[2] + '/' + key.substr(0, key.lastIndexOf('_')) + '.json',
-          //             title: favTagsObj[key]
-          //           })
-          //         }
-          //       })
-          //     }
-          //   })
-        })
-    } */
   },
   mounted () {
     this.updateFromSoundProp()
-    // this.fetchMarkers()
-    // this.fetchTags()
-    // this.fetchImages()
   }
 }
 </script>
