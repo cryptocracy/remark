@@ -35,7 +35,7 @@
           </div>
         </v-list-tile-content>
       </v-list-tile>
-      <v-list-tile v-if="soundObject.sound">
+      <v-list-tile>
         <v-list-tile-content>
           <v-flex xs12>
             <audio controls>
