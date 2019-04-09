@@ -136,6 +136,10 @@ export default {
     }
   },
   methods: {
+    getUploadedSound (e) {
+      console.log('eeeee', e)
+      this.soundFile = e
+    },
     submit () {
       const timestamp = +new Date()
       if (this.$refs.form.validate()) {
@@ -150,6 +154,7 @@ export default {
         if (this.soundFile.name) {
           this.blockstack.putFile(`sound_${timestamp}.${this.soundFile.name.split('.').pop()}`, this.soundFile, { encrypt: false })
             .then((soundUrl) => {
+              console.log('URLLLLLL', soundUrl)
               this.sound.sound = soundUrl
               this.saveSound(timestamp)
             })

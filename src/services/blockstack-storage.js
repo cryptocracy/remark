@@ -33,6 +33,7 @@ const storageService = {
       return JSON.parse(localStorage['blockstack-gaia-hub-config']).address === resourceAddress
     } else return false
   },
+  updateSoundIndex: (key, value) => storageService.updateIndex('my_sounds.json', [key, value]),
   updateTagIndex: (key, value) => storageService.updateIndex('my_tags.json', [key, value]),
   updateTaskIndex: (key, value) => storageService.updateIndex('my_tasks.json', [key, value]),
   updateImageIndex: (key, value) => storageService.updateIndex('my_images.json', [key, value]),

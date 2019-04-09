@@ -17,6 +17,7 @@
       <v-btn raised class="error" @click="removeFile" :disabled="disabled" v-else>
         {{ removeLabel }}
       </v-btn>
+      <span >{{filename}}</span>
       <input
         type="file"
         ref="sound"
@@ -60,7 +61,8 @@ export default {
 
   data () {
     return {
-      soundUrl: ''
+      soundUrl: '',
+      filename: ''
     }
   },
 
@@ -83,8 +85,10 @@ export default {
 
     onFilePicked (event) {
       const files = event.target.files || event.dataTransfer.files
+      console.log(event)
+      this.filename = event.target.value
       if (files && files[0]) {
-        const filename = files[0].name
+        const filename = files[0].value
 
         if (filename && filename.lastIndexOf('.') <= 0) {
           return // return alert('Please add a valid sound!')
@@ -93,7 +97,8 @@ export default {
         const fileReader = new FileReader()
         fileReader.addEventListener('load', () => {
           this.soundUrl = fileReader.result
-          console.log('The soundUrl is ' + this.soundUrl)
+          console.log('The soundUrl is ' + files[0])
+          this.$emit('input', files[0])
           /*          this.$refs.soundUrl.addEventListener('load', () => {
             if (files[0].size < this.limit) {
               this.$emit('input', files[0])
