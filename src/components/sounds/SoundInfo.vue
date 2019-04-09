@@ -37,12 +37,17 @@
       </v-list-tile>
       <v-card width="100%">
         <v-flex xs12>
+          <a> Perhaps ref </a>
           <audio controls ref="{{ soundObject.sound }}"></audio>
-          <a> Or perhaps </a>
-          <audio controls ref="{{ soundObject.sound }}"></audio>
-          <a> Or perhaps this </a>
+          <a> Or perhaps ref string</a>
+          <audio controls ref="{{ soundObject.sound.toString() }}"></audio>
+          <a> Or perhaps src </a>
+          <audio controls src="{{ soundObject.sound }}"></audio>
+          <a> Or perhaps src string</a>
+          <audio controls src="{{ soundObject.sound.toString() }}"></audio>
+          <a> Or perhaps src string elements </a>
           <audio controls>
-            <source ref="{{ soundObject.sound.toString() }}">
+            <source src="{{ soundObject.sound.toString() }}">
           </audio>
           Path for the File: {{ soundObject.sound }}
         </v-flex>
