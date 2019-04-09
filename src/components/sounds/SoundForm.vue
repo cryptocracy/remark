@@ -1,15 +1,15 @@
 <template>
   <v-card class="container">
     <v-form ref="form" v-model="valid">
-      <!--      <sound-uploader
+      <sound-uploader
         accept="audio/mp3"
         ref="soundInput"
         :disabled="isLoading"
         limit=20000000
         :value="soundFile"
         @input="getUploadedSound"
-      />-->
-      <input type="file" :name="uploadSound" :value="soundFile" :disabled="isLoading" limit=20000000 accept="audio/mp3" class="input-file" required>
+      />
+      <!--      <input type="file" :name="uploadSound" :value="soundFile" :disabled="isLoading" limit=20000000 accept="audio/mp3" class="input-file" @input="getUploadedSound" required>-->
       <v-text-field
         v-model="sound.title"
         :rules="titleRules"
@@ -71,6 +71,7 @@
 </template>
 
 <script>
+import SoundUploader from '@/components/sound-uploader/SoundUploader'
 import storageService from '@/services/blockstack-storage'
 import { Settings } from 'luxon'
 import objectHelpers from '@/helpers/objectHelpers.js'
@@ -115,7 +116,7 @@ export default {
     ]
   }),
   components: {
-    // Datetime
+    SoundUploader
   },
   props: {
     soundProp: {
