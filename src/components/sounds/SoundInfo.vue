@@ -38,7 +38,7 @@
       <v-card width="100%">
         <v-flex xs12>
           <audio controls>
-            <source src="soundObject.sound.toString()">
+            <source v-bind:src="soundObject.sound">
           </audio>
           Path for the File: {{ soundObject.sound }}
         </v-flex>
