@@ -47,7 +47,7 @@
               }}"
             >
               <v-list-tile-avatar>
-                <v-icon color="orange lighten-4">today</v-icon>
+                <v-icon color="blue lighten-4">fa-podcast</v-icon>
               </v-list-tile-avatar>
 
               <v-list-tile-content>
@@ -79,7 +79,7 @@ export default {
   data: () => ({
     blockstack: window.blockstack,
     filterArchived: false,
-    filterActive: false,
+    filterActive: true,
     sortBy: 'name',
     sounds: []
   }),

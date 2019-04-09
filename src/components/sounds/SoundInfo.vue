@@ -35,14 +35,9 @@
           </div>
         </v-list-tile-content>
       </v-list-tile>
-      <v-list-tile v-if="soundObject.images && soundObject.images.length">
+      <v-list-tile v-if="soundObject.sound">
         <v-list-tile-content>
-          <v-list-tile-sub-title>{{ soundObject.images.length>1 ? 'Images' : 'Image' }}</v-list-tile-sub-title>
-          <div>
-            <template v-for="image in soundObject.images">
-              <v-chip :key="image.address">{{ image.title }}</v-chip>
-            </template>
-          </div>
+          <audio src="soundObject.sound" controls></audio>
         </v-list-tile-content>
       </v-list-tile>
       <!--<v-list-tile v-if="soundObject.private">-->
