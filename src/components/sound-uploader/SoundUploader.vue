@@ -110,7 +110,7 @@ export default {
     },
 
     removeFile () {
-      this.imageUrl = ''
+      this.soundUrl = ''
       this.$emit('input', null)
     }
   }
