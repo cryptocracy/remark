@@ -36,8 +36,8 @@ const items = [
     action: 'playlist_play',
     title: 'My Library',
     items: [
-      { title: 'My Uploads', linkTo: '/images/owned' },
-      { title: 'My Likes', linkTo: '/images/favorites' }
+      { title: 'My Uploads', linkTo: '/sounds/owned' },
+      { title: 'My Likes', linkTo: '/sounds/favorites' }
     ]
   },
   {

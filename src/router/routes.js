@@ -13,6 +13,11 @@ import MyImageList from '@/components/images/MyImageList'
 import FavoriteImageList from '@/components/images/FavoriteImageList'
 import ImageInfo from '@/components/images/ImageInfo'
 
+import SoundForm from '@/components/sounds/SoundForm'
+import MySoundList from '@/components/sounds/MySoundList'
+import FavoriteSoundList from '@/components/sounds/FavoriteSoundList'
+import SoundInfo from '@/components/sounds/SoundInfo'
+
 import EventForm from '@/components/events/EventForm'
 import MyEventList from '@/components/events/MyEventList'
 import FavoriteEventList from '@/components/events/FavoriteEventList'
@@ -56,6 +61,12 @@ const routes = [
   // { path: '/tags/owned', name: 'Owned', component: MyTagList },
   // { path: '/tags/favorites', name: 'Favorites', component: FavoriteTagList },
   // { path: '/tags/:tagName', name: 'TagInfo', props: true, component: TagInfo },
+
+  { path: '/sounds/add-sound', name: 'AddSound', props: true, component: SoundForm },
+  { path: '/sounds/edit-sound', name: 'EditSound', props: true, component: SoundForm },
+  { path: '/sounds/owned', name: 'OwnedSounds', component: MySoundList },
+  { path: '/sounds/favorites', name: 'FavoritesSounds', component: FavoriteSoundList },
+  { path: '/sounds/:soundName', name: 'SoundInfo', props: true, component: SoundInfo },
 
   { path: '/images/add-image', name: 'AddImage', props: true, component: ImageForm },
   { path: '/images/edit-image', name: 'EditImage', props: true, component: ImageForm },

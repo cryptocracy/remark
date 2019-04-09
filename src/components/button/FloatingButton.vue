@@ -25,7 +25,7 @@
       dark
       small
       color="red lighten-1"
-      to="/"
+      to="{ name: 'AddSound', params: { soundProp: null } }"
     >
       <v-icon>mic</v-icon>
     </v-btn>
