@@ -37,7 +37,7 @@
       </v-list-tile>
       <v-list-tile v-if="soundObject.sound">
         <v-list-tile-content>
-          <audio src="soundObject.sound" controls></audio>
+          <audio src="{{ soundObject.sound }}" controls></audio>
         </v-list-tile-content>
       </v-list-tile>
       <!--<v-list-tile v-if="soundObject.private">-->
