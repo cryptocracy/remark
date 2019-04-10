@@ -37,7 +37,7 @@
       </v-list-tile>
       <v-card width="100%">
         <v-flex xs12>
-          <audio controls>
+          <audio class="soundplayer" autoplay controls>
             <source v-bind:src="soundObject.sound">
           </audio>
           Path for the File: {{ soundObject.sound }}
@@ -192,3 +192,35 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.profile-info {
+  .headline {
+  color: #5a5d5f
+  }
+  h3{
+    color: grey
+  }
+}
+.br20 {
+  border-radius: 20px
+}
+.qr-code {
+  margin: 1% 0% 3% 0%
+}
+.ml25 {
+  margin-left: 1em
+}
+#myavatar {
+  margin-top: -144px
+}
+.soundplayer {
+  width: 100%
+}
+.si {
+  .v-icon {
+  font-size: 15px !important
+  }
+}
+
+</style>

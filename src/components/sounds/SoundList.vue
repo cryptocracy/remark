@@ -47,7 +47,7 @@
               }}"
             >
               <v-list-tile-avatar>
-                <v-icon color="blue lighten-4">fa-podcast</v-icon>
+                <v-icon color="blue lighten-3">fa-play-circle</v-icon>
               </v-list-tile-avatar>
 
               <v-list-tile-content>
