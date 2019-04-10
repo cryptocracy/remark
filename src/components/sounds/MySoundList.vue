@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import SoundList from './SoundList'
 import axios from 'axios'
+import SoundList from './SoundList'
 import { mapGetters } from 'vuex'
 
 const storageFile = 'my_sounds.json'

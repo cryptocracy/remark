@@ -43,7 +43,7 @@
               :to="{name: 'SoundInfo', params: {
                 soundName: 'sound_'+sound.createdtime,
                 soundObject: sound,
-                hubUrl: hubUrl
+                hubUrl
               }}"
             >
               <v-list-tile-avatar>
@@ -59,7 +59,7 @@
                 <v-btn v-if="owned" icon :to="{ name: 'EditSound', params: { soundProp: sound } }">
                   <v-icon color="grey lighten-1">edit</v-icon>
                 </v-btn>
-                <v-btn v-if="!hubUrl" icon @click.stop.prevent="removeFavorite($event, sound)">
+                <v-btn v-if="!owned && !hubUrl" icon @click.stop.prevent="removeFavorite($event, sound)">
                   <v-icon color="grey lighten-1">favorite_border</v-icon>
                 </v-btn>
               </v-list-tile-action>
