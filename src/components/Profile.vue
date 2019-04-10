@@ -275,10 +275,10 @@ export default {
             this.resources.tags = 0
           })
         axios.get(url + 'my_sounds.json').then(res => {
-          this.resources.markers = Object.keys(res.data).length
+          this.resources.sounds = Object.keys(res.data).length
         })
           .catch(e => {
-            this.resources.markers = 0
+            this.resources.sounds = 0
           })
         axios.get(url + 'my_images.json').then(res => {
           this.resources.images = Object.keys(res.data).length

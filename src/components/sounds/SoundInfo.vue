@@ -113,7 +113,7 @@
 </template>
 
 <script>
-// import axios from 'axios'
+import axios from 'axios'
 import storageService from '@/services/blockstack-storage'
 import Voter from '@/components/vote-buttons/voter'
 
@@ -188,11 +188,24 @@ export default {
             this.isFavorite = !!res[this.getFavSoundName()]
           }
         })
+        .then(() => {
+          if (this.soundObject.marker) {
+            axios.get(this.soundObject.marker.address)
+              .then(res => {
+                if (res) {
+                  this.markerCenter = res.data.coordinates
+                }
+                this.$store.commit('toggleLoading')
+              })
+              .catch(e => {
+                this.$store.commit('toggleLoading')
+              })
+          } else this.$store.commit('toggleLoading')
+        })
     }
   }
 }
 </script>
-
 <style lang="scss" scoped>
 .profile-info {
   .headline {
