@@ -1,8 +1,8 @@
 <template>
   <sound-list
     :soundsArray='soundsArray'
-    :hubUrl='hubUrl'
     :owned="!!!hubUrl"
+    :hubUrl="hubUrl"
   />
 </template>
 
@@ -18,17 +18,17 @@ export default {
   components: {
     SoundList
   },
+  computed: {
+    ...mapGetters({
+      contentData: 'getContentData'
+    })
+  },
   data: () => ({
     blockstack: window.blockstack,
     storageFile: storageFile,
     soundsArray: [],
     hubUrl: ''
   }),
-  computed: {
-    ...mapGetters({
-      contentData: 'getContentData'
-    })
-  },
   methods: {
     fetchSoundFile () {
       // fetching project list
@@ -47,6 +47,7 @@ export default {
           }
         })
     },
+
     fetchRedirectedUsersSoundFile (hubUrl) {
       // fetching project list
       axios.get(hubUrl + storageFile)
