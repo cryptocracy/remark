@@ -30,7 +30,12 @@
             <div class="v-list__tile__sub-title">Storage URL: <span>{{item.contentUrl}}</span></div>
             <div class="v-list__tile__sub-title">Created On: {{new Date(Number(item.createdOn)).toDateString()}}</div>
           </v-card-text>
-          <audio class="soundplayer" src="http://www.hochmuth.com/mp3/Beethoven_12_Variation.mp3" controls></audio>
+          <audio class="soundplayer" autoplay controls>
+            <source v-bind:src="item.sound">
+          </audio>
+          <!--
+                    <audio class="soundplayer" v-bind:src="item.sound" controls></audio>
+          -->
           <!-- <v-list two-line>
             <v-list-tile-action></v-list-tile-action>
             <v-list-tile>
