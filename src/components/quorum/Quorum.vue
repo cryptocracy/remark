@@ -30,7 +30,7 @@
             <div class="v-list__tile__sub-title">Storage URL: <span>{{item.contentUrl}}</span></div>
             <div class="v-list__tile__sub-title">Created On: {{new Date(Number(item.createdOn)).toDateString()}}</div>
           </v-card-text>
-          <audio class="soundplayer" autoplay controls>
+          <audio class="soundplayer" controls>
             <source v-bind:src="lazyLoadedData[item.contentUrl].sound">
           </audio>
           <!--
