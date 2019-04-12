@@ -31,10 +31,10 @@
             <div class="v-list__tile__sub-title">Created On: {{new Date(Number(item.createdOn)).toDateString()}}</div>
           </v-card-text>
           <audio class="soundplayer" autoplay controls>
-            <source v-bind:src="item.sound">
+            <source v-bind:src="lazyLoadedData[item.contentUrl].sound">
           </audio>
           <!--
-                    <audio class="soundplayer" v-bind:src="item.sound" controls></audio>
+            <audio class="soundplayer" v-bind:src="item.sound" controls></audio>
           -->
           <!-- <v-list two-line>
             <v-list-tile-action></v-list-tile-action>
