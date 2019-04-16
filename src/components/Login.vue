@@ -51,7 +51,7 @@ export default {
     background: linear-gradient(to right, #409bf7, #91c3f7);
   }
   .application a {
-    color : #a135f0
+    color : #409bf7
   }
   .btn-login {
     border-radius: 20px;
