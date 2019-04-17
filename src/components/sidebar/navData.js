@@ -32,13 +32,16 @@ const items = [
     linkTo: '/subscribed-channels'
   },
   {
+    color: 'red lighten-1',
+    action: 'favorite',
+    title: 'My Likes',
+    linkTo: '/sounds/favorites'
+  },
+  {
     color: 'teal lighten-1',
-    action: 'playlist_play',
+    action: 'fa-rss',
     title: 'My Library',
-    items: [
-      { title: 'My Uploads', linkTo: '/sounds/owned' },
-      { title: 'My Likes', linkTo: '/sounds/favorites' }
-    ]
+    linkTo: '/sounds/owned'
   },
   {
     color: 'brown lighten-2',

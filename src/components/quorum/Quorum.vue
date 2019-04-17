@@ -21,18 +21,19 @@
             <v-layout row>
               <v-flex v-if="lazyLoadedData[item.contentUrl]" class="space-between">
                 <h4 class="inline-block">{{lazyLoadedData[item.contentUrl].title}}</h4>
-                <v-btn dark color="blue accent-4" icon><v-icon dark>play_circle_fill</v-icon></v-btn>
+                <v-btn outline fab color="blue accent-4"><v-icon>playlist_add</v-icon></v-btn>
               </v-flex>
             </v-layout>
             <div>{{type(item.contentUrl)}}</div>
             <div class="v-list__tile__sub-title" v-if="lazyLoadedData[item.contentUrl]" >{{lazyLoadedData[item.contentUrl].description}}</div>
-            <div class="v-list__tile__sub-title">Vote Balance: {{item.votes}}</div>
-            <div class="v-list__tile__sub-title">Storage URL: <span>{{item.contentUrl}}</span></div>
             <div class="v-list__tile__sub-title">Created On: {{new Date(Number(item.createdOn)).toDateString()}}</div>
+            <div class="v-list__tile__sub-title">Storage URL: <span>{{item.contentUrl}}</span></div>
           </v-card-text>
           <audio class="soundplayer" controls>
             <source v-bind:src="lazyLoadedData[item.contentUrl].sound">
           </audio>
+          <div class="v-list__tile__sub-title"><v-icon color="red accent-4">favorite</v-icon> {{item.votes}}</div>
+
           <!--
             <audio class="soundplayer" v-bind:src="item.sound" controls></audio>
           -->

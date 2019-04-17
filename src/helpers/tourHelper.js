@@ -251,7 +251,7 @@ export const tourMixin = {
         shepTour.start()
       } else if (this.$route.name === 'Quorum') {
         shepTour.addStep('quorumtour', {
-          text: 'This the Audio sorted by the amount of Likes its received.',
+          text: 'This is the Audio sorted by the amount of Likes its received.',
           attachTo: '.quorumtour right',
           classes: 'stepFont',
           tippyOptions: {
