@@ -55,12 +55,12 @@
           Edit
         </router-link>
         <a v-if="isFavorite" class="entity-action entity-action--favorite" @click="removeFromFavorite">
-          <v-icon color="teal lighten-1">favorite_border</v-icon>
-          <span class="teal--text text--lighten-1">Remove from Favorite</span>
+          <v-icon color="blue lighten-1">favorite_border</v-icon>
+          <span class="blue--text text--lighten-1">Remove from Likes</span>
         </a>
         <a v-if="!isFavorite" class="entity-action entity-action--favorite" @click="addToFavorite">
-          <v-icon color="teal lighten-1">favorite</v-icon>
-          <span class="teal--text text--lighten-1">Add to Favorite</span>
+          <v-icon color="blue lighten-1">favorite</v-icon>
+          <span class="blue--text text--lighten-1">Add to Likes</span>
         </a>
         <a class="entity-action entity-action--wallet" color="brown lighten-1" @click="redirectUser(soundObject.address)">
           <v-icon color="brown lighten-1">account_balance_wallet</v-icon>
@@ -87,7 +87,7 @@
             class="url-field"
             readonly
           />
-          <v-btn class="button-copy" color="#20C3A5" @click="copyUrl">{{ copyButtonText }}</v-btn>
+          <v-btn class="button-copy" color="#409bf7" @click="copyUrl">{{ copyButtonText }}</v-btn>
         </div>
       </v-list-tile>
       <v-list-tile>

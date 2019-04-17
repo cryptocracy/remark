@@ -251,7 +251,7 @@ export const tourMixin = {
         shepTour.start()
       } else if (this.$route.name === 'Quorum') {
         shepTour.addStep('quorumtour', {
-          text: 'The is a list of all the Audio that has received votes.',
+          text: 'This the Audio sorted by the amount of Likes its received.',
           attachTo: '.quorumtour right',
           classes: 'stepFont',
           tippyOptions: {
@@ -263,11 +263,11 @@ export const tourMixin = {
           scrollTo: true,
           buttons: [
             {
-              text: 'Skip',
+              text: 'Done',
               classes: 'tourButton',
               action: shepTour.cancel
-            },
-            {
+            }
+            /* {
               text: 'Back',
               classes: 'tourButton',
               action: shepTour.back
@@ -276,7 +276,7 @@ export const tourMixin = {
               text: 'Next',
               classes: 'tourButton',
               action: shepTour.next
-            }
+            } */
           ]
         })
         /* shepTour.addStep('quorumList', {
