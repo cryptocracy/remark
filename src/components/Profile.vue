@@ -70,7 +70,7 @@
           </v-flex>
           <v-flex xs12></v-flex>
           <!-- grid of channel players starts here -->
-          <v-flex xs12 class="br20">
+          <!--          <v-flex xs12 class="br20">
             <v-list>
               <v-card width="100%">
                 <audio class="soundplayer" src="http://www.hochmuth.com/mp3/Beethoven_12_Variation.mp3" controls></audio>
@@ -126,7 +126,7 @@
                 </v-card-actions>
               </v-card>
             </v-list>
-          </v-flex>
+          </v-flex>-->
         </v-layout>
       </v-container>
     </div>
