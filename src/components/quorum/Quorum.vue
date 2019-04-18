@@ -26,14 +26,12 @@
             </v-layout>
             <div>{{type(item.contentUrl)}}</div>
             <div class="v-list__tile__sub-title" v-if="lazyLoadedData[item.contentUrl]" >{{lazyLoadedData[item.contentUrl].description}}</div>
-            <div class="v-list__tile__sub-title">Created On: {{new Date(Number(item.createdOn)).toDateString()}}</div>
             <div class="v-list__tile__sub-title">Storage URL: <span>{{item.contentUrl}}</span></div>
           </v-card-text>
           <audio class="soundplayer" controls>
             <source v-bind:src="lazyLoadedData[item.contentUrl].sound">
           </audio>
-          <div class="v-list__tile__sub-title"><v-btn><v-icon color="red accent-4">favorite_border</v-icon> {{item.votes}} </v-btn></div>
-
+          <div class="v-list__tile__sub-title"><v-btn><v-icon color="red accent-4">favorite_border</v-icon> {{item.votes}} </v-btn> - Created: {{new Date(Number(item.createdOn)).toDateString()}}</div>
           <!--
             <audio class="soundplayer" v-bind:src="item.sound" controls></audio>
           -->
