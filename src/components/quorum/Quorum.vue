@@ -32,7 +32,7 @@
           <audio class="soundplayer" controls>
             <source v-bind:src="lazyLoadedData[item.contentUrl].sound">
           </audio>
-          <div class="v-list__tile__sub-title"><v-icon color="red accent-4">favorite</v-icon> {{item.votes}}</div>
+          <div class="v-list__tile__sub-title"><v-btn><v-icon color="red accent-4">favorite_border</v-icon> {{item.votes}} </v-btn></div>
 
           <!--
             <audio class="soundplayer" v-bind:src="item.sound" controls></audio>
