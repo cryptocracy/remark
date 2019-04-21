@@ -35,11 +35,19 @@
           </div>
         </v-list-tile-content>
       </v-list-tile>
-      <v-card width="100%">
+      <v-card class="br20" width="100%">
         <v-flex xs12>
-          <audio class="soundplayer" autoplay controls>
+          <!-- <audio class="soundplayer" autoplay controls>
             <source v-bind:src="soundObject.sound">
-          </audio>
+          </audio> -->
+          <v-tooltip bottom>
+            <v-btn @click="$store.commit('MUTATION_ADD_TO_PLAYLIST', soundObject)" color="primary" slot="activator" round icon ><v-icon>add</v-icon></v-btn>
+            <span>Add to current playlist</span>
+          </v-tooltip>
+          <v-tooltip bottom>
+            <v-btn slot="activator" icon color="primary" @click="$store.commit('MUTATION_SET_SOUND', soundObject)" round ><v-icon>play_arrow</v-icon></v-btn>
+            <span>Play</span>
+          </v-tooltip>
           Path for the File: {{ soundObject.sound }}
         </v-flex>
       </v-card>

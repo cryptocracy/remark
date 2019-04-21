@@ -12,6 +12,10 @@ Vue.use(Vuex)
 
 // All store data should place inside state as a central store
 const stateObject = {
+  audioUrl: String,
+  soundObject: Object,
+  playlistArr: [],
+  showPlayer: false,
   notifications,
   teams,
   sidebarOpen: true,
@@ -40,6 +44,34 @@ export default new Vuex.Store({
     toggleSidebar: (state) => {
       state.sidebarOpen = !state.sidebarOpen
     },
+    MUTATION_SET_SOUND: (state, payload) => {
+      console.log('YOOOOOOOOO', payload)
+      state.soundObject = {}
+      state.soundObject = payload
+      state.audioUrl = payload.sound
+      // state.playlistArr = []
+      // state.playlistArr.push(payload)
+      state.showPlayer = true
+    },
+    MUTATION_ADD_TO_PLAYLIST: (state, payload) => {
+      if (state.playlistArr.length === 0 && Object.keys(state.soundObject).length === 0) {
+        state.audioUrl = payload.sound
+        state.soundObject = payload
+      }
+      if (state.playlistArr.indexOf(payload) === -1) {
+        state.playlistArr.push(payload)
+      }
+      state.showPlayer = true
+    },
+    MUTATION_REMOVE_FROM_PLAYLIST: (state, index) => {
+      state.playlistArr.splice(index, 1)
+    },
+    MUTATION_HIDE_PLAYER: (state, payload) => {
+      state.audioUrl = ''
+      state.soundObject = {}
+      state.playlistArr = []
+      state.showPlayer = false
+    },
     toggleLoading: (state, payload) => {
       state.isLoading = payload || !state.isLoading
     },
@@ -49,6 +81,9 @@ export default new Vuex.Store({
   },
   getters: {
     isLoading: state => state.isLoading,
+    playlistArr: state => state.playlistArr,
+    soundObject: state => state.soundObject,
+    showPlayer: state => state.showPlayer,
     getSettings: state => state.settings
   }
 })

@@ -28,9 +28,18 @@
             <div class="v-list__tile__sub-title" v-if="lazyLoadedData[item.contentUrl]" >{{lazyLoadedData[item.contentUrl].description}}</div>
             <div class="v-list__tile__sub-title">Storage URL: <span>{{item.contentUrl}}</span></div>
           </v-card-text>
-          <audio class="soundplayer" controls>
+          <v-tooltip bottom>
+            <v-btn @click="$store.commit('MUTATION_ADD_TO_PLAYLIST', lazyLoadedData[item.contentUrl])" color="primary" slot="activator" round icon ><v-icon>add</v-icon></v-btn>
+            <span>Add to current playlist</span>
+          </v-tooltip>
+          <v-tooltip bottom>
+            <v-btn slot="activator" icon color="primary" @click="$store.commit('MUTATION_SET_SOUND', lazyLoadedData[item.contentUrl])" round ><v-icon>play_arrow</v-icon></v-btn>
+            <span>Play</span>
+          </v-tooltip>
+          <!-- <v-btn icon color="primary" @click="$store.commit('MUTATION_SET_SOUND', lazyLoadedData[item.contentUrl])" round ><v-icon>play_arrow</v-icon></v-btn> -->
+          <!-- <audio class="soundplayer" controls>
             <source v-bind:src="lazyLoadedData[item.contentUrl].sound">
-          </audio>
+          </audio> -->
           <div class="v-list__tile__sub-title"><v-btn><v-icon color="red accent-4">favorite_border</v-icon> {{item.votes}} </v-btn> - Created: {{new Date(Number(item.createdOn)).toDateString()}}</div>
           <!--
             <audio class="soundplayer" v-bind:src="item.sound" controls></audio>

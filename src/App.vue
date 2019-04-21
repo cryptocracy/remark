@@ -8,7 +8,9 @@
         <div :class="isSidebarOpen">
           <transition name="slide-fade" mode="out-in">
             <search-results v-if="isSearching"></search-results>
-            <router-view v-else/>
+            <div v-else>
+              <router-view/>
+            </div>
           </transition>
         </div>
         <!--<v-btn fab fixed bottom right dark color="teal accent-4">-->
@@ -23,6 +25,11 @@
             indeterminate
           ></v-progress-circular>
         </div>
+        <v-layout  row>
+          <v-flex class="player-parent-wrap" xs12>
+            <Player class="player-position" v-if="showPlayer" ></Player>
+          </v-flex>
+        </v-layout>
         <floating-button/>
         <v-footer class="pa-3" >
           <v-spacer></v-spacer>
@@ -39,6 +46,7 @@ import { mapGetters } from 'vuex'
 import Header from './components/header/Header'
 import Sidebar from './components/sidebar/Sidebar'
 import Login from './components/Login'
+import Player from './components/Player'
 import searchResults from './components/search/Search-results'
 import FloatingButton from './components/button/FloatingButton'
 
@@ -48,6 +56,7 @@ export default {
     'app-sidebar': Sidebar,
     'search-results': searchResults,
     login: Login,
+    Player,
     FloatingButton
   },
   name: 'app',
@@ -82,7 +91,8 @@ export default {
     */
     ...mapGetters({
       isSearching: 'isSearching',
-      isLoading: 'isLoading'
+      isLoading: 'isLoading',
+      showPlayer: 'showPlayer'
     }),
     isSidebarOpen () {
       return {
@@ -118,6 +128,15 @@ export default {
 </script>
 
 <style media="screen" scoped>
+
+  .player-position{
+    position: fixed;
+    bottom: 5%;
+  }
+  .player-parent-wrap {
+    display: flex;
+    justify-content: center;
+  }
 
   .slide-fade-enter-active {
     transition: all .2s ease;
