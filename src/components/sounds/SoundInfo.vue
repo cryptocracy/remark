@@ -41,7 +41,7 @@
             <source v-bind:src="soundObject.sound">
           </audio> -->
           <v-tooltip bottom>
-            <v-btn @click="$store.commit('MUTATION_ADD_TO_PLAYLIST', soundObject)" color="primary" slot="activator" round icon ><v-icon>add</v-icon></v-btn>
+            <v-btn @click="$store.commit('MUTATION_ADD_TO_PLAYLIST', soundObject)" color="primary" slot="activator" round icon ><v-icon>playlist_add</v-icon></v-btn>
             <span>Add to current playlist</span>
           </v-tooltip>
           <v-tooltip bottom>
