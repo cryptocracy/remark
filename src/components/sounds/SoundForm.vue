@@ -137,7 +137,6 @@ export default {
   },
   methods: {
     getUploadedSound (e) {
-      console.log('eeeee', e)
       this.soundFile = e
     },
     submit () {

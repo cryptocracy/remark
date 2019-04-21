@@ -85,7 +85,6 @@ export default {
 
     onFilePicked (event) {
       const files = event.target.files || event.dataTransfer.files
-      console.log(event)
       this.filename = event.target.value
       if (files && files[0]) {
         const filename = files[0].value

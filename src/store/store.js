@@ -45,7 +45,6 @@ export default new Vuex.Store({
       state.sidebarOpen = !state.sidebarOpen
     },
     MUTATION_SET_SOUND: (state, payload) => {
-      console.log('YOOOOOOOOO', payload)
       state.soundObject = {}
       state.soundObject = payload
       state.audioUrl = payload.sound
