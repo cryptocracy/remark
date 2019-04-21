@@ -21,7 +21,6 @@
             <v-layout row>
               <v-flex v-if="lazyLoadedData[item.contentUrl]" class="space-between">
                 <h4 class="inline-block">{{lazyLoadedData[item.contentUrl].title}}</h4>
-                <v-btn outline fab color="blue accent-4"><v-icon>playlist_add</v-icon></v-btn>
               </v-flex>
             </v-layout>
             <div>{{type(item.contentUrl)}}</div>
@@ -29,7 +28,7 @@
             <div class="v-list__tile__sub-title">Storage URL: <span>{{item.contentUrl}}</span></div>
           </v-card-text>
           <v-tooltip bottom>
-            <v-btn @click="$store.commit('MUTATION_ADD_TO_PLAYLIST', lazyLoadedData[item.contentUrl])" color="primary" slot="activator" round icon ><v-icon>add</v-icon></v-btn>
+            <v-btn @click="$store.commit('MUTATION_ADD_TO_PLAYLIST', lazyLoadedData[item.contentUrl])" color="primary" slot="activator" round icon ><v-icon>playlist_add</v-icon></v-btn>
             <span>Add to current playlist</span>
           </v-tooltip>
           <v-tooltip bottom>
