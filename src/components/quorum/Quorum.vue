@@ -21,7 +21,6 @@
             <v-layout row>
               <v-flex v-if="lazyLoadedData[item.contentUrl]" class="space-between">
                 <h4 class="inline-block">{{lazyLoadedData[item.contentUrl].title}}</h4>
-                <v-btn outline fab color="blue accent-4"><v-icon>playlist_add</v-icon></v-btn>
               </v-flex>
             </v-layout>
             <div>{{type(item.contentUrl)}}</div>
