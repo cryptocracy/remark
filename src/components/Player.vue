@@ -1,8 +1,8 @@
 <template>
   <v-card color="primary" class="br50">
     <v-card-text class="player-content-in p-1" >
-      <h5 class="ml-3 mr-3 white--text">{{soundObject.title}}</h5>
-      <audio color="primary" :src="soundObject.sound" controls autoplay></audio>
+      <h5 class="ml-3 mr-3 white--text">{{soundObject && soundObject.title}}</h5>
+      <audio id="audioplayer" color="primary" :src="soundObject.sound" controls autoplay></audio>
       <v-menu open-on-hover top offset-y>
         <template slot="activator">
           <v-btn
@@ -19,7 +19,7 @@
             :key="index"
             @click="$store.commit('MUTATION_SET_SOUND', item)"
           >
-            <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+            <v-list-tile-title>{{ item && item.title }}</v-list-tile-title>
             <v-list-tile-action class="ml-3"><v-btn @click.stop="$store.commit('MUTATION_REMOVE_FROM_PLAYLIST', index)" small color="primary" icon><v-icon small="">close</v-icon></v-btn></v-list-tile-action>
           </v-list-tile>
         </v-list>
@@ -37,6 +37,18 @@ export default {
       // audioUrl: 'audioUrl',
       playlistArr: 'playlistArr',
       soundObject: 'soundObject'
+    })
+  },
+  mounted () {
+    const audio = document.getElementById('audioplayer')
+    audio.addEventListener('ended', () => {
+      let currentIndex = this.playlistArr.indexOf(this.soundObject)
+      if (this.playlistArr.length > (currentIndex + 1)) {
+        audio.src = this.playlistArr[currentIndex + 1].sound
+        audio.load()
+        audio.play()
+        this.$store.commit('MUTATION_SET_SOUND', this.playlistArr[currentIndex + 1])
+      }
     })
   }
 }
