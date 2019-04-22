@@ -28,8 +28,10 @@
             <div class="v-list__tile__sub-title">Storage URL: <span>{{item.contentUrl}}</span></div>
           </v-card-text>
           <v-tooltip bottom>
-            <v-btn @click="$store.commit('MUTATION_ADD_TO_PLAYLIST', lazyLoadedData[item.contentUrl])" color="primary" slot="activator" round icon ><v-icon>playlist_add</v-icon></v-btn>
-            <span>Add to current playlist</span>
+            <v-btn :disabled="!lazyLoadedData[item.contentUrl]" v-if="!isAdded" @click="$store.commit('MUTATION_ADD_TO_PLAYLIST', lazyLoadedData[item.contentUrl]); isAdded = true" color="primary" slot="activator" round icon ><v-icon>add</v-icon></v-btn>
+            <v-btn v-else  color="primary" slot="activator" round icon ><v-icon>done</v-icon></v-btn>
+            <span v-if="!isAdded">Add to current playlist</span>
+            <span v-else>Added to current playlist</span>
           </v-tooltip>
           <v-tooltip bottom>
             <v-btn slot="activator" icon color="primary" @click="$store.commit('MUTATION_SET_SOUND', lazyLoadedData[item.contentUrl])" round ><v-icon>play_arrow</v-icon></v-btn>
@@ -70,7 +72,8 @@ export default {
       { text: 'Votes Sum', value: 'sum' }
     ],
     sortBy: 'sum',
-    lazyLoadedData: {}
+    lazyLoadedData: {},
+    isAdded: false
   }),
   computed: {
     ...mapGetters({

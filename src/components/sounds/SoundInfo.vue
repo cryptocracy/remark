@@ -41,8 +41,10 @@
             <source v-bind:src="soundObject.sound">
           </audio> -->
           <v-tooltip bottom>
-            <v-btn @click="$store.commit('MUTATION_ADD_TO_PLAYLIST', soundObject)" color="primary" slot="activator" round icon ><v-icon>playlist_add</v-icon></v-btn>
-            <span>Add to current playlist</span>
+            <v-btn v-if="!isAdded" @click="$store.commit('MUTATION_ADD_TO_PLAYLIST', soundObject); isAdded = true" color="primary" slot="activator" round icon ><v-icon>add</v-icon></v-btn>
+            <v-btn v-else  color="primary" slot="activator" round icon ><v-icon>done</v-icon></v-btn>
+            <span v-if="!isAdded">Add to current playlist</span>
+            <span v-else>Added to current playlist</span>
           </v-tooltip>
           <v-tooltip bottom>
             <v-btn slot="activator" icon color="primary" @click="$store.commit('MUTATION_SET_SOUND', soundObject)" round ><v-icon>play_arrow</v-icon></v-btn>
@@ -130,7 +132,8 @@ export default {
   data: () => ({
     copyButtonText: 'Copy',
     isFavorite: false,
-    isLoading: false
+    isLoading: false,
+    isAdded: false
   }),
   props: {
     soundObject: {
