@@ -20,14 +20,14 @@ const items = [
     class: 'step9'
   },
   {
-    color: 'green lighten-2',
-    action: 'subscriptions',
+    color: 'teal lighten-2',
+    action: 'fa-rss',
     title: 'Latest',
     linkTo: '/'
   },
   {
-    color: 'teal lighten-1',
-    action: 'fa-rss',
+    color: 'blue lighten-1',
+    action: 'fa-podcasts',
     title: 'Channels',
     linkTo: '/subscribed-channels'
   },
@@ -38,7 +38,7 @@ const items = [
     linkTo: '/sounds/favorites'
   },
   {
-    color: 'blue lighten-1',
+    color: 'teal lighten-1',
     action: 'fa-list-alt',
     title: 'My Library',
     linkTo: '/sounds/owned'
