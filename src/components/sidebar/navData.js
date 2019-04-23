@@ -26,8 +26,8 @@ const items = [
     linkTo: '/'
   },
   {
-    color: 'blue lighten-1',
-    action: 'fa-podcast',
+    color: 'teal lighten-1',
+    action: 'fa-rss',
     title: 'Channels',
     linkTo: '/subscribed-channels'
   },
@@ -38,8 +38,8 @@ const items = [
     linkTo: '/sounds/favorites'
   },
   {
-    color: 'teal lighten-1',
-    action: 'fa-rss',
+    color: 'blue lighten-1',
+    action: 'fa-list-alt',
     title: 'My Library',
     linkTo: '/sounds/owned'
   },

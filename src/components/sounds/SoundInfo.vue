@@ -41,7 +41,7 @@
             <source v-bind:src="soundObject.sound">
           </audio> -->
           <v-tooltip bottom>
-            <v-btn v-if="!isAdded" @click="$store.commit('MUTATION_ADD_TO_PLAYLIST', soundObject); isAdded = true" color="primary" slot="activator" round icon ><v-icon>add</v-icon></v-btn>
+            <v-btn v-if="!isAdded" @click="$store.commit('MUTATION_ADD_TO_PLAYLIST', soundObject); isAdded = true" color="primary" slot="activator" round icon ><v-icon>playlist_add</v-icon></v-btn>
             <v-btn v-else  color="primary" slot="activator" round icon ><v-icon>done</v-icon></v-btn>
             <span v-if="!isAdded">Add to current playlist</span>
             <span v-else>Added to current playlist</span>
