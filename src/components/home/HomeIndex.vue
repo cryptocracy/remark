@@ -1,5 +1,6 @@
 <template lang="html">
   <div class="container-fluid">
+    Coming Soon
     <div>
       <v-layout row flex-wrap>
         <v-flex md12>
