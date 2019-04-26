@@ -4,10 +4,10 @@
     <div>
       <v-layout row flex-wrap>
         <v-flex md12>
-          <v-card :hover="true" class="br20">
+          <v-card class="br20">
             <v-card-text>
               <v-layout row>
-                <v-flex v-if="lazyLoadedData[item.contentUrl]" class="space-between">
+                <v-flex class="space-between">
                   <h4 class="inline-block">{{lazyLoadedData[item.contentUrl].title}} TITLE</h4>
                 </v-flex>
               </v-layout>
