@@ -1,6 +1,5 @@
 <template lang="html">
   <div class="container-fluid">
-    Coming Soon
     <div>
       <v-layout row flex-wrap>
         <v-flex md12>
@@ -12,8 +11,8 @@
                 </v-flex>
               </v-layout>
               <div></div>
-              <div class="v-list__tile__sub-title">DETAIL</div>
-              <div class="v-list__tile__sub-title">Storage URL: <span>URL</span></div>
+              <div class="v-list__tile__sub-title">The Latest Uploads from Subscribed Channels</div>
+              <div class="v-list__tile__sub-title">Storage URL: <span></span></div>
             </v-card-text>
             <v-tooltip bottom>
               <v-btn color="primary" slot="activator" round icon ><v-icon>playlist_add</v-icon></v-btn>
@@ -23,7 +22,7 @@
               <v-btn slot="activator" icon color="primary" round ><v-icon>play_arrow</v-icon></v-btn>
               <span>Play</span>
             </v-tooltip>
-            <div class="v-list__tile__sub-title"><v-btn><v-icon color="red accent-4">favorite_border</v-icon> NUMBER </v-btn> - Created: DATE</div>
+            <div class="v-list__tile__sub-title"><v-btn><v-icon color="red accent-4">favorite_border</v-icon> 0 </v-btn> - Created: </div>
           </v-card>
         </v-flex>
       </v-layout>
