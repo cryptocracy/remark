@@ -8,12 +8,12 @@
             <v-card-text>
               <v-layout row>
                 <v-flex class="space-between">
-                  <h4 class="inline-block">{{lazyLoadedData[item.contentUrl].title}} TITLE</h4>
+                  <h4 class="inline-block">COMING SOON</h4>
                 </v-flex>
               </v-layout>
-              <div>{{type(item.contentUrl)}}</div>
-              <div class="v-list__tile__sub-title" v-if="lazyLoadedData[item.contentUrl]" >{{lazyLoadedData[item.contentUrl].description}} DETAIL</div>
-              <div class="v-list__tile__sub-title">Storage URL: <span>{{item.contentUrl}}</span></div>
+              <div></div>
+              <div class="v-list__tile__sub-title">DETAIL</div>
+              <div class="v-list__tile__sub-title">Storage URL: <span>URL</span></div>
             </v-card-text>
             <v-tooltip bottom>
               <v-btn :disabled="!lazyLoadedData[item.contentUrl]" v-if="!isAdded" @click="$store.commit('MUTATION_ADD_TO_PLAYLIST', lazyLoadedData[item.contentUrl]); isAdded = true" color="primary" slot="activator" round icon ><v-icon>playlist_add</v-icon></v-btn>
