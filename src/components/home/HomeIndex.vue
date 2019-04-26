@@ -16,16 +16,14 @@
               <div class="v-list__tile__sub-title">Storage URL: <span>URL</span></div>
             </v-card-text>
             <v-tooltip bottom>
-              <v-btn :disabled="!lazyLoadedData[item.contentUrl]" v-if="!isAdded" @click="$store.commit('MUTATION_ADD_TO_PLAYLIST', lazyLoadedData[item.contentUrl]); isAdded = true" color="primary" slot="activator" round icon ><v-icon>playlist_add</v-icon></v-btn>
-              <v-btn v-else  color="primary" slot="activator" round icon ><v-icon>done</v-icon></v-btn>
-              <span v-if="!isAdded">Add to current playlist</span>
-              <span v-else>Added to current playlist</span>
+              <v-btn color="primary" slot="activator" round icon ><v-icon>playlist_add</v-icon></v-btn>
+              <span>Add to current playlist</span>
             </v-tooltip>
             <v-tooltip bottom>
-              <v-btn slot="activator" icon color="primary" @click="$store.commit('MUTATION_SET_SOUND', lazyLoadedData[item.contentUrl])" round ><v-icon>play_arrow</v-icon></v-btn>
+              <v-btn slot="activator" icon color="primary" round ><v-icon>play_arrow</v-icon></v-btn>
               <span>Play</span>
             </v-tooltip>
-            <div class="v-list__tile__sub-title"><v-btn><v-icon color="red accent-4">favorite_border</v-icon> {{item.votes}} </v-btn> - Created: {{new Date(Number(item.createdOn)).toDateString()}}</div>
+            <div class="v-list__tile__sub-title"><v-btn><v-icon color="red accent-4">favorite_border</v-icon> NUMBER </v-btn> - Created: DATE</div>
           </v-card>
         </v-flex>
       </v-layout>
