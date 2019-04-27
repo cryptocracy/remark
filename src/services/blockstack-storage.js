@@ -2,21 +2,21 @@ const storageService = {
   // method for creation/updation of file in GAIA storage
   putFile: (dataObj) => {
     const { fileName, data, options } = dataObj
-    return window.blockstack.putFile(fileName, JSON.stringify(data), options).then(res => {
+    return window.BlockstackUserSession.putFile(fileName, JSON.stringify(data), options).then(res => {
       return res
     })
   },
   // method for fetching data from GAIA storage
   getFile: (dataObj) => {
     const { fileName, options } = dataObj
-    return window.blockstack.getFile(fileName, options).then(res => {
+    return window.BlockstackUserSession.getFile(fileName, options).then(res => {
       return JSON.parse(res)
     })
   },
-  updateIndex: (jsonName, data, slice = false) => window.blockstack.getFile(jsonName, { decrypt: false }).then((currentContent) => {
+  updateIndex: (jsonName, data, slice = false) => window.BlockstackUserSession.getFile(jsonName, { decrypt: false }).then((currentContent) => {
     let [key, value] = data
     if (!currentContent) {
-      window.blockstack.putFile(jsonName, JSON.stringify({ [key]: value }), { encrypt: false })
+      window.BlockstackUserSession.putFile(jsonName, JSON.stringify({ [key]: value }), { encrypt: false })
     } else {
       const parsedCurrentContent = JSON.parse(currentContent)
       if (slice) {
@@ -24,7 +24,7 @@ const storageService = {
       } else {
         parsedCurrentContent[key] = value
       }
-      window.blockstack.putFile(jsonName, JSON.stringify(parsedCurrentContent), { encrypt: false })
+      window.BlockstackUserSession.putFile(jsonName, JSON.stringify(parsedCurrentContent), { encrypt: false })
     }
   }),
 

@@ -1,7 +1,7 @@
 <template>
   <v-app light>
     <div id="app">
-      <login v-if="!blockstack.isUserSignedIn()"></login>
+      <login v-if="!UserSession.isUserSignedIn()"></login>
       <div v-else>
         <app-header></app-header>
         <app-sidebar/>
@@ -63,6 +63,7 @@ export default {
 
   data: () => ({
     windowWidth: 0,
+    UserSession: window.BlockstackUserSession,
     blockstack: window.blockstack
   }),
   methods: {
@@ -103,14 +104,14 @@ export default {
   },
 
   mounted () {
-    const blockstack = this.blockstack
-    if (blockstack.isUserSignedIn()) {
-      this.userData = blockstack.loadUserData()
-      this.user = new blockstack.Person(this.userData.profile)
+    const UserSession = this.UserSession
+    if (UserSession.isUserSignedIn()) {
+      this.userData = UserSession.loadUserData()
+      this.user = new this.blockstack.Person(this.userData.profile)
       this.user.username = this.userData.username
       this.$store.commit('MUTATION_SET_USER_PROFILE_DATA', this.userData)
-    } else if (blockstack.isSignInPending()) {
-      blockstack.handlePendingSignIn()
+    } else if (UserSession.isSignInPending()) {
+      UserSession.handlePendingSignIn()
         .then(() => {
           window.location = window.location.origin
         })

@@ -60,7 +60,7 @@ const cryptoName = localStorage['blockstack'] ? JSON.parse(localStorage['blockst
 
 export default {
   data: () => ({
-    blockstack: window.blockstack,
+    blockstack: window.BlockstackUserSession,
     isLoading: false,
     valid: false,
     tag: {

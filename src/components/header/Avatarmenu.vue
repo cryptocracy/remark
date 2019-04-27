@@ -57,7 +57,7 @@ export default {
   },
   data: () => ({
     profileAvatar,
-    blockstack: window.blockstack
+    blockstack: window.BlockstackUserSession
   }),
   methods: {
     showProfile () {

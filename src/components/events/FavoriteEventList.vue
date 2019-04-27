@@ -14,7 +14,7 @@ export default {
     EventList
   },
   data: () => ({
-    blockstack: window.blockstack,
+    blockstack: window.BlockstackUserSession,
     storageFile: storageFile,
     eventsArray: []
   }),

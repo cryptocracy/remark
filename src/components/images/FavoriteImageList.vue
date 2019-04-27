@@ -14,7 +14,7 @@ export default {
     ImageList
   },
   data: () => ({
-    blockstack: window.blockstack,
+    blockstack: window.BlockstackUserSession,
     storageFile: storageFile,
     imagesArray: []
   }),

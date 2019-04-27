@@ -14,7 +14,7 @@ export default {
     SoundList
   },
   data: () => ({
-    blockstack: window.blockstack,
+    blockstack: window.BlockstackUserSession,
     storageFile: storageFile,
     soundsArray: []
   }),

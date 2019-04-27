@@ -21,12 +21,12 @@
 export default {
   name: 'login',
   data: () => ({
-    blockstack: window.blockstack
+    blockstack: window.BlockstackUserSession
   }),
   methods: {
     signIn () {
-      const origin = window.location.origin
-      this.blockstack.redirectToSignIn(origin, `${origin}/manifest.json`, ['store_write', 'publish_data'])
+      // const origin = window.location.origin
+      this.blockstack.redirectToSignIn()
       // this.blockstack.redirectToSignIn()
     }
   }
