@@ -22,12 +22,14 @@ import './assets/sass/App.scss'
 
 /* Import Vuetify stylesheets for material deisgn */
 import '../node_modules/vuetify/dist/vuetify.min.css'
-
+import * as blockstack from 'blockstack'
 /* Import store */
 import store from './store/store'
 
-window.blockstack = require('blockstack')
-
+// window.blockstack = require('blockstack')
+const appConfig = new blockstack.AppConfig(['store_write', 'publish_data'])
+window.BlockstackUserSession = new blockstack.UserSession({ appConfig })
+window.blockstack = blockstack
 Vue.config.productionTip = false
 
 Vue.use(VueClipboard)

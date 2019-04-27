@@ -85,7 +85,7 @@ Settings.defaultLocale = 'en'
 export default {
 
   data: () => ({
-    blockstack: window.blockstack,
+    blockstack: window.BlockstackUserSession,
     isLoading: false,
     valid: false,
     soundFile: null,

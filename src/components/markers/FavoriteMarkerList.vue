@@ -14,7 +14,7 @@ export default {
     MarkerList
   },
   data: () => ({
-    blockstack: window.blockstack,
+    blockstack: window.BlockstackUserSession,
     storageFile: storageFile,
     markersArray: []
   }),

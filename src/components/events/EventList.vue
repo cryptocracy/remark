@@ -85,7 +85,7 @@ import storageService from '@/services/blockstack-storage'
 export default {
   name: 'EventList',
   data: () => ({
-    blockstack: window.blockstack,
+    blockstack: window.BlockstackUserSession,
     filterArchived: false,
     filterActive: false,
     filterUpcoming: true,

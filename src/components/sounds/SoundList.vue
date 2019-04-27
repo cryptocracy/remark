@@ -77,7 +77,7 @@ import storageService from '@/services/blockstack-storage'
 export default {
   name: 'SoundList',
   data: () => ({
-    blockstack: window.blockstack,
+    blockstack: window.BlockstackUserSession,
     filterArchived: false,
     filterActive: true,
     sortBy: 'name',

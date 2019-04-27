@@ -77,7 +77,7 @@ import storageService from '@/services/blockstack-storage'
 export default {
   name: 'TagList',
   data: () => ({
-    blockstack: window.blockstack,
+    blockstack: window.BlockstackUserSession,
     filterArchived: true,
     filterActive: true,
     sortBy: 'name',
