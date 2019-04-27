@@ -1,6 +1,7 @@
 <template>
   <v-app light>
     <div id="app">
+      <Notification></Notification>
       <login v-if="!UserSession.isUserSignedIn()"></login>
       <div v-else>
         <app-header></app-header>
@@ -46,6 +47,7 @@ import { mapGetters } from 'vuex'
 import Header from './components/header/Header'
 import Sidebar from './components/sidebar/Sidebar'
 import Login from './components/Login'
+import Notification from './components/Notification'
 import Player from './components/Player'
 import searchResults from './components/search/Search-results'
 import FloatingButton from './components/button/FloatingButton'
@@ -57,6 +59,7 @@ export default {
     'search-results': searchResults,
     login: Login,
     Player,
+    Notification,
     FloatingButton
   },
   name: 'app',
