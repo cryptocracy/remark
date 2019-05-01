@@ -21,7 +21,7 @@
                   v-else
                   height="150px"
                   width="150px"
-                  src="https://www.freeiconspng.com/uploads/no-image-icon-6.png"
+                  :src="header"
                   gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)">
                 </v-img>
               </v-avatar>
@@ -151,6 +151,7 @@ import { mapGetters } from 'vuex'
 import qrEncode from 'qr-encode'
 import modals from '@/components/modals/profile-modals'
 import channelService from '@/services/channels'
+import storageService from '@/services/blockstack-storage.js'
 import axios from 'axios'
 // import { marker } from 'leaflet';
 
@@ -175,7 +176,7 @@ export default {
       channels: 'getChannels',
       searchedUserProfileData: 'getUserProfileData',
       isResolved: 'isResolved',
-      isRedirected: 'isRedirected'
+      isRedirected: 'isRedirected',
     }),
     // computed property for showing searched user profile data or user's own profile data
     userData () {
@@ -227,6 +228,13 @@ export default {
       } else {
         return null
       }
+    },
+    header () {
+      // storageService.getFile({fileName: hubUrl() + 'settings.json'})
+      //   .then((json) => {
+      //     console.log(json)
+      //   })
+      return  'https://www.freeiconspng.com/uploads/no-image-icon-6.png'
     }
   },
   watch: {
@@ -256,6 +264,11 @@ export default {
     //   this.address = JSON.parse(localStorage['blockstack-gaia-hub-config']).address
     //   this.qrSrc = qrEncode(this.address, {type: 6, size: 6, level: 'Q'})
     // }
+  },
+  mounted () {
+    console.log('mounted')
+    this.getUserSettings(this.address)
+
   },
   methods: {
     redirectUser () {

@@ -1,12 +1,17 @@
 import storageServive from '@/services/blockstack-storage'
+import axios from 'axios'
 
 const storageHandler = {
   state: {
-    channels: []
+    channels: [],
+    userSettings: {}
   },
   mutations: {
     MUTATION_SET_CHANNELS (state, payload) {
       state.channels = payload || []
+    },
+    MUTATION_SET_USER_SETTINGS (state, payload) {
+      state.settings = payload || {}
     },
     // mutation for handling addition and deletion of channels from state.channels
     // for real time data changes
@@ -35,6 +40,15 @@ const storageHandler = {
       const channels = await storageServive.getFile(payload)
       context.commit('MUTATION_SET_CHANNELS', channels)
     },
+    // fetching settings.json file
+    async ACTION_GET_USER_SETTINGS (context, payload) {
+      axios.get(payload.fileName)
+        .then((res) => {
+          console.log(res)
+        })
+      const settings = await storageServive.getFile(payload)
+      context.commit('MUTATION_SET_USER_SETTINGS', channels)
+    },
     // updating channels in my_channels.json file
     ACTION_UPDATE_CHANNELS (context, payload) {
       // updating channels list in state.channels and my_channels.json file
@@ -47,7 +61,8 @@ const storageHandler = {
     }
   },
   getters: {
-    getChannels: state => state.channels
+    getChannels: state => state.channels,
+    getUserSettings: state => state.userSettings
   }
 }
 export default storageHandler

@@ -28,6 +28,9 @@ const stateObject = {
     searchRadius: 150,
     latitude: 45.5122,
     longitude: -122.6587
+  },
+  publicSettings: {
+
   }
 }
 
@@ -76,6 +79,9 @@ export default new Vuex.Store({
     },
     MUTATION_CHANGE_SETTINGS (state, payload) {
       state.settings = payload
+    },
+    MUTATION_CHANGE_PUBLIC_SETTINGS (state, payload) {
+      state.publicSettings = payload
     }
   },
   getters: {
@@ -83,6 +89,7 @@ export default new Vuex.Store({
     playlistArr: state => state.playlistArr,
     soundObject: state => state.soundObject,
     showPlayer: state => state.showPlayer,
-    getSettings: state => state.settings
+    getSettings: state => state.settings,
+    getPublicSettings: state => state.publicSettings
   }
 })
