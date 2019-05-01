@@ -5,7 +5,7 @@
         <v-layout class="br20" row wrap align-center>
           <v-flex xs12>
             <v-card dark color="blue" class="" width="100%" height="288px">
-              <v-img class="white--text" height="288px" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg">
+              <v-img class="white--text" height="288px" :src="header">
               </v-img>
               <v-avatar id="myavatar" class="justify-center">
                 <v-img
@@ -21,7 +21,7 @@
                   v-else
                   height="150px"
                   width="150px"
-                  :src="header"
+                  src="https://www.freeiconspng.com/uploads/no-image-icon-6.png"
                   gradient="to top right, rgba(100,115,201,.33), rgba(25,32,72,.7)">
                 </v-img>
               </v-avatar>
@@ -127,6 +127,9 @@
               </v-card>
             </v-list>
           </v-flex>-->
+          <v-flex xs1 class="br20" v-if="publicSettings.description">
+            {{publicSettings.description}}
+          </v-flex>
         </v-layout>
       </v-container>
     </div>
@@ -165,7 +168,11 @@ export default {
       sounds: 0,
       images: 0
     },
-    eventBus: eventBus
+    eventBus: eventBus,
+    publicSettings: {
+      description: '',
+      header: null
+    }
   }),
   components: {
     modals
@@ -177,6 +184,7 @@ export default {
       searchedUserProfileData: 'getUserProfileData',
       isResolved: 'isResolved',
       isRedirected: 'isRedirected',
+      newPublicSettings: 'getPublicSettings'
     }),
     // computed property for showing searched user profile data or user's own profile data
     userData () {
@@ -219,7 +227,7 @@ export default {
       if (this.hasBTCProof) {
         return this.hasBTCProof.identifier
       } else {
-        return null
+        return localStorage['blockstack-gaia-hub-config'] ? JSON.parse(localStorage['blockstack-gaia-hub-config']).address : null
       }
     },
     qrSrc () {
@@ -234,13 +242,19 @@ export default {
       //   .then((json) => {
       //     console.log(json)
       //   })
-      return  'https://www.freeiconspng.com/uploads/no-image-icon-6.png'
+      return this.publicSettings.header || 'https://cdn.vuetifyjs.com/images/cards/docks.jpg'
     }
   },
   watch: {
     deep: true,
     // this is necessary, do not remove it
     hubUrl () {
+    },
+    newPublicSettings () {
+      this.publicSettings = Object.assign({
+        description: '',
+        header: null
+      }, this.newPublicSettings)
     }
   },
   mixins: [channelService],

@@ -75,8 +75,11 @@ export default {
       this.settings.latitude = this.mapCoordinates.lat
       this.settings.longitude = this.mapCoordinates.lng
     },
-    mewPublicSettings () {
-      this.publicSettings = Object.assign({}, this.newPublicSettings)
+    newPublicSettings () {
+      this.publicSettings = Object.assign({
+        description: '',
+        header: null
+      }, this.newPublicSettings)
     },
     newSettings () {
       this.settings = Object.assign({}, this.newSettings)
@@ -95,19 +98,31 @@ export default {
       {text: 'Mile', value: 'mi'}
     ],
     settings: {},
-    publicSettings: {}
+    publicSettings: {
+      description: '',
+      header: null
+    }
   }),
   created () {
     this.settings = this.newSettings
-    this.publicSettings = this.newPublicSettings
     this.mapCoordinates.lat = this.newSettings.latitude
     this.mapCoordinates.lng = this.newSettings.longitude
+    storageService.getFile({
+      fileName: 'public_settings.json',
+      options: {decrypt: false}
+    }).then(res => {
+      if (res) {
+        this.$store.commit('MUTATION_CHANGE_PUBLIC_SETTINGS', res)
+        this.publicSettings = res.data
+      }
+    })
   },
   methods: {
     submit () {
       if (this.imageFile || this.imageFile.name) {
+        console.log(this.imageFile)
         storageService.putFile({
-          fileName: `header.${this.imageFile.name.split('.').pop()}`,
+          fileName: `header_img.${this.imageFile.name.split('.').pop()}`,
           data: this.imageFile,
           options: { encrypt: false }
         }).then((imageUrl) => {

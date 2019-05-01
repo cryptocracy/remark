@@ -19,7 +19,7 @@ const channelService = {
     // mixin methods for fetching settings.json file
     getUserSettings (address) {
       console.log(address)
-      this.$store.dispatch('ACTION_GET_USER_SETTINGS', {
+      this.$store.dispatch('ACTION_GET_PUBLIC_SETTINGS', {
         fileName: 'https://gaia.blockstack.org/hub/' + address + '/public_settings.json'
       })
     }
