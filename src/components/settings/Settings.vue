@@ -49,9 +49,12 @@
 
 <script>
 import OpenMapWithMarker from '@/components/maps/OpenMapWithMarker'
-import ImageUploader from '@/components/image-uploader/ImageUploader'
+import ImageUploader from '@/components/image-loader/ImageUploader'
 import storageService from '@/services/blockstack-storage'
 import { mapGetters } from 'vuex'
+import { UserSession } from 'blockstack'
+
+
 export default {
   components: {
     OpenMapWithMarker,
@@ -119,10 +122,12 @@ export default {
   },
   methods: {
     submit () {
+      // var userSession = new UserSession()
+
       if (this.imageFile || this.imageFile.name) {
         console.log(this.imageFile)
         storageService.putFile({
-          fileName: `header_img.${this.imageFile.name.split('.').pop()}`,
+          fileName: `header.${this.imageFile.name.split('.').pop()}`,
           data: this.imageFile,
           options: { encrypt: false }
         }).then((imageUrl) => {
@@ -137,6 +142,7 @@ export default {
       this.imageFile = e
     },
     saveSettings () {
+
       this.$store.commit('MUTATION_CHANGE_SETTINGS', this.settings)
       storageService.putFile({
         fileName: 'settings.json',

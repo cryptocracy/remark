@@ -127,8 +127,8 @@
               </v-card>
             </v-list>
           </v-flex>-->
-          <v-flex xs1 class="br20" v-if="publicSettings.description">
-            {{publicSettings.description}}
+          <v-flex xs1 class="br20" v-if="newPublicSettings && newPublicSettings.description">
+            {{newPublicSettings.description}}
           </v-flex>
         </v-layout>
       </v-container>
@@ -242,19 +242,13 @@ export default {
       //   .then((json) => {
       //     console.log(json)
       //   })
-      return this.publicSettings.header || 'https://cdn.vuetifyjs.com/images/cards/docks.jpg'
+      return this.newPublicSettings.header ? this.newPublicSettings.header : 'https://cdn.vuetifyjs.com/images/cards/docks.jpg'
     }
   },
   watch: {
     deep: true,
     // this is necessary, do not remove it
     hubUrl () {
-    },
-    newPublicSettings () {
-      this.publicSettings = Object.assign({
-        description: '',
-        header: null
-      }, this.newPublicSettings)
     }
   },
   mixins: [channelService],

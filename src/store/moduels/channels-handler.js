@@ -46,7 +46,6 @@ const storageHandler = {
         .then((res) => {
           console.log(res)
           context.commit('MUTATION_SET_PUBLIC_SETTINGS', res.data)
-
         })
       // const settings = await storageServive.getFile(payload)
       // context.commit('MUTATION_SET_USER_SETTINGS', res)

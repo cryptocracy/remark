@@ -87,7 +87,7 @@
 </template>
 
 <script>
-import ImageUploader from '@/components/image-uploader/ImageUploader'
+import ImageUploader from '@/components/image-loader/ImageUploader'
 import storageService from '@/services/blockstack-storage'
 import objectHelpers from '@/helpers/objectHelpers.js'
 import validationService from '@/helpers/validate'
