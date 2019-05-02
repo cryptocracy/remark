@@ -86,6 +86,12 @@ export default {
     onFilePicked (event) {
       const files = event.target.files || event.dataTransfer.files
       this.filename = event.target.value
+      if (files && files[0] && files[0].size > 2e+7) { // 2e+7
+        this.$store.commit('MUTATION_SET_NOTIFICATION', {show: true, notification: 'Max allowed file size is 20 MB.'})
+        this.$refs.sound.value = ''
+        this.filename = ''
+        return
+      }
       if (files && files[0]) {
         const filename = files[0].value
 
@@ -116,6 +122,8 @@ export default {
 
     removeFile () {
       this.soundUrl = ''
+      this.filename = ''
+      this.$refs.sound.value = ''
       this.$emit('input', null)
     }
   }

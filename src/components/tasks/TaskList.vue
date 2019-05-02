@@ -85,7 +85,7 @@ import storageService from '@/services/blockstack-storage'
 export default {
   name: 'TaskList',
   data: () => ({
-    blockstack: window.blockstack,
+    blockstack: window.BlockstackUserSession,
     filterArchived: false,
     filterActive: false,
     filterUpcoming: true,

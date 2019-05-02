@@ -15,6 +15,8 @@ const stateObject = {
   audioUrl: String,
   soundObject: Object,
   playlistArr: [],
+  notification: String,
+  showNotification: false,
   showPlayer: false,
   notifications,
   teams,
@@ -46,6 +48,10 @@ export default new Vuex.Store({
   mutations: {
     toggleSidebar: (state) => {
       state.sidebarOpen = !state.sidebarOpen
+    },
+    MUTATION_SET_NOTIFICATION: (state, payload) => {
+      state.showNotification = payload.show || false
+      state.notification = payload.notification
     },
     MUTATION_SET_SOUND: (state, payload) => {
       state.soundObject = {}
@@ -86,6 +92,8 @@ export default new Vuex.Store({
   },
   getters: {
     isLoading: state => state.isLoading,
+    showNotification: state => state.showNotification,
+    notification: state => state.notification,
     playlistArr: state => state.playlistArr,
     soundObject: state => state.soundObject,
     showPlayer: state => state.showPlayer,

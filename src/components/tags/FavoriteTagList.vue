@@ -14,7 +14,7 @@ export default {
     TagList
   },
   data: () => ({
-    blockstack: window.blockstack,
+    blockstack: window.BlockstackUserSession,
     storageFile: storageFile,
     tagsArray: []
   }),

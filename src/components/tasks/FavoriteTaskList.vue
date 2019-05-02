@@ -14,7 +14,7 @@ export default {
     TaskList
   },
   data: () => ({
-    blockstack: window.blockstack,
+    blockstack: window.BlockstackUserSession,
     storageFile: storageFile,
     tasksArray: []
   }),
