@@ -2,7 +2,8 @@ import storageServive from '@/services/blockstack-storage'
 
 const storageHandler = {
   state: {
-    channels: []
+    channels: [],
+    channelsFeed: []
   },
   mutations: {
     MUTATION_SET_CHANNELS (state, payload) {
@@ -47,7 +48,8 @@ const storageHandler = {
     }
   },
   getters: {
-    getChannels: state => state.channels
+    getChannels: state => state.channels,
+    getChannelsFeed: state => state.channelsFeed
   }
 }
 export default storageHandler
