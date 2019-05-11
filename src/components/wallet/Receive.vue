@@ -19,8 +19,8 @@ export default {
     WalletTemplate
   },
   mounted () {
-    if (localStorage['blockstack-gaia-hub-config']) {
-      this.qrSrc = qr(JSON.parse(localStorage['blockstack-gaia-hub-config']).address, { type: 6, size: 6, level: 'Q' })
+    if (localStorage['blockstack-session']) {
+      this.qrSrc = qr(JSON.parse(localStorage['blockstack-session']).userData.gaiaHubConfig.address, { type: 6, size: 6, level: 'Q' })
     }
   }
 }

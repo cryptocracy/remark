@@ -49,7 +49,7 @@ export default {
   }),
   mounted () {
     this.$store.commit('toggleLoading')
-    const btcAddress = localStorage['blockstack-gaia-hub-config'] ? JSON.parse(localStorage['blockstack-gaia-hub-config']).address : ''
+    const btcAddress = localStorage['blockstack-session'] ? JSON.parse(localStorage['blockstack-session']).userData.gaiaHubConfig.address : ''
     axios.get('https://chain.api.btc.com/v3/address/' + btcAddress + '/tx')
       .then(res => {
         if (res.data) {

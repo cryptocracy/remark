@@ -113,7 +113,7 @@ export default {
   },
   methods: {
     getFavMarkerName (marker) {
-      return `marker_${marker.createdtime}_${JSON.parse(localStorage['blockstack-gaia-hub-config']).address}`
+      return `marker_${marker.createdtime}_${JSON.parse(localStorage['blockstack-session']).userData.gaiaHubConfig.address}`
     },
     removeFavorite (e, marker) {
       storageService.reduceFavoriteMarkerIndex(this.getFavMarkerName(marker), marker.title)

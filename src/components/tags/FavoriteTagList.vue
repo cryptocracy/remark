@@ -24,7 +24,7 @@ export default {
       this.blockstack.getFile(this.storageFile, { decrypt: false })
         .then((tagsText) => {
           const tags = JSON.parse(tagsText || '[]')
-          const urlPrefix = JSON.parse(localStorage['blockstack-gaia-hub-config']).url_prefix
+          const urlPrefix = JSON.parse(localStorage['blockstack-session']).userData.gaiaHubConfig.url_prefix
           // looping over project list to fetch unique json files for every project
           for (let tag in tags) {
             axios.get(`${urlPrefix}${tag.split('_')[2]}/tag_${tag.split('_')[1]}.json`).then((tagJson) => {

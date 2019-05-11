@@ -120,8 +120,8 @@ export default {
     },
     getContentUrl (item) {
       let urlItems = {}
-      if (localStorage['blockstack-gaia-hub-config']) {
-        urlItems = JSON.parse(localStorage['blockstack-gaia-hub-config'])
+      if (localStorage['blockstack-session']) {
+        urlItems = JSON.parse(localStorage['blockstack-session']).userData.gaiaHubConfig
       }
       // creating hub url(where our files are stored)
       const contentUrl = `${urlItems.url_prefix}${item.owner}/${this.type}_${item.createdtime}.json`

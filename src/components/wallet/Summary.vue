@@ -22,7 +22,7 @@ export default {
     balance: ''
   }),
   mounted () {
-    const btcAddress = localStorage['blockstack-gaia-hub-config'] ? JSON.parse(localStorage['blockstack-gaia-hub-config']).address : ''
+    const btcAddress = localStorage['blockstack-session'] ? JSON.parse(localStorage['blockstack-session']).userData.gaiaHubConfig.address : ''
     axios.get('https://blockchain.info/q/addressbalance/' + btcAddress)
       .then(res => {
         this.balance = res.data + ''

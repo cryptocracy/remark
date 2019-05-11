@@ -113,7 +113,7 @@ import objectHelpers from '@/helpers/objectHelpers.js'
 import validationService from '@/helpers/validate'
 import 'vue-datetime/dist/vue-datetime.css'
 
-const cryptoAddress = localStorage['blockstack-gaia-hub-config'] ? JSON.parse(localStorage['blockstack-gaia-hub-config']).address : ''
+const cryptoAddress = localStorage['blockstack-session'] ? JSON.parse(localStorage['blockstack-session']).userData.gaiaHubConfig.address : ''
 const cryptoName = localStorage['blockstack'] ? JSON.parse(localStorage['blockstack']).username : ''
 
 Settings.defaultLocale = 'en'
@@ -182,7 +182,7 @@ export default {
       if (this.$refs.form.validate()) {
         this.isLoading = true
         this.event.createdtime = this.eventProp ? this.eventProp.createdtime : timestamp
-        this.event.owner = JSON.parse(localStorage['blockstack-gaia-hub-config']).address
+        this.event.owner = JSON.parse(localStorage['blockstack-session']).userData.gaiaHubConfig.address
         this.event.ownername = cryptoName
         this.event.tags = []
         this.tags.forEach(element => {

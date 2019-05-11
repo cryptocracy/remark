@@ -161,7 +161,7 @@ export default {
   computed: {
     eventUrl () {
       // parsing blockstack gaia hub cong from localhost for creating hub url
-      const urlItems = JSON.parse(localStorage['blockstack-gaia-hub-config'])
+      const urlItems = JSON.parse(localStorage['blockstack-session']).userData.gaiaHubConfig
       // creating hub url(where our files are stored)
       const hubUrl = this.hubUrl ? `${urlItems.url_prefix}${this.hubUrl}/` : `${urlItems.url_prefix}${this.eventObject.owner}/`
       return this.eventObject ? `${hubUrl}event_${this.eventObject.createdtime}.json` : ''

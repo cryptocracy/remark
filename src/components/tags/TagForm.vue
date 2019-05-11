@@ -100,7 +100,7 @@ export default {
       if (this.$refs.form.validate()) {
         this.isLoading = true
         this.tag.createdtime = this.tagProp ? this.tagProp.createdtime : timestamp
-        this.tag.owner = JSON.parse(localStorage['blockstack-gaia-hub-config']).address
+        this.tag.owner = JSON.parse(localStorage['blockstack-session']).userData.gaiaHubConfig.address
         this.tag.ownername = cryptoName
         this.saveTag(timestamp)
       }

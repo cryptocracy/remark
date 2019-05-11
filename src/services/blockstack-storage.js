@@ -29,8 +29,8 @@ const storageService = {
   }),
 
   isResourceOwned: (resourceAddress) => {
-    if (localStorage['blockstack-gaia-hub-config']) {
-      return JSON.parse(localStorage['blockstack-gaia-hub-config']).address === resourceAddress
+    if (localStorage['blockstack-session']) {
+      return JSON.parse(localStorage['blockstack-session']).userData.gaiaHubConfig.address === resourceAddress
     } else return false
   },
   updateSoundIndex: (key, value) => storageService.updateIndex('my_sounds.json', [key, value]),

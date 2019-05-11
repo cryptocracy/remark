@@ -77,7 +77,7 @@ import { Settings } from 'luxon'
 import objectHelpers from '@/helpers/objectHelpers.js'
 import validationService from '@/helpers/validate'
 
-/* const cryptoAddress = localStorage['blockstack-gaia-hub-config'] ? JSON.parse(localStorage['blockstack-gaia-hub-config']).address : '' */
+/* const cryptoAddress = localStorage['blockstack-gaia-hub-config'] ? JSON.parse(localStorage['blockstack-session']).userData.gaiaHubConfig.address : '' */
 const cryptoName = localStorage['blockstack'] ? JSON.parse(localStorage['blockstack']).username : ''
 
 Settings.defaultLocale = 'en'
@@ -144,7 +144,7 @@ export default {
       if (this.$refs.form.validate()) {
         this.isLoading = true
         this.sound.createdtime = this.soundProp ? this.soundProp.createdtime : timestamp
-        this.sound.owner = JSON.parse(localStorage['blockstack-gaia-hub-config']).address
+        this.sound.owner = JSON.parse(localStorage['blockstack-session']).userData.gaiaHubConfig.address
         this.sound.tags = []
         this.tags.forEach(element => {
           this.sound.tags.push({title: element})
@@ -153,7 +153,6 @@ export default {
         if (this.soundFile.name) {
           this.blockstack.putFile(`sound_${timestamp}.${this.soundFile.name.split('.').pop()}`, this.soundFile, { encrypt: false })
             .then((soundUrl) => {
-              console.log('URLLLLLL', soundUrl)
               this.sound.sound = soundUrl
               this.saveSound(timestamp)
             })

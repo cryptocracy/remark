@@ -127,7 +127,7 @@ export default {
   },
   methods: {
     getFavTaskName (task) {
-      return `task_${task.createdtime}_${JSON.parse(localStorage['blockstack-gaia-hub-config']).address}`
+      return `task_${task.createdtime}_${JSON.parse(localStorage['blockstack-session']).userData.gaiaHubConfig.address}`
     },
     removeFavorite (e, task) {
       storageService.reduceFavoriteTaskIndex(this.getFavTaskName(task), task.title)

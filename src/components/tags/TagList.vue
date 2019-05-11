@@ -113,7 +113,7 @@ export default {
   },
   methods: {
     getFavTagName (tag) {
-      return `tag_${tag.createdtime}_${JSON.parse(localStorage['blockstack-gaia-hub-config']).address}`
+      return `tag_${tag.createdtime}_${JSON.parse(localStorage['blockstack-session']).userData.gaiaHubConfig.address}`
     },
     removeFavorite (e, tag) {
       storageService.reduceFavoriteTagIndex(this.getFavTagName(tag), tag.title)

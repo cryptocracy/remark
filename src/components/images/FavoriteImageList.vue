@@ -24,7 +24,7 @@ export default {
       this.blockstack.getFile(this.storageFile, { decrypt: false })
         .then((imagesText) => {
           const images = JSON.parse(imagesText || '[]')
-          const urlPrefix = JSON.parse(localStorage['blockstack-gaia-hub-config']).url_prefix
+          const urlPrefix = JSON.parse(localStorage['blockstack-session']).userData.gaiaHubConfig.url_prefix
           // looping over project list to fetch unique json files for every project
           for (let image in images) {
             axios.get(`${urlPrefix}${image.split('_')[2]}/image_${image.split('_')[1]}.json`).then((imageJson) => {

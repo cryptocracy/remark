@@ -82,7 +82,7 @@ export default {
   },
   mounted () {
     this.$store.commit('toggleLoading')
-    const coinAddress = localStorage['blockstack-gaia-hub-config'] ? JSON.parse(localStorage['blockstack-gaia-hub-config']).address : ''
+    const coinAddress = localStorage['blockstack-session'] ? JSON.parse(localStorage['blockstack-session']).userData.gaiaHubConfig.address : ''
     this.address = coinAddress
     const username = localStorage['blockstack'] ? JSON.parse(localStorage['blockstack']).username : ''
     axios.get('https://blockchain.info/q/addressbalance/' + coinAddress)

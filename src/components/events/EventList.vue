@@ -127,7 +127,7 @@ export default {
   },
   methods: {
     getFavEventName (event) {
-      return `event_${event.createdtime}_${JSON.parse(localStorage['blockstack-gaia-hub-config']).address}`
+      return `event_${event.createdtime}_${JSON.parse(localStorage['blockstack-session']).userData.gaiaHubConfig.address}`
     },
     removeFavorite (e, event) {
       storageService.reduceFavoriteEventIndex(this.getFavEventName(event), event.title)
