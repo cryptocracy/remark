@@ -163,7 +163,7 @@ export default {
       if (this.$refs.form.validate()) {
         this.isLoading = true
         this.marker.createdtime = this.markerProp ? this.markerProp.createdtime : timestamp
-        this.marker.owner = JSON.parse(localStorage['blockstack-gaia-hub-config']).address
+        this.marker.owner = JSON.parse(localStorage['blockstack-session']).userData.gaiaHubConfig.address
         this.marker.ownername = cryptoName
         this.marker.tags = []
         this.tags.forEach(element => {

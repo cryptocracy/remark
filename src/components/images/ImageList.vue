@@ -113,7 +113,7 @@ export default {
   },
   methods: {
     getFavImageName (image) {
-      return `image_${image.createdtime}_${JSON.parse(localStorage['blockstack-gaia-hub-config']).address}`
+      return `image_${image.createdtime}_${JSON.parse(localStorage['blockstack-session']).userData.gaiaHubConfig.address}`
     },
     removeFavorite (e, image) {
       storageService.reduceFavoriteImageIndex(this.getFavImageName(image), image.title)

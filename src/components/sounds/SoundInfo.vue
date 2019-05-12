@@ -149,9 +149,9 @@ export default {
   computed: {
     soundUrl () {
       // parsing blockstack gaia hub cong from localhost for creating hub url
-      const urlItems = JSON.parse(localStorage['blockstack-gaia-hub-config'])
+      const urlItems = JSON.parse(localStorage['blockstack-session']).userData.gaiaHubConfig
       // creating hub url(where our files are stored)
-      const hubUrl = this.hubUrl ? `${urlItems.url_prefix}${this.hubUrl}/` : `${urlItems.url_prefix}${this.soundObject.owner}/`
+      const hubUrl = this.hubUrl || `${urlItems.url_prefix}${this.soundObject.owner}/`
       return this.soundObject ? `${hubUrl}sound_${this.soundObject.createdtime}.json` : ''
     },
     isOwned () {

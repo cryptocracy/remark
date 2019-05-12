@@ -242,7 +242,7 @@ export default {
     }
     this.getFilteredChannelList(this.channelList)
     this.$store.commit('toggleLoading')
-    this.addressPublic = JSON.parse(localStorage['blockstack-gaia-hub-config']).address
+    this.addressPublic = JSON.parse(localStorage['blockstack-session']).userData.gaiaHubConfig.address
     //  get info about wallet address
     axios.get(apiUrl + this.addressPublic + '?format=json&cors=true')
       .then((res) => {

@@ -253,7 +253,7 @@ export default {
       this.$store.dispatch('ACTION_GET_SEARCH_RESULT', searchObj)
     }
     // if (localStorage['blockstack-gaia-hub-config']) {
-    //   this.address = JSON.parse(localStorage['blockstack-gaia-hub-config']).address
+    //   this.address = JSON.parse(localStorage['blockstack-session']).userData.gaiaHubConfig.address
     //   this.qrSrc = qrEncode(this.address, {type: 6, size: 6, level: 'Q'})
     // }
   },

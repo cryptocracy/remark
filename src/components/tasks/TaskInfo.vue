@@ -178,7 +178,7 @@ export default {
   computed: {
     taskUrl () {
       // parsing blockstack gaia hub cong from localhost for creating hub url
-      const urlItems = JSON.parse(localStorage['blockstack-gaia-hub-config'])
+      const urlItems = JSON.parse(localStorage['blockstack-session']).userData.gaiaHubConfig
       // creating hub url(where our files are stored)
       const hubUrl = this.hubUrl ? `${urlItems.url_prefix}${this.hubUrl}/` : `${urlItems.url_prefix}${this.taskObject.owner}/`
       return this.taskObject ? `${hubUrl}task_${this.taskObject.createdtime}.json` : ''

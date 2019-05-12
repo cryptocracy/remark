@@ -145,8 +145,8 @@ export default {
     markerUrl () {
       // parsing blockstack gaia hub cong from localhost for creating hub url
       let urlItems = ''
-      if (localStorage['blockstack-gaia-hub-config']) {
-        urlItems = JSON.parse(localStorage['blockstack-gaia-hub-config'])
+      if (localStorage['blockstack-session']) {
+        urlItems = JSON.parse(localStorage['blockstack-session']).userData.gaiaHubConfig
       }
       // creating hub url(where our files are stored)
       const hubUrl = this.hubUrl ? `${urlItems.url_prefix}${this.hubUrl}/` : `${urlItems.url_prefix}${this.markerObject.owner}/`

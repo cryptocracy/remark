@@ -92,7 +92,7 @@ import storageService from '@/services/blockstack-storage'
 import objectHelpers from '@/helpers/objectHelpers.js'
 import validationService from '@/helpers/validate'
 
-const cryptoAddress = localStorage['blockstack-gaia-hub-config'] ? JSON.parse(localStorage['blockstack-gaia-hub-config']).address : ''
+const cryptoAddress = localStorage['blockstack-session'] ? JSON.parse(localStorage['blockstack-session']).userData.gaiaHubConfig.address : ''
 const cryptoName = localStorage['blockstack'] ? JSON.parse(localStorage['blockstack']).username : ''
 
 export default {
@@ -158,7 +158,7 @@ export default {
       if (this.$refs.form.validate()) {
         this.isLoading = true
         this.image.createdtime = this.imageProp ? this.imageProp.createdtime : timestamp
-        this.image.owner = JSON.parse(localStorage['blockstack-gaia-hub-config']).address
+        this.image.owner = JSON.parse(localStorage['blockstack-session']).userData.gaiaHubConfig.address
         this.image.tags = []
         this.tags.forEach(element => {
           this.image.tags.push({title: element})

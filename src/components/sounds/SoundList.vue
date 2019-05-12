@@ -117,7 +117,7 @@ export default {
   },
   methods: {
     getFavSoundName (sound) {
-      return `sound_${sound.createdtime}_${JSON.parse(localStorage['blockstack-gaia-hub-config']).address}`
+      return `sound_${sound.createdtime}_${JSON.parse(localStorage['blockstack-session']).userData.gaiaHubConfig.address}`
     },
     removeFavorite (e, sound) {
       storageService.reduceFavoriteSoundIndex(this.getFavSoundName(sound), sound.title)

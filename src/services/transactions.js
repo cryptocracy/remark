@@ -1,7 +1,7 @@
 import Axios from 'axios'
 const transactionService = {
   getTransactionsData: async () => {
-    this.address = localStorage['blockstack-gaia-hub-config'] ? JSON.parse(localStorage['blockstack-gaia-hub-config']).address : ''
+    this.address = localStorage['blockstack-session'] ? JSON.parse(localStorage['blockstack-session']).userData.gaiaHubConfig.address : ''
     // this.address = '1LhbrBMnicrPYAouVyNTcSFBQjDrZBQ18G'
     let res = await Axios.get(`https://blockchain.info/address/${this.address}?format=json&cors=true`)
     return transactionService.generateChartData(res.data)
