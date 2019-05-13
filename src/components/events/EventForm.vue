@@ -113,7 +113,7 @@ import objectHelpers from '@/helpers/objectHelpers.js'
 import validationService from '@/helpers/validate'
 import 'vue-datetime/dist/vue-datetime.css'
 
-const cryptoAddress = localStorage['blockstack-session'] ? JSON.parse(localStorage['blockstack-session']).userData.gaiaHubConfig.address : ''
+/* const cryptoAddress = localStorage['blockstack-session'] ? JSON.parse(localStorage['blockstack-session']).userData.gaiaHubConfig.address : '' */
 const cryptoName = localStorage['blockstack'] ? JSON.parse(localStorage['blockstack']).username : ''
 
 Settings.defaultLocale = 'en'
@@ -228,93 +228,6 @@ export default {
       } else {
         this.clear()
       }
-    },
-    fetchMarkers () {
-      // fetching markers list
-      this.blockstack.getFile('my_markers.json', { decrypt: false })
-        .then((markersJSON) => {
-          let markersObj = JSON.parse(markersJSON)
-          if (markersObj) {
-            this.markers = Object.keys(markersObj).map((key) => {
-              return {
-                address: 'https://gaia.blockstack.org/hub/' + cryptoAddress + '/' + key + '.json',
-                title: markersObj[key]
-              }
-            })
-          }
-          this.blockstack.getFile('my_fav_markers.json', { decrypt: false })
-            .then((favMarkersJSON) => {
-              let favMarkersObj = JSON.parse(favMarkersJSON)
-              if (favMarkersObj) {
-                Object.keys(favMarkersObj).forEach((key) => {
-                  if (key.split('_')[2] !== cryptoAddress) {
-                    this.markers.push({
-                      address: 'https://gaia.blockstack.org/hub/' + key.split('_')[2] + '/' + key.substr(0, key.lastIndexOf('_')) + '.json',
-                      title: favMarkersObj[key]
-                    })
-                  }
-                })
-              }
-            })
-        })
-    },
-    // fetchTags () {
-    //   // fetching tags list
-    //   this.blockstack.getFile('my_tags.json', { decrypt: false })
-    //     .then((tagsJSON) => {
-    //       let tagsObj = JSON.parse(tagsJSON)
-    //       if (tagsObj) {
-    //         this.tags = Object.keys(tagsObj).map((key) => {
-    //           return {
-    //             address: 'https://gaia.blockstack.org/hub/' + cryptoAddress + '/' + key + '.json',
-    //             title: tagsObj[key]
-    //           }
-    //         })
-    //       }
-    //       this.blockstack.getFile('my_fav_tags.json', { decrypt: false })
-    //         .then((favTagsJSON) => {
-    //           let favTagsObj = JSON.parse(favTagsJSON)
-    //           if (favTagsJSON) {
-    //             Object.keys(favTagsObj).forEach((key) => {
-    //               if (key.split('_')[2] !== cryptoAddress) {
-    //                 this.tags.push({
-    //                   address: 'https://gaia.blockstack.org/hub/' + key.split('_')[2] + '/' + key.substr(0, key.lastIndexOf('_')) + '.json',
-    //                   title: favTagsObj[key]
-    //                 })
-    //               }
-    //             })
-    //           }
-    //         })
-    //     })
-    // },
-    fetchImages () {
-      // fetching images list
-      this.blockstack.getFile('my_images.json', { decrypt: false })
-        .then((imagesJSON) => {
-          let imagesObj = JSON.parse(imagesJSON)
-          if (imagesObj) {
-            this.images = Object.keys(imagesObj).map((key) => {
-              return {
-                address: 'https://gaia.blockstack.org/hub/' + cryptoAddress + '/' + key + '.json',
-                title: imagesObj[key]
-              }
-            })
-          }
-          // this.blockstack.getFile('my_fav_images.json', { decrypt: false })
-          //   .then((favTagsJSON) => {
-          //     let favTagsObj = JSON.parse(favTagsJSON)
-          //     if (favTagsJSON) {
-          //       Object.keys(favTagsObj).forEach((key) => {
-          //         if (key.split('_')[2] !== cryptoAddress) {
-          //           this.images.push({
-          //             address: 'https://gaia.blockstack.org/hub/' + key.split('_')[2] + '/' + key.substr(0, key.lastIndexOf('_')) + '.json',
-          //             title: favTagsObj[key]
-          //           })
-          //         }
-          //       })
-          //     }
-          //   })
-        })
     }
   },
   mounted () {
