@@ -92,7 +92,7 @@ import storageService from '@/services/blockstack-storage'
 import objectHelpers from '@/helpers/objectHelpers.js'
 import validationService from '@/helpers/validate'
 
-const cryptoAddress = localStorage['blockstack-session'] ? JSON.parse(localStorage['blockstack-session']).userData.gaiaHubConfig.address : ''
+/* const cryptoAddress = localStorage['blockstack-session'] ? JSON.parse(localStorage['blockstack-session']).userData.gaiaHubConfig.address : '' */
 const cryptoName = localStorage['blockstack'] ? JSON.parse(localStorage['blockstack']).username : ''
 
 export default {
@@ -216,8 +216,8 @@ export default {
       } else {
         this.clear()
       }
-    },
-    fetchMarkers () {
+    }
+    /*    fetchMarkers () {
       // fetching markers list
       this.blockstack.getFile('my_markers.json', { decrypt: false })
         .then((markersJSON) => {
@@ -245,7 +245,7 @@ export default {
               }
             })
         })
-    }
+    } */
     // fetchTags () {
     //   // fetching tags list
     //   this.blockstack.getFile('my_tags.json', { decrypt: false })
