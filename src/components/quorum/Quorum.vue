@@ -58,7 +58,7 @@
         </v-card>
       </v-flex>
       <v-subheader></v-subheader>
-      <!--      </v-flex>-->
+      <v-flex xs12>...</v-flex>
     </v-layout>
   </v-container>
 </template>
