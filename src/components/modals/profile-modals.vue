@@ -49,19 +49,49 @@
       </v-card>
     </v-dialog>
 
+    <v-dialog v-model="addToChannels" width="40em">
+      <v-card class="text-xs-center br20">
+        <v-card-title class="headline">
+          Add to Channels
+        </v-card-title>
+        <v-card-text>
+          <v-select
+            :items=channelPriorities
+            label="Select channel priority"
+            v-model="channelPriority"
+            return-object
+          ></v-select>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn round color="blue accent-4 white--text" @click="updateChannelFile">Subscribe</v-btn>
+          <v-btn round flat @click="addToChannels=!addToChannels"> cancel</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
 <script>
 import { eventBus } from '@/main'
+import channelService from '@/services/channels'
 export default {
   name: 'profileModals',
+  mixins: [channelService],
   data: () => ({
     qrSrc: '',
     address: '',
     showBTCAddress: false,
     showTooltip: false,
-    payWithAltcoins: false
+    payWithAltcoins: false,
+    addToChannels: false,
+    channelPriority: null,
+    channelPriorities: [
+      { text: 'Gold', value: 'gold', priority: 1 },
+      { text: 'Silver', value: 'silver', priority: 2 },
+      { text: 'Bronze', value: 'bronze', priority: 3 }
+    ]
+
   }),
   computed: {
     imageSize () {
@@ -82,6 +112,11 @@ export default {
     eventBus.$on('payWithAltcoins', data => {
       this.payWithAltcoins = true
     })
+    eventBus.$on('addToChannels', data => {
+      console.log('YOOOOOOOOO', data)
+      this.userData = {...data.data}
+      this.addToChannels = true
+    })
   },
   methods: {
     onCopy () {
@@ -89,11 +124,20 @@ export default {
       setTimeout(() => {
         this.showTooltip = false
       }, 4000)
+    },
+    updateChannelFile () {
+      this.$set(this.userData, 'channelLeague', this.channelPriority.value)
+      this.$set(this.userData, 'channelPriority', this.channelPriority.priority)
+      console.log(this.userData)
+      this.updateChannels(this.userData, 'addition')
+      this.addToChannels = false
+      this.userData = null
     }
   },
   destroyed () {
     eventBus.$off('showBTCAddress')
     eventBus.$off('payWithAltcoins')
+    eventBus.$off('addToChannels')
   }
 }
 </script>

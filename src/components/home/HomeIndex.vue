@@ -46,6 +46,7 @@ export default {
   computed: {
     ...mapGetters({
       isSearching: 'isSearching',
+      latestFeed: 'getLatestFeed',
       isResolved: 'isResolved',
       searchResult: 'getSearchResult',
       showDonationGraph: 'showDonationGraph',
@@ -65,24 +66,7 @@ export default {
     }
   }),
   created () {
-    this.$store.dispatch('ACTION_GET_TRANSACTIONS_DATA')
-    this.$store.dispatch('ACTION_GET_QUORUM_DATA', { sort: 'pop' })
-    storageService.getFile({
-      fileName: 'settings.json',
-      options: {decrypt: true}
-    }).then(res => {
-      if (res) {
-        this.$store.commit('MUTATION_CHANGE_SETTINGS', res)
-        this.searchProximity({ settings: res })
-      } else {
-        this.searchProximity({ settings: this.settings })
-        this.createFile()
-      }
-      this.mapCenter = {
-        lat: res ? res.latitude : this.settings.latitude,
-        lng: res ? res.longitude : this.settings.longitude
-      }
-    })
+    this.$store.dispatch('ACTION_GET_LATEST_FEED')
   },
   methods: {
     createFile () {

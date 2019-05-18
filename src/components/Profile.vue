@@ -46,16 +46,16 @@
           <v-flex xs1></v-flex>
           <!-- subscribe to channel button starts here -->
           <v-flex xs2 class="br20">
-            <v-card-action v-if="$route.params.id !== 'my-profile'" class="justify-center">
+            <div v-if="$route.params.id !== 'my-profile'" class="justify-center">
               <v-tooltip bottom v-if="!isAdded">
-                <v-btn slot="activator" @click.stop="updateChannels(userData, 'addition')" outline fab small color="blue accent-4"><v-icon color="blue accent-4">add_alert</v-icon></v-btn>
+                <v-btn slot="activator" @click="eventBus.$emit('addToChannels', {data: userData, type: 'addition'})" outline fab small color="blue accent-4"><v-icon color="blue accent-4">add_alert</v-icon></v-btn>
                 <span>Subscribe to {{ userData.fullyQualifiedName }} 's Channel</span>
               </v-tooltip>
               <v-tooltip bottom v-else>
                 <v-btn slot="activator" @click.stop="updateChannels(userData, 'deletion')" outline fab small color="red accent-4"><v-icon color="red accent-4">close</v-icon></v-btn>
                 <span>Unsubscribe from {{ userData.fullyQualifiedName }} 's Channel</span>
               </v-tooltip>
-            </v-card-action>
+            </div>
           </v-flex>
           <v-flex xs2></v-flex>
           <!-- reveal the qr code button starts here -->
