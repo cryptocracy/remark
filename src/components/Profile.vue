@@ -5,7 +5,12 @@
         <v-layout class="br20" row wrap align-center>
           <v-flex xs12>
             <v-card dark color="blue" class="" width="100%" height="288px">
-              <v-img class="white--text" height="288px" src="https://cdn.vuetifyjs.com/images/cards/docks.jpg">
+              <v-img class="white--text" height="288px" :src="base64Image || 'https://cdn.vuetifyjs.com/images/cards/docks.jpg'">
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn v-if="$route.params.id === 'my-profile'" color="blue accent-4" @click="pickFile" outline icon><v-icon>edit</v-icon></v-btn>
+                  <input @change="filePicked" ref="headerFile" accept="image/*" style="display: none;" type="file">
+                </v-card-actions>
               </v-img>
               <v-avatar id="myavatar" class="justify-center">
                 <v-img
@@ -46,7 +51,7 @@
           <v-flex xs1></v-flex>
           <!-- subscribe to channel button starts here -->
           <v-flex xs2 class="br20">
-            <v-card-action v-if="$route.params.id !== 'my-profile'" class="justify-center">
+            <div v-if="$route.params.id !== 'my-profile'" class="justify-center">
               <v-tooltip bottom v-if="!isAdded">
                 <v-btn slot="activator" @click.stop="updateChannels(userData, 'addition')" outline fab small color="blue accent-4"><v-icon color="blue accent-4">add_alert</v-icon></v-btn>
                 <span>Subscribe to {{ userData.fullyQualifiedName }} 's Channel</span>
@@ -55,7 +60,7 @@
                 <v-btn slot="activator" @click.stop="updateChannels(userData, 'deletion')" outline fab small color="red accent-4"><v-icon color="red accent-4">close</v-icon></v-btn>
                 <span>Unsubscribe from {{ userData.fullyQualifiedName }} 's Channel</span>
               </v-tooltip>
-            </v-card-action>
+            </div>
           </v-flex>
           <v-flex xs2></v-flex>
           <!-- reveal the qr code button starts here -->
@@ -68,7 +73,49 @@
           <v-flex xs1 class="br20">
             <v-icon v-if="$route.params.id !== 'my-profile'" color="blue accent-4" dark block class="br20" @click="eventBus.$emit('payWithAltcoins')">fa-rocket</v-icon>
           </v-flex>
-          <v-flex xs12></v-flex>
+          <v-flex xs12>
+            <v-text-field
+              v-if="showEdit"
+              autofocus
+              v-model="channelTitle"
+              @blur="showEdit=false; updateSettings()"
+            ></v-text-field>
+            <v-icon @click="showEdit=true" v-if="!showEdit && $route.params.id === 'my-profile'"  small color="blue accent-4">edit</v-icon>
+            <h5>{{channelTitle}}</h5>
+
+          </v-flex>
+          <v-layout v-if="sounds && Object.keys(sounds).length" row wrap>
+            <v-flex v-for="(item, index) in Object.keys(sounds)" :key="index" xs6>
+              <v-card class="mt-2 br20" >
+                <v-card-text>
+                  <v-list>
+                    <v-list-tile>
+                      <v-list-tile-content>
+                        <v-list-tile-title>{{sounds[item]}}</v-list-tile-title>
+                        <v-list-tile-sub-title>{{new Date(parseInt(item.split('_')[1])).toUTCString()}}</v-list-tile-sub-title>
+                      </v-list-tile-content>
+                      <!-- <v-list-tile-sub-title>{{sounds[item]}}</v-list-tile-sub-title> -->
+                      <v-list-tile-action>
+                        <!-- <v-spacer></v-spacer> -->
+                        <v-tooltip bottom>
+                          <v-btn v-if="!isAddedObj[index]" @click="$store.commit('MUTATION_ADD_TO_PLAYLIST', { sound: hubUrl+item+'.mp3', title: sounds[item] }); $set(isAddedObj, index, true)" color="primary" slot="activator" round icon ><v-icon>playlist_add</v-icon></v-btn>
+                          <v-btn v-else  color="primary" slot="activator" round icon ><v-icon>done</v-icon></v-btn>
+                          <span v-if="!isAddedObj[index]">Add to current playlist</span>
+                          <span v-else>Added to current playlist</span>
+                        </v-tooltip>
+                      </v-list-tile-action>
+                      <v-list-tile-action>
+                        <v-tooltip bottom>
+                          <v-btn slot="activator" icon color="primary" @click="$store.commit('MUTATION_SET_SOUND', { sound: hubUrl+item+'.mp3', title: sounds[item] })" round ><v-icon>play_arrow</v-icon></v-btn>
+                          <span>Play</span>
+                        </v-tooltip>
+                      </v-list-tile-action>
+                    </v-list-tile>
+                  </v-list>
+                </v-card-text>
+              </v-card>
+            </v-flex>
+          </v-layout>
           <!-- grid of channel players starts here -->
           <!--          <v-flex xs12 class="br20">
             <v-list>
@@ -152,6 +199,7 @@ import qrEncode from 'qr-encode'
 import modals from '@/components/modals/profile-modals'
 import channelService from '@/services/channels'
 import axios from 'axios'
+import storageService from '../services/blockstack-storage'
 // import { marker } from 'leaflet';
 
 export default {
@@ -159,6 +207,13 @@ export default {
   data: () => ({
     // qrSrc: '',
     // address: '',
+    dataurl: '',
+    sounds: {},
+    isAddedObj: {},
+    showEdit: false,
+    channelTitle: '',
+    base64Image: '',
+    channelDescription: '',
     resources: {
       tags: 0,
       sounds: 0,
@@ -258,6 +313,52 @@ export default {
     // }
   },
   methods: {
+    filePicked (event) {
+      const files = event.target.files
+
+      if (files && files[0]) {
+        const fileReader = new FileReader()
+        fileReader.readAsDataURL(files[0])
+        fileReader.addEventListener('load', () => {
+          // console.log('The soundUrl is ' + fileReader.result)
+          this.base64Image = fileReader.result
+          this.updateSettings()
+        })
+      }
+    },
+    updateSettings () {
+      storageService.putFile({
+        fileName: 'public_settings.json',
+        data: {
+          image: this.base64Image,
+          channelDescription: this.channelDescription,
+          channelTitle: this.channelTitle
+        },
+        options: { encrypt: false }
+      }).then(res => {})
+    },
+    getSettings (url) {
+      if (url) {
+        axios.get(url + 'public_settings.json').then(res => {
+          this.base64Image = res.data.image
+          this.channelTitle = res.data.channelTitle
+          this.channelDescription = res.data.channelDescription
+        })
+      } else {
+        storageService.getFile({
+          fileName: 'public_settings.json',
+          options: { decrypt: false }
+        }).then(res => {
+          this.base64Image = res.image
+          this.channelTitle = res.channelTitle
+          this.channelDescription = res.channelDescription
+          // console.log('ressssss', res)
+        })
+      }
+    },
+    pickFile () {
+      this.$refs['headerFile'].click()
+    },
     redirectUser () {
       this.$store.state.pay_to = this.searchedUserProfileData
       this.$router.push({name: 'Send'})
@@ -267,29 +368,16 @@ export default {
       this.$router.push({name: resource})
     },
     async getResourceCount (url) {
+      this.getSettings(url)
       if (url) {
-        axios.get(url + 'my_tags.json').then(res => {
-          this.resources.tags = Object.keys(res.data).length
-        })
-          .catch(e => {
-            this.resources.tags = 0
-          })
         axios.get(url + 'my_sounds.json').then(res => {
-          this.resources.sounds = Object.keys(res.data).length
-        })
-          .catch(e => {
-            this.resources.sounds = 0
+          this.sounds = {...res.data}
+          Object.keys.forEach((element, index) => {
+            this.$set(this.isAddedObj, index, false)
           })
-        axios.get(url + 'my_images.json').then(res => {
-          this.resources.images = Object.keys(res.data).length
-        })
-          .catch(e => {
-            this.resources.images = 0
-          })
-        // let [a, b, c] = [await tags, await markers, await images]
-      } else {
-        Object.keys(this.resources).forEach(element => {
-          this.resources[element] = 0
+          this.resources.sounds = Object.keys(this.sounds).length
+        }).catch(e => {
+          this.resources.sounds = 0
         })
       }
     }
