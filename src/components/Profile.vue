@@ -81,7 +81,8 @@
               @blur="showEdit=false; updateSettings()"
             ></v-text-field>
             <v-icon @click="showEdit=true" v-if="!showEdit && $route.params.id === 'my-profile'"  small color="blue accent-4">edit</v-icon>
-            <h5>{{channelTitle}}</h5>
+            <h5 v-if="channelTitle">{{channelTitle}}</h5>
+            <h6 v-if="$route.params.id === 'my-profile' && !channelTitle">Editable title of your channel.</h6>
 
           </v-flex>
           <v-layout v-if="sounds && Object.keys(sounds).length" row wrap>
