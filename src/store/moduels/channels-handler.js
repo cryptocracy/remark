@@ -143,7 +143,10 @@ const storageHandler = {
     }
   },
   getters: {
-    getChannels: state => state.channels
+    getChannels: state => state.channels,
+    getGoldFeed: state => state.goldFeed,
+    getSilverFeed: state => state.silverFeed,
+    getBronzeFeed: state => state.bronzeFeed
   }
 }
 export default storageHandler
