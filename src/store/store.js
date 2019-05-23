@@ -12,10 +12,11 @@ Vue.use(Vuex)
 
 // All store data should place inside state as a central store
 const stateObject = {
-  audioUrl: String,
-  soundObject: Object,
+  audioUrl: '',
+  soundObject: {},
   playlistArr: [],
-  notification: String,
+  notification: '',
+  notificationType: '',
   showNotification: false,
   showPlayer: false,
   notifications,
@@ -49,6 +50,7 @@ export default new Vuex.Store({
     MUTATION_SET_NOTIFICATION: (state, payload) => {
       state.showNotification = payload.show || false
       state.notification = payload.notification
+      state.notificationType = payload.type
     },
     MUTATION_SET_SOUND: (state, payload) => {
       state.soundObject = {}
@@ -88,6 +90,7 @@ export default new Vuex.Store({
     isLoading: state => state.isLoading,
     showNotification: state => state.showNotification,
     notification: state => state.notification,
+    notificationType: state => state.notificationType,
     playlistArr: state => state.playlistArr,
     soundObject: state => state.soundObject,
     showPlayer: state => state.showPlayer,

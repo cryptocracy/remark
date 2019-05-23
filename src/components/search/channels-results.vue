@@ -31,7 +31,7 @@
 
                 <v-list-tile-action>
                   <v-tooltip bottom v-if="!addedChannels.hasOwnProperty(item.fullyQualifiedName)">
-                    <v-btn slot="activator" @click.stop="updateChannels(item, 'addition')" outline fab small color="blue accent-4">
+                    <v-btn slot="activator" @click.stop="addToChannels($event, item)" outline fab small color="blue accent-4">
                       <v-icon  color="blue accent-4">add_alert</v-icon>
                     </v-btn>
                     <span>Subscribe to this Channel</span>
@@ -67,6 +67,8 @@
 <script>
 import { mapGetters } from 'vuex'
 import channelService from '@/services/channels'
+import { eventBus } from '@/main'
+import profileModals from '@/components/modals/profile-modals'
 
 export default {
   name: 'channels-results',
@@ -90,6 +92,12 @@ export default {
       return addedChannels
     }
   },
+  data: () => ({
+    eventBus: eventBus
+  }),
+  components: {
+    profileModals
+  },
   mixins: [channelService],
   methods: {
     showChannelProfile (channel) {
@@ -100,6 +108,11 @@ export default {
       this.$store.commit('MUTATION_SET_SEARCH_RESULT', [])
       // taking user to profile page with user id as params
       this.$router.push({ name: 'Profile', params: { id: channel.fullyQualifiedName } })
+    },
+    addToChannels (event, data) {
+      // pending
+      console.log(event)
+      this.eventBus.$emit('addToChannels', {data, type: 'addition'})
     }
   },
   mounted () {

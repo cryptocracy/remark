@@ -3,11 +3,10 @@
     v-model="snackbar"
     :timeout="2000"
     :top="true"
-    color="red"
+    :color="notificationType || 'success'"
   >
     {{ notification }}
     <v-btn
-      color="pink"
       flat
       @click="snackbar = false"
     >
@@ -21,7 +20,8 @@ import { mapGetters } from 'vuex'
 export default {
   computed: {
     ...mapGetters({
-      notification: 'notification'
+      notification: 'notification',
+      notificationType: 'notificationType'
     }),
     snackbar: {
       get () {
