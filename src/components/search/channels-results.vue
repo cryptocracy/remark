@@ -16,7 +16,6 @@
                 :key="item.index"
                 avatar
                 @click="showChannelProfile(item)">
-
                 <!-- <v-btn outline fab small color="teal accent-4"><v-icon  large @click="addToChannels(item)" color="teal accent-4">checked</v-icon></v-btn> -->
                 <v-list-tile-avatar class="ml-2">
                   <img v-if="item.profile.hasOwnProperty('image')" :src="item.profile.image[0].contentUrl">
@@ -31,7 +30,7 @@
 
                 <v-list-tile-action>
                   <v-tooltip bottom v-if="!addedChannels.hasOwnProperty(item.fullyQualifiedName)">
-                    <v-btn slot="activator" @click.stop="addToChannels($event, item)" outline fab small color="blue accent-4">
+                    <v-btn slot="activator" @click="addToChannels($event, item)" outline fab small color="blue accent-4">
                       <v-icon  color="blue accent-4">add_alert</v-icon>
                     </v-btn>
                     <span>Subscribe to this Channel</span>
@@ -110,9 +109,9 @@ export default {
       this.$router.push({ name: 'Profile', params: { id: channel.fullyQualifiedName } })
     },
     addToChannels (event, data) {
-      // pending
-      console.log(event)
+      event.stopPropagation()
       this.eventBus.$emit('addToChannels', {data, type: 'addition'})
+      // this.eventBus.$emit('akash', {data, type: 'addition'})
     }
   },
   mounted () {

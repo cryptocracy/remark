@@ -13,6 +13,7 @@
               <router-view/>
             </div>
           </transition>
+          <modals></modals>
         </div>
         <!--<v-btn fab fixed bottom right dark color="teal accent-4">-->
         <!--<v-icon>add</v-icon>-->
@@ -51,6 +52,7 @@ import Notification from './components/Notification'
 import Player from './components/Player'
 import searchResults from './components/search/Search-results'
 import FloatingButton from './components/button/FloatingButton'
+import modals from '@/components/modals/profile-modals'
 
 export default {
   components: {
@@ -60,7 +62,8 @@ export default {
     login: Login,
     Player,
     Notification,
-    FloatingButton
+    FloatingButton,
+    modals
   },
   name: 'app',
 
