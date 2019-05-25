@@ -1,110 +1,104 @@
 <template >
-  <div class= 'text-xs-center'>
-    <v-layout mt-4 v-if="goldFeed.length > 0" row wrap>
+  <div>
+    <v-layout dark mt-4 v-if="finalGoldFeed.length > 0" row wrap>
       <v-flex xs12><h2>Gold Channels Feed</h2></v-flex>
-      <v-flex v-for="(channel, ind) in goldFeed" :key="ind" xs12>
-        <v-flex v-for="(sound, index) in Object.keys(channel.sounds)" :key="index" xs12>
-          <v-card class="mt-2 br20" >
-            <v-card-text>
-              <v-list>
-                <v-list-tile>
-                  <v-list-tile-content>
-                    <v-list-tile-title>{{channel.sounds[sound]}}</v-list-tile-title>
-                    <v-list-tile-sub-title>{{new Date(parseInt(sound.split('_')[1])).toUTCString()}}</v-list-tile-sub-title>
-                  </v-list-tile-content>
-                  <!-- <v-list-tile-sub-title>{{sounds[item]}}</v-list-tile-sub-title> -->
-                  <v-list-tile-action>
-                    <!-- <v-spacer></v-spacer> -->
-                    <v-tooltip bottom>
-                      <v-btn v-if="!isAddedGoldObj[index]" @click="$store.commit('MUTATION_ADD_TO_PLAYLIST', { sound: channel.hubUrl+sound+'.mp3', title: channel.sounds[sound] }); $set(isAddedGoldObj, index, true)" color="primary" slot="activator" round icon ><v-icon>playlist_add</v-icon></v-btn>
-                      <v-btn v-else  color="primary" slot="activator" round icon ><v-icon>done</v-icon></v-btn>
-                      <span v-if="!isAddedGoldObj[index]">Add to current playlist</span>
-                      <span v-else>Added to current playlist</span>
-                    </v-tooltip>
-                  </v-list-tile-action>
-                  <v-list-tile-action>
-                    <v-tooltip bottom>
-                      <v-btn slot="activator" icon color="primary" @click="$store.commit('MUTATION_SET_SOUND', { sound: channel.hubUrl+sound+'.mp3', title: channel.sounds[item] })" round ><v-icon>play_arrow</v-icon></v-btn>
-                      <span>Play</span>
-                    </v-tooltip>
-                  </v-list-tile-action>
-                </v-list-tile>
-              </v-list>
-            </v-card-text>
-          </v-card>
-        </v-flex>
+      <v-flex v-for="(feed, index) in finalGoldFeed" :key="index" xs12>
+        <v-card class="mt-2 br20">
+          <v-card-text>
+            <v-list>
+              <v-list-tile>
+                <v-list-tile-content>
+                  <v-list-tile-title>{{feed.title}}</v-list-tile-title>
+                  <v-list-tile-sub-title>{{new Date(feed.uploadedAt).toUTCString()}}</v-list-tile-sub-title>
+                </v-list-tile-content>
+                <!-- <v-list-tile-sub-title>{{sounds[item]}}</v-list-tile-sub-title> -->
+                <v-list-tile-action>
+                  <!-- <v-spacer></v-spacer> -->
+                  <v-tooltip bottom light>
+                    <v-btn v-if="!isAddedGoldObj[index]" @click="$store.commit('MUTATION_ADD_TO_PLAYLIST', { sound: feed.sound, title: feed.title }); $set(isAddedGoldObj, index, true)" color="primary" slot="activator" round icon ><v-icon>playlist_add</v-icon></v-btn>
+                    <v-btn v-else  color="primary" slot="activator" round icon ><v-icon>done</v-icon></v-btn>
+                    <span class="white--text" v-if="!isAddedGoldObj[index]">Add to queue</span>
+                    <span class="white--text" v-else>Added to queue</span>
+                  </v-tooltip>
+                </v-list-tile-action>
+                <v-list-tile-action>
+                  <v-tooltip bottom>
+                    <v-btn slot="activator" icon color="primary" @click="$store.commit('MUTATION_SET_SOUND', { sound: feed.sound, title: feed.title })" round ><v-icon>play_arrow</v-icon></v-btn>
+                    <span class="white--text">Play</span>
+                  </v-tooltip>
+                </v-list-tile-action>
+              </v-list-tile>
+            </v-list>
+          </v-card-text>
+        </v-card>
       </v-flex>
     </v-layout>
 
-    <v-layout mt-5 v-if="silverFeed.length > 0" row wrap>
+    <v-layout dark mt-4 v-if="finalSilverFeed.length > 0" row wrap>
       <v-flex xs12><h2>Silver Channels Feed</h2></v-flex>
-      <v-flex v-for="(channel, ind) in silverFeed" :key="ind" xs12>
-        <v-flex v-for="(sound, index) in Object.keys(channel.sounds)" :key="index" xs12>
-          <v-card class="mt-2 br20" >
-            <v-card-text>
-              <v-list>
-                <v-list-tile>
-                  <v-list-tile-content>
-                    <v-list-tile-title>{{channel.sounds[sound]}}</v-list-tile-title>
-                    <v-list-tile-sub-title>{{new Date(parseInt(sound.split('_')[1])).toUTCString()}}</v-list-tile-sub-title>
-                  </v-list-tile-content>
-                  <!-- <v-list-tile-sub-title>{{sounds[item]}}</v-list-tile-sub-title> -->
-                  <v-list-tile-action>
-                    <!-- <v-spacer></v-spacer> -->
-                    <v-tooltip bottom>
-                      <v-btn v-if="!isAddedSilverObj[index]" @click="$store.commit('MUTATION_ADD_TO_PLAYLIST', { sound: channel.hubUrl+sound+'.mp3', title: channel.sounds[sound] }); $set(isAddedSilverObj, index, true)" color="primary" slot="activator" round icon ><v-icon>playlist_add</v-icon></v-btn>
-                      <v-btn v-else  color="primary" slot="activator" round icon ><v-icon>done</v-icon></v-btn>
-                      <span v-if="!isAddedSilverObj[index]">Add to current playlist</span>
-                      <span v-else>Added to current playlist</span>
-                    </v-tooltip>
-                  </v-list-tile-action>
-                  <v-list-tile-action>
-                    <v-tooltip bottom>
-                      <v-btn slot="activator" icon color="primary" @click="$store.commit('MUTATION_SET_SOUND', { sound: channel.hubUrl+sound+'.mp3', title: channel.sounds[item] })" round ><v-icon>play_arrow</v-icon></v-btn>
-                      <span>Play</span>
-                    </v-tooltip>
-                  </v-list-tile-action>
-                </v-list-tile>
-              </v-list>
-            </v-card-text>
-          </v-card>
-        </v-flex>
+      <v-flex v-for="(feed, index) in finalSilverFeed" :key="index" xs12>
+        <v-card class="mt-2 br20">
+          <v-card-text>
+            <v-list>
+              <v-list-tile>
+                <v-list-tile-content>
+                  <v-list-tile-title>{{feed.title}}</v-list-tile-title>
+                  <v-list-tile-sub-title>{{new Date(feed.uploadedAt).toUTCString()}}</v-list-tile-sub-title>
+                </v-list-tile-content>
+                <!-- <v-list-tile-sub-title>{{sounds[item]}}</v-list-tile-sub-title> -->
+                <v-list-tile-action>
+                  <!-- <v-spacer></v-spacer> -->
+                  <v-tooltip bottom light>
+                    <v-btn v-if="!isAddedSilverObj[index]" @click="$store.commit('MUTATION_ADD_TO_PLAYLIST', { sound: feed.sound, title: feed.title }); $set(isAddedSilverObj, index, true)" color="primary" slot="activator" round icon ><v-icon>playlist_add</v-icon></v-btn>
+                    <v-btn v-else  color="primary" slot="activator" round icon ><v-icon>done</v-icon></v-btn>
+                    <span class="white--text" v-if="!isAddedSilverObj[index]">Add to queue</span>
+                    <span class="white--text" v-else>Added to queue</span>
+                  </v-tooltip>
+                </v-list-tile-action>
+                <v-list-tile-action>
+                  <v-tooltip bottom>
+                    <v-btn slot="activator" icon color="primary" @click="$store.commit('MUTATION_SET_SOUND', { sound: feed.sound, title: feed.title })" round ><v-icon>play_arrow</v-icon></v-btn>
+                    <span class="white--text">Play</span>
+                  </v-tooltip>
+                </v-list-tile-action>
+              </v-list-tile>
+            </v-list>
+          </v-card-text>
+        </v-card>
       </v-flex>
     </v-layout>
 
-    <v-layout mt-5 v-if="bronzeFeed.length > 0" row wrap>
+    <v-layout dark mt-4 v-if="finalBronzeFeed.length > 0" row wrap>
       <v-flex xs12><h2>Bronze Channels Feed</h2></v-flex>
-      <v-flex v-for="(channel, ind) in bronzeFeed" :key="ind" xs12>
-        <v-flex v-for="(sound, index) in Object.keys(channel.sounds)" :key="index" xs12>
-          <v-card class="mt-2 br20" >
-            <v-card-text>
-              <v-list>
-                <v-list-tile>
-                  <v-list-tile-content>
-                    <v-list-tile-title>{{channel.sounds[sound]}}</v-list-tile-title>
-                    <v-list-tile-sub-title>{{new Date(parseInt(sound.split('_')[1])).toUTCString()}}</v-list-tile-sub-title>
-                  </v-list-tile-content>
-                  <!-- <v-list-tile-sub-title>{{sounds[item]}}</v-list-tile-sub-title> -->
-                  <v-list-tile-action>
-                    <!-- <v-spacer></v-spacer> -->
-                    <v-tooltip bottom>
-                      <v-btn v-if="!isAddedBronzeObj[index]" @click="$store.commit('MUTATION_ADD_TO_PLAYLIST', { sound: channel.hubUrl+sound+'.mp3', title: channel.sounds[sound] }); $set(isAddedBronzeObj, index, true)" color="primary" slot="activator" round icon ><v-icon>playlist_add</v-icon></v-btn>
-                      <v-btn v-else  color="primary" slot="activator" round icon ><v-icon>done</v-icon></v-btn>
-                      <span v-if="!isAddedBronzeObj[index]">Add to current playlist</span>
-                      <span v-else>Added to current playlist</span>
-                    </v-tooltip>
-                  </v-list-tile-action>
-                  <v-list-tile-action>
-                    <v-tooltip bottom>
-                      <v-btn slot="activator" icon color="primary" @click="$store.commit('MUTATION_SET_SOUND', { sound: channel.hubUrl+sound+'.mp3', title: channel.sounds[item] })" round ><v-icon>play_arrow</v-icon></v-btn>
-                      <span>Play</span>
-                    </v-tooltip>
-                  </v-list-tile-action>
-                </v-list-tile>
-              </v-list>
-            </v-card-text>
-          </v-card>
-        </v-flex>
+      <v-flex v-for="(feed, index) in finalBronzeFeed" :key="index" xs12>
+        <v-card class="mt-2 br20">
+          <v-card-text>
+            <v-list>
+              <v-list-tile>
+                <v-list-tile-content>
+                  <v-list-tile-title>{{feed.title}}</v-list-tile-title>
+                  <v-list-tile-sub-title>{{new Date(feed.uploadedAt).toUTCString()}}</v-list-tile-sub-title>
+                </v-list-tile-content>
+                <!-- <v-list-tile-sub-title>{{sounds[item]}}</v-list-tile-sub-title> -->
+                <v-list-tile-action>
+                  <!-- <v-spacer></v-spacer> -->
+                  <v-tooltip bottom light>
+                    <v-btn v-if="!isAddedBronzeObj[index]" @click="$store.commit('MUTATION_ADD_TO_PLAYLIST', { sound: feed.sound, title: feed.title }); $set(isAddedBronzeObj, index, true)" color="primary" slot="activator" round icon ><v-icon>playlist_add</v-icon></v-btn>
+                    <v-btn v-else  color="primary" slot="activator" round icon ><v-icon>done</v-icon></v-btn>
+                    <span class="white--text" v-if="!isAddedBronzeObj[index]">Add to queue</span>
+                    <span class="white--text" v-else>Added to queue</span>
+                  </v-tooltip>
+                </v-list-tile-action>
+                <v-list-tile-action>
+                  <v-tooltip bottom>
+                    <v-btn slot="activator" icon color="primary" @click="$store.commit('MUTATION_SET_SOUND', { sound: feed.sound, title: feed.title })" round ><v-icon>play_arrow</v-icon></v-btn>
+                    <span class="white--text">Play</span>
+                  </v-tooltip>
+                </v-list-tile-action>
+              </v-list-tile>
+            </v-list>
+          </v-card-text>
+        </v-card>
       </v-flex>
     </v-layout>
   </div>
@@ -127,15 +121,71 @@ export default {
       showPayoutGraph: 'showPayoutGraph',
       settings: 'getSettings',
       proximitySearchResult: 'getProximitySearchResult'
-    })
-    // goldFeedFinal () {
-    //   let finalFeed = []
-    //   let tempFeed = []
-    //   goldFeed.reduce((acc, channel) => {
-    //     tempFeed = [...tempFeed, ...channel.sounds]
-    //   })
-    // }
+    }),
+    finalGoldFeed () {
+      let finalFeed = []
+      if (this.goldFeed.length) {
+        finalFeed = this.goldFeed.reduce((acc, channel) => {
+          Object.keys(channel.sounds).forEach(element => {
+            let item = {
+              hubUrl: channel.hubUrl,
+              title: channel.sounds[element],
+              user: channel.fullyQualifiedName || channel.username,
+              sound: channel.hubUrl + element + '.mp3',
+              uploadedAt: parseInt(element.split('_')[1])
+            }
+            acc.push(item)
+          })
+          return acc
+        }, [])
+      }
+      return finalFeed.sort((a, b) => a.uploadedAt - b.uploadedAt)
+    },
+    finalSilverFeed () {
+      let finalFeed = []
+      if (this.silverFeed.length) {
+        finalFeed = this.silverFeed.reduce((acc, channel) => {
+          Object.keys(channel.sounds).forEach(element => {
+            let item = {
+              hubUrl: channel.hubUrl,
+              title: channel.sounds[element],
+              user: channel.fullyQualifiedName || channel.username,
+              sound: channel.hubUrl + element + '.mp3',
+              uploadedAt: parseInt(element.split('_')[1])
+            }
+            acc.push(item)
+          })
+          return acc
+        }, [])
+      }
+      return finalFeed.sort((a, b) => a.uploadedAt - b.uploadedAt)
+    },
+    finalBronzeFeed () {
+      let finalFeed = []
+      if (this.bronzeFeed.length) {
+        finalFeed = this.bronzeFeed.reduce((acc, channel) => {
+          Object.keys(channel.sounds).forEach(element => {
+            let item = {
+              hubUrl: channel.hubUrl,
+              title: channel.sounds[element],
+              user: channel.fullyQualifiedName || channel.username,
+              sound: channel.hubUrl + element + '.mp3',
+              uploadedAt: parseInt(element.split('_')[1])
+            }
+            acc.push(item)
+          })
+          return acc
+        }, [])
+      }
+      return finalFeed.sort((a, b) => a.uploadedAt - b.uploadedAt)
+    }
   },
+  // watch: {
+  //   deep: true,
+  //   goldFeed () {
+  //     console.log('THIS FEED', this.goldFeed)
+  //   }
+  // },
   data: () => ({
     isAddedGoldObj: {},
     isAddedSilverObj: {},

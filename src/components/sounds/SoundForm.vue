@@ -11,9 +11,9 @@
       />
       <!--      <input type="file" :name="uploadSound" :value="soundFile" :disabled="isLoading" limit=20000000 accept="audio/mp3" class="input-file" @input="getUploadedSound" required>-->
       <v-text-field
-        v-model="sound.title"
+        v-model.trim="sound.title"
         :rules="titleRules"
-        :counter="32"
+        :counter="50"
         :disabled="isLoading"
         label="Title"
         required
@@ -105,8 +105,8 @@ export default {
     symbols: ['BTC', 'STX'],
     titleRules: [
       v => !!v || 'A Title is required',
-      v => (v && v.length <= 32) || 'The Title must be less than 32 characters',
-      v => /^[\w ]+$/.test(v) || 'Letters, numbers, spaces and "_" are only allowed'
+      v => (v && v.length <= 50) || 'The Title must be less than 50 characters'
+      // v => /^[\w ]+$/.test(v) || 'Letters, numbers, spaces and "_" are only allowed'
     ],
     addressRules: [
       v => v ? /^((?!_)[A-z0-9])+$/.test(v) || 'Letters and numbers are only allowed' : true,
@@ -137,7 +137,12 @@ export default {
   },
   methods: {
     getUploadedSound (e) {
-      this.soundFile = e
+      if (!e) {
+        this.$refs['form'].reset()
+        return
+      }
+      this.soundFile = e || ''
+      this.sound.title = e ? e.name.split('.')[0].substring(0, 50) : ''
     },
     submit () {
       const timestamp = +new Date()

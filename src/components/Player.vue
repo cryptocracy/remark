@@ -1,7 +1,7 @@
 <template>
   <v-card color="primary" class="br50">
     <v-card-text class="player-content-in p-1" >
-      <h5 class="ml-3 mr-3 white--text">{{soundObject && soundObject.title}}</h5>
+      <h5 class="ml-3 mr-3 white--text">{{soundObject && soundObject.title.substring(0,20)}}</h5>
       <audio id="audioplayer" color="primary" :src="soundObject.sound" controls autoplay></audio>
       <v-menu open-on-hover top offset-y>
         <template slot="activator">

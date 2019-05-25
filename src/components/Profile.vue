@@ -189,7 +189,6 @@
     <div v-else class="mt-5 text-xs-center">
       <h1>No Channels found</h1>
     </div>
-    <modals></modals>
   </div>
 </template>
 
@@ -197,7 +196,6 @@
 import { eventBus } from '@/main'
 import { mapGetters } from 'vuex'
 import qrEncode from 'qr-encode'
-import modals from '@/components/modals/profile-modals'
 import channelService from '@/services/channels'
 import axios from 'axios'
 import storageService from '../services/blockstack-storage'
@@ -222,9 +220,6 @@ export default {
     },
     eventBus: eventBus
   }),
-  components: {
-    modals
-  },
   computed: {
     ...mapGetters({
       profileData: 'getProfileData',
